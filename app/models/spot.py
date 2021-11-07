@@ -5,7 +5,7 @@ class Spot(db.Model):
     __tablename__ = 'spots'
 
     id = db.Column(db.Integer, primary_key=True)
-    userid = db.Column(db.Integer, db.ForeignKey("users.id"), nullable=False)
+    userId = db.Column(db.Integer, db.ForeignKey("users.id"), nullable=False)
     address = db.Column(db.String(255), nullable=False)
     city = db.Column(db.String(50), nullable=False)
     state = db.Column(db.String(50), nullable=False)
@@ -24,7 +24,7 @@ class Spot(db.Model):
     def to_dict(self):
         return {
             'id': self.id,
-            'userid': self.userid,
+            'userId': self.userId,
             'address': self.address,
             'city': self.city,
             'state': self.state,
