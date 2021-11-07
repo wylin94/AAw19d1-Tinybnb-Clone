@@ -10,13 +10,16 @@ class Spot(db.Model):
     city = db.Column(db.String(50), nullable=False)
     state = db.Column(db.String(50), nullable=False)
     country = db.Column(db.String(50), nullable=False)
-    lat = db.Column(db.Decimal, nullable=False)
-    lng = db.Column(db.Decimal, nullable=False)
+    lat = db.Column(db.Numeric, nullable=False)
+    lng = db.Column(db.Numeric, nullable=False)
     name = db.Column(db.String(255), nullable=False)
-    price = db.Column(db.Decimal, nullable=False)
+    price = db.Column(db.Numeric, nullable=False)
 
     user = db.relationship("User", back_populates="spots")
     images = db.relationship("Image", back_populates="spot", cascade="all, delete")
+    bookings = db.relationship("Booking", back_populates="spot", cascade="all, delete")
+    reviews = db.relationship("Review", back_populates="spot", cascade="all, delete")
+
 
     def to_dict(self):
         return {
