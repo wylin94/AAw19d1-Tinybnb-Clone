@@ -6,7 +6,7 @@ class Booking(db.Model):
 
     id = db.Column(db.Integer, primary_key=True)
     spotId = db.Column(db.Integer, db.ForeignKey("spots.id"), nullable=False)
-    userid = db.Column(db.Integer, db.ForeignKey("users.id"), nullable=False)
+    userId = db.Column(db.Integer, db.ForeignKey("users.id"), nullable=False)
     startDate = db.Column(db.DateTime, nullable=False)
     endDate = db.Column(db.DateTime, nullable=False)
 
@@ -18,7 +18,7 @@ class Booking(db.Model):
         return {
             'id': self.id,
             'spotId': self.spotId,
-            'userid': self.userid,
+            'userId': self.userId,
             'startDate': self.startDate,
             'endDate': self.endDate,
         }
