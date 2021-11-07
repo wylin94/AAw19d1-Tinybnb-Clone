@@ -5,7 +5,7 @@ class Spot(db.Model):
     __tablename__ = 'spots'
 
     id = db.Column(db.Integer, primary_key=True)
-    userid = db.Column(db.Integer, nullable=False)
+    userid = db.Column(db.Integer, db.ForeignKey("users.id"), nullable=False)
     address = db.Column(db.String(255), nullable=False)
     city = db.Column(db.String(50), nullable=False)
     state = db.Column(db.String(50), nullable=False)
@@ -16,6 +16,7 @@ class Spot(db.Model):
     price = db.Column(db.Decimal, nullable=False)
 
     user = db.relationship("User", back_populates="spots")
+    images = db.relationship("Image", back_populates="spot", cascade="all, delete")
 
     def to_dict(self):
         return {
