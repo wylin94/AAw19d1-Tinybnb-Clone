@@ -1,11 +1,19 @@
-
-import React from 'react';
+import React, { useEffect, useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import { NavLink } from 'react-router-dom';
 import LogoutButton from './auth/LogoutButton';
+import { authenticate, login } from '../store/session';
+// import { MdStorage } from 'react-icon/md'
 
 const NavBar = () => {
   return (
     <nav>
+      <div className="menuIcon">
+        <i class="fas fa-bars"></i>
+      </div>
+      <div className="homeIcon">
+        <i class="fab fa-airbnb"></i>
+      </div>
       <ul>
         <li>
           <NavLink to='/' exact={true} activeClassName='active'>
