@@ -6,6 +6,24 @@ import { authenticate, login } from '../store/session';
 // import { MdStorage } from 'react-icon/md'
 
 const NavBar = () => {
+  const dispatch = useDispatch()
+  const sessionUser = useSelector(state => state.session.user)
+  const [openDropDown, setOpenDropDown] = useState(false)
+  const [openLogin, setOpenLogin] = useState(false)
+  const [openSignUp, setOpenSignUp] = useState(false)
+
+  const handleDemoLogin = () => {
+    dispatch(login("demo@aa.io", "password"))
+    setOpenDropDown(false)
+  }
+  const handleLoginClick = () => {
+    setOpenLogin(true)
+    setOpenDropDown(false);
+  }
+  const handleSignUpClick = () => {
+    setOpenSignUp(true)
+    setOpenDropDown(false)
+  }
   return (
     <nav>
       <div className="menuIcon">
