@@ -32,6 +32,11 @@ const NavBar = () => {
       <div className="homeIcon">
         <i class="fab fa-airbnb"></i>
       </div>
+      <div>
+        {/* style = {{
+          backgroundImage: `https://spng.pngfind.com/pngs/s/13-133395_airbnb-logo-airbnb-logo-png-transparent-png.png`
+        }} */}
+      </div>
       <ul>
         <li>
           <NavLink to='/' exact={true} activeClassName='active'>
