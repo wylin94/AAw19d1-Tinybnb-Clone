@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, {useEffect, useState} from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { NavLink } from 'react-router-dom';
 import LogoutButton from './auth/LogoutButton';
@@ -36,7 +36,8 @@ const NavBar = () => {
             exact={true}
           >
             <div
-              style={{
+
+              style = {{
                 backgroundImage: `https://spng.pngfind.com/pngs/s/13-133395_airbnb-logo-airbnb-logo-png-transparent-png.png`
               }}
             ></div>
