@@ -23,7 +23,7 @@ def seed_spots():
         country='USA',
         lat='40.67484963526252',
         lng='-73.94225855840969',
-        name='spot1',
+        name='spot2',
         price='200'
     )
 
@@ -35,10 +35,10 @@ def seed_spots():
         country='USA',
         lat='47.6277536346871',
         lng='-122.3180385962225',
-        name='spot1',
+        name='spot3',
         price='300'
     )
-    db
+
     db.session.add(spot1)
     db.session.add(spot2)
     db.session.add(spot3)
