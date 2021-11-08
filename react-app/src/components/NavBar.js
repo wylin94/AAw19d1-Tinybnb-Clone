@@ -36,6 +36,7 @@ const NavBar = () => {
             exact={true}
           >
             <div
+
               style = {{
                 backgroundImage: `https://spng.pngfind.com/pngs/s/13-133395_airbnb-logo-airbnb-logo-png-transparent-png.png`
               }}
