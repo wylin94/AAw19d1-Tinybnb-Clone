@@ -5,19 +5,20 @@ import { getBookings } from "../../store/booking";
 function ShowAllBookings() {
   const dispatch = useDispatch();
   const bookings = useSelector(state => state.booking)
-  console.log(bookings)
 
   useEffect(() => {
     dispatch(getBookings())
   },[dispatch])
 
+  console.log("--->", bookings)
+
   return (
     <div>
       <h1>My reservations</h1>
       <ul>
-        {Object.keys(bookings).map((key) => {
-          <li key={bookings[key].id}>{bookings[key].startDate}</li>
-        })}
+        {Object.keys(bookings).map(key =>
+          <li key={bookings[key].id}>Spot ID:{bookings[key].spotId}. Start Date:{bookings[key].startDate}. End Date: {bookings[key].endDate}.</li>
+        )}
       </ul>
     </div>
 
