@@ -56,6 +56,10 @@ function App() {
 				{/* <Route path="/spots/:spotId" exact={true}>
 					<Spot />
 				</Route> */}
+
+
+
+				
 			</Switch>
 		</BrowserRouter>
 	);

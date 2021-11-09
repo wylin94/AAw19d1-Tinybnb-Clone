@@ -7,7 +7,7 @@ from app.forms.EditBooking_Form import EditBookingForm
 
 booking_routes = Blueprint('bookings', __name__)
 
-@booking_routes.route('/')
+@booking_routes.route('/my-reservations')
 def get_bookings():
   # if not current_user.is_authenticated:
     # return redirect(url_for("/api/spots"))
@@ -18,7 +18,7 @@ def get_bookings():
 
 
 
-@booking_routes.route('/new', methods=['POST'])
+@booking_routes.route('/', methods=['POST'])
 def add_booking():
   form = NewBookingForm()
   form["csrf_token"].data = request.cookies["csrf_token"]
@@ -67,6 +67,6 @@ def delete_booking(id):
     db.session.delete(deleted_booking)
     db.session.commit()
     return deleted_booking.to_dict()
-    
+
   else:
     return {'errors': ['No authorization.']}, 401
