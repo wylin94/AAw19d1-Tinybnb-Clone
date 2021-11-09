@@ -1,6 +1,6 @@
 const LOAD = "spots/LOAD";
 const CREATE = "spots/CREATE";
-// const UPDATE = "spots/UPDATE";
+const UPDATE = "spots/UPDATE";
 
 // const ADD_SPOT = "spots/ADD_SPOT"
 // const UPDATE_SPOT = "spots/UPDATE_SPOT"
@@ -16,10 +16,10 @@ const create = (list) => ({
 	list,
 });
 
-// const edit = (spot) => ({
-// 	type: UPDATE,
-// 	spot,
-// });
+const edit = (spot) => ({
+	type: UPDATE,
+	spot,
+});
 
 export const getSpots = () => async (dispatch) => {
 	const response = await fetch(`/api/spots`);
@@ -29,6 +29,15 @@ export const getSpots = () => async (dispatch) => {
 		dispatch(loadSpots(list));
 	}
 };
+
+// export const getSingleSpot = (city) => async (dispatch) => {
+// 	const response = await fetch(`/api/spots/search/${city}`);
+
+// 	if (response.ok) {
+// 		const list = await response.json();
+// 		dispatch(loadSpots(list));
+// 	}
+// };
 
 export const getSpotsByCity = (city) => async (dispatch) => {
 	const response = await fetch(`/api/spots/search/${city}`);
@@ -100,8 +109,23 @@ export const createSpot = (spot) => async (dispatch) => {
 // 	}
 // };
 
-const spotReducer = (state = [], action) => {
-	// let spot;
+export const editSpot = (spot) => async (dispatch) => {
+	const response = await fetch(`/api/spots`, {
+		method: "PATCH",
+		headers: { "Content-Type": "application/json" },
+		body: JSON.stringify(spot),
+	});
+
+	if (response.ok) {
+		const spot = await response.json();
+		dispatch(edit(spot));
+		return spot;
+	}
+};
+
+const spotReducer = (state = {}, action) => {
+	let newState = { ...state };
+
 	switch (action.type) {
 		case LOAD:
 			// newState = Object.assign({}, state);
@@ -109,24 +133,25 @@ const spotReducer = (state = [], action) => {
 			// 	newState[spot.id] = spot;
 			// });
 			// return newState;
-			return action.list;
+
+			// return action.list;
+
+			// console.log(Object.values(action.list.spots));
+
+			// newState = Object.assign({}, state);
+			// action.list.spot.forEach((spot) => {
+			// 	newState[spot.id] = spot;
+			// });
+
+			// return { ...state, ...action.list };
+			newState = { ...action.list };
+			return newState;
+
 		case CREATE:
 			return action.spot;
-		// case UPDATE: {
-		// 	const editSpot = [...state]
-		// 	let index;
-
-		// 	for (let i = 0; i < newAlbum.length; i++) {
-		// 	  if (newAlbum[i].id === action.album.id) {
-		// 		index = i;
-
-		// 		break;
-		// 	  }
-		// 	}
-		// 	newAlbum.splice(index, 1, action.album)
-		// 	return newAlbum;
-		//   }
-
+		case UPDATE:
+			newState = { ...state, [state.length]: action.spot };
+			return newState;
 		default:
 			return state;
 	}
