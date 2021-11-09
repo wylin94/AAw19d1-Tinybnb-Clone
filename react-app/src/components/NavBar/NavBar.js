@@ -1,16 +1,13 @@
-import React, { useEffect, useState } from 'react';
+import React, {useEffect, useState} from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { NavLink } from 'react-router-dom';
 import LogoutButton from '../auth/LogoutButton';
 import { authenticate, login } from '../../store/session';
-import {MdStorage} from 'react-icons/md'
-
-
-
-import './NavBar.css'
-import LoginForm from '../auth/LoginForm';
+import { MdStorage } from 'react-icons/md'
+import { checkIfImageExists } from "../multipurpose"
+import LoginForm from '../auth/LoginForm'
 import SignUpForm from '../auth/SignUpForm';
-import { checkIfImageExists } from '../utils';
+import './NavBar.css'
 
 const NavBar = () => {
   const dispatch = useDispatch()
@@ -18,12 +15,12 @@ const NavBar = () => {
   const [openDropDown, setOpenDropDown] = useState(false)
   const [openLogin, setOpenLogin] = useState(false)
   const [openSignUp, setOpenSignUp] = useState(false)
-  let imgValid;
+  let imageValid;
 
-  if(sessionUser){
-    imgValid = checkIfImageExists(sessionUser.profile_pic)
+  if (sessionUser) {
+    imageValid = checkIfImageExists(sessionUser.profile_pic)
   }
-  // console.log(sessionUser)
+
   const handleDemoLogin = () => {
     dispatch(login("demo@aa.io", "password"))
     setOpenDropDown(false)
@@ -38,56 +35,42 @@ const NavBar = () => {
   }
   return (
     <nav>
-      <ul className="nav-links">
+      <ul>
         <li>
           <NavLink
-            className="inactive"
             to="/"
             exact={true}
-            activeClassName="active"
           >
             <div
-              className="bearbnb-logo"
               style={{
-                backgroundImage: `url("https://m.media-amazon.com/images/I/41io9KLyNaL._AC_SX466_.jpg")`,
+                backgroundImage: `url("https://m.media-amazon.com/images/I/41io9KLyNaL._AC_SX466_.jpg")`
               }}
             ></div>
           </NavLink>
         </li>
         <div>
-          <NavLink className="inactive" to="/" exact={true}>
-            <h1 className="page-name">Bearbnb</h1>
+          <NavLink to="/" exact={true}>
+            <h1>TinyBnB</h1>
           </NavLink>
         </div>
-        <div className="nav-bar-right">
+        <div>
           {sessionUser && (
             <li>
               <NavLink
-                className="inactive"
                 to="/become-a-host"
                 exact={true}
-                activeClassName="active"
               >
-                Become a host
+                Become a Host
               </NavLink>
             </li>
           )}
-          <li className="nav-login-signup">
-            <div
-              onClick={() => setOpenDropDown(!openDropDown)}
-
-              className={
-                openDropDown
-                  ? "nav-profile-click open"
-                  : "nav-profile-click closed"
-              }
-            >
-              <MdStorage className="nav-pp-logo" />
+          <li>
+            <div onClick={() => setOpenDropDown(!openDropDown)}>
+              <MdStorage />
               <div
-                className="nav-profile-pic"
                 style={{
                   backgroundImage: `url(${
-                    sessionUser && imgValid
+                    sessionUser && imageValid
                       ? sessionUser.profile_pic
                       : "https://a0.muscache.com/defaults/user_pic-50x50.png?v=3"
                   } )`,
@@ -95,51 +78,38 @@ const NavBar = () => {
               ></div>
             </div>
             {openDropDown && (
-              <div className="profile-drop-down">
+              <div>
                 {!sessionUser ? (
-                  <div className="dropdown-inside-loggedout">
-                    {/* <NavLink
-                      to="/login"
-                      className="inactive"
-                      exact={true}
-                      activeClassName="active"
-                      onClick={() => setOpenDropDown(false)}
-                    >
-                      Login
-                    </NavLink> */}
-                    <p className="login-p" onClick={handleLoginClick}>
+                  <div>
+                    <p onClick={handleLoginClick}>
                       Login
                     </p>
 
-                    <p className="login-p" onClick={handleSignUpClick}>
+                    <p onClick={handleSignUpClick}>
                       Sign Up
                     </p>
-                    <p className="inactive" onClick={handleDemoLogin}>
-                      Demo
+
+                    <p onClick={handleDemoLogin}>
+                      Demo Login
                     </p>
                   </div>
                 ) : (
-                  <div className="dropdown-inside">
-                    <div className="dropdown-content">
+                  <div>
+                    <div>
                       <NavLink
-                        className="inactive"
                         to={`/users/${sessionUser.id}`}
                         onClick={() => setOpenDropDown(false)}
                       >
-                        My Profile
+                        Profile
                       </NavLink>
                       <NavLink
-                        className="inactive"
                         to={`/users/${sessionUser.id}/bookings`}
                         onClick={() => setOpenDropDown(false)}
                       >
                         Trips
                       </NavLink>
                     </div>
-                    <div
-                      className="logout-btn"
-                      onClick={() => setOpenDropDown(false)}
-                    >
+                    <div onClick={() => setOpenDropDown(false)}>
                       <LogoutButton />
                     </div>
                   </div>
