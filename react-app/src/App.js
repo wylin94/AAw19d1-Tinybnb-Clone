@@ -9,6 +9,7 @@ import UsersList from "./components/UsersList";
 import User from "./components/User";
 import Home from "./components/Home";
 import SpotList from "./components/SpotList";
+import AddSpot from "./components/AddSpot";
 import { authenticate } from "./store/session";
 
 function App() {
@@ -33,6 +34,9 @@ function App() {
 				<Route path="/" exact={true}>
 					<h1>My Home Page</h1>
 					<Home />
+				</Route>
+				<Route path="/addspot">
+					<AddSpot />
 				</Route>
 				<Route path="/login" exact={true}>
 					<LoginForm />
