@@ -16,6 +16,7 @@ function Home() {
 	// }, []);
 	const dispatch = useDispatch();
 	const spots = useSelector((state) => state.spot.spots);
+	console.log(spots)
 
 	useEffect(() => {
 		dispatch(getSpots());

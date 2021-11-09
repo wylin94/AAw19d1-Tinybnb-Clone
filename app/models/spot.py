@@ -10,8 +10,8 @@ class Spot(db.Model):
     city = db.Column(db.String(50), nullable=False)
     state = db.Column(db.String(50), nullable=False)
     country = db.Column(db.String(50), nullable=False)
-    lat = db.Column(db.Numeric, nullable=False)
-    lng = db.Column(db.Numeric, nullable=False)
+    lat = db.Column(db.Numeric)
+    lng = db.Column(db.Numeric)
     name = db.Column(db.String(255), nullable=False)
     price = db.Column(db.Numeric, nullable=False)
 
