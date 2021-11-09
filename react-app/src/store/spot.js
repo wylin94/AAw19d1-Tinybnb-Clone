@@ -1,25 +1,34 @@
+// === Type ===
+
 const LOAD = "spots/LOAD";
 const CREATE = "spots/CREATE";
 const UPDATE = "spots/UPDATE";
+const DELETE = "spots/DELETE";
 
-// const ADD_SPOT = "spots/ADD_SPOT"
-// const UPDATE_SPOT = "spots/UPDATE_SPOT"
-// const DELETE_SPOT = "spots/DELETE_SPOT"
-
+// === Action ===
 const loadSpots = (list) => ({
 	type: LOAD,
 	list,
 });
 
-const create = (list) => ({
+const create = (spot) => ({
 	type: LOAD,
-	list,
+	spot,
 });
 
 const edit = (spot) => ({
 	type: UPDATE,
 	spot,
 });
+
+const remove = (spot) => ({
+	type: DELETE,
+	spot,
+});
+
+//  === Thunk ===
+
+// <========================= Get All Spots ==========================>
 
 export const getSpots = () => async (dispatch) => {
 	const response = await fetch(`/api/spots`);
@@ -30,7 +39,18 @@ export const getSpots = () => async (dispatch) => {
 	}
 };
 
-// export const getSingleSpot = (city) => async (dispatch) => {
+// <========================= Get One Spot ==========================>
+
+export const getSingleSpot = (id) => async (dispatch) => {
+	const response = await fetch(`/api/spots/${id}`);
+
+	if (response.ok) {
+		const data = await response.json();
+		dispatch(loadSpots(data));
+	}
+};
+
+// export const getSpotsByCity = (city) => async (dispatch) => {    <========================= Get Spots By City ==========================>
 // 	const response = await fetch(`/api/spots/search/${city}`);
 
 // 	if (response.ok) {
@@ -38,15 +58,6 @@ export const getSpots = () => async (dispatch) => {
 // 		dispatch(loadSpots(list));
 // 	}
 // };
-
-export const getSpotsByCity = (city) => async (dispatch) => {
-	const response = await fetch(`/api/spots/search/${city}`);
-
-	if (response.ok) {
-		const list = await response.json();
-		dispatch(loadSpots(list));
-	}
-};
 
 // export const createSpot = (spot) => async (dispatch) => {
 // 	const { userId, address, city, state, country, name, price } = spot;
@@ -71,6 +82,8 @@ export const getSpotsByCity = (city) => async (dispatch) => {
 // 	}
 // };
 
+// <========================= Create Spot ==========================>
+
 export const createSpot = (spot) => async (dispatch) => {
 	const response = await fetch(`/api/spots`, {
 		method: "POST",
@@ -83,6 +96,8 @@ export const createSpot = (spot) => async (dispatch) => {
 		dispatch(create(newSpot));
 		return newSpot;
 	}
+
+	// else show error
 };
 
 // export const editSpot = (spot) => async (dispatch) => {
@@ -109,19 +124,40 @@ export const createSpot = (spot) => async (dispatch) => {
 // 	}
 // };
 
-export const editSpot = (spot) => async (dispatch) => {
-	const response = await fetch(`/api/spots`, {
+// <========================= Edit Spot ==========================>
+
+export const editSpot = (updateSpot) => async (dispatch) => {
+	const response = await fetch(`/api/spots/${updateSpot.id}`, {
 		method: "PATCH",
 		headers: { "Content-Type": "application/json" },
-		body: JSON.stringify(spot),
+		body: JSON.stringify(updateSpot),
 	});
 
 	if (response.ok) {
-		const spot = await response.json();
-		dispatch(edit(spot));
-		return spot;
+		const editiedSpot = await response.json();
+		dispatch(edit(editiedSpot));
+		return editiedSpot;
 	}
 };
+
+// <========================= Delete Spot ==========================>
+
+export const deleteSpot = (removeSpot) => async (dispatch) => {
+	const response = await fetch(`/api/spots/${removeSpot.id}`, {
+		method: "DELETE",
+		headers: { "Content-Type": "application/json" },
+		body: JSON.stringify(removeSpot),
+	});
+
+	if (response.ok) {
+		// This If statement is likely to be modify. Leave it as a placeholder for now
+		const deletedSpot = await response.json();
+		dispatch(remove(deletedSpot));
+		return deletedSpot;
+	}
+};
+
+//  === Reducer ===
 
 const spotReducer = (state = {}, action) => {
 	let newState = { ...state };
@@ -148,9 +184,11 @@ const spotReducer = (state = {}, action) => {
 			return newState;
 
 		case CREATE:
-			return action.spot;
+			return (newState[action.spot.id] = action.spot);
 		case UPDATE:
-			newState = { ...state, [state.length]: action.spot };
+			return (newState[action.spot.id] = action.spot);
+		case DELETE:
+			delete newState[action.spot.id];
 			return newState;
 		default:
 			return state;
