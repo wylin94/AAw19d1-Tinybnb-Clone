@@ -14,16 +14,16 @@ def allSpots():
     return {'spots': [spot.to_dict() for spot in spots]}
     # return {'spots': {spot.to_dict() for spot in spots}}
 
-@spot_routes.route('/<int:spotId>', methods=['GET'])
-def searchByCity(city):
-    spots = Spot.query.filter(Spot.id == spotId)
-    return {'singleSpot': [spot.to_dict() for spot in spots]}
+# @spot_routes.route('/<int:spotId>', methods=['GET'])
+# def searchByCity(city):
+#     spots = Spot.query.filter(Spot.id == spotId)
+#     return {'singleSpot': [spot.to_dict() for spot in spots]}
 
 
-@spot_routes.route('/search/<city>', methods=['GET'])
-def searchByCity(city):
-    spots = Spot.query.filter(Spot.city == city)
-    return {'search': [spot.to_dict() for spot in spots]}
+# @spot_routes.route('/search/<city>', methods=['GET'])
+# def searchByCity(city):
+#     spots = Spot.query.filter(Spot.city == city)
+#     return {'search': [spot.to_dict() for spot in spots]}
 
 
 @spot_routes.route('', methods=['POST'])

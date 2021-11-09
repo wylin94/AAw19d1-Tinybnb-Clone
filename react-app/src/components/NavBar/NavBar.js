@@ -117,7 +117,15 @@ const NavBar = () => {
                       </NavLink>
                       <NavLink
                         className="inactive"
-                        to={`/users/${sessionUser.id}/bookings`}
+                        to={`/my-hosting`}
+                        onClick={() => setOpenDropDown(false)}
+                      >
+                        Host
+                      </NavLink>
+                      <NavLink
+                        className="inactive"
+                        // to={`/users/${sessionUser.id}/bookings`}
+                        to={`/my-reservations`}
                         onClick={() => setOpenDropDown(false)}
                       >
                         Trips
