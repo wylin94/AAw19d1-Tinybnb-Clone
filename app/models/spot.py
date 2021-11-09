@@ -29,8 +29,8 @@ class Spot(db.Model):
             'city': self.city,
             'state': self.state,
             'country': self.country,
-            'lat': self.lat,
-            'lng': self.lng,
+            'lat': float(self.lat),
+            'lng': float(self.lng),
             'name': self.name,
-            'price': self.price,
+            'price': float(self.price),
         }
