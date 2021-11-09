@@ -13,15 +13,15 @@ function Home() {
     fetchData();
   }, []);
 
-	
+
 
 	return (
 		<>
 			<div>test</div>
 			<ul>
-				{spots.map((spot) => 
+				{spots.map((spot) =>
 					<li>{spot.name}</li>
-				)}		
+				)}
 			</ul>
 		</>
 	)
