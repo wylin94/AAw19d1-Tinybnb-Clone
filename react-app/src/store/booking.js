@@ -14,15 +14,13 @@ export const getBookings = () => async dispatch => {
   }
 }
 
-const initialState = {};
 
-
-const bookingReducer = (state = initialState, action) => {
+const bookingReducer = (state = {}, action) => {
   switch (action.type) {
     case LOAD_BOOKINGS: {
       const allBookings = {};
       action.list.forEach(booking => {
-        allBookings[booking.id] = booking;
+        allBookings[booking.id] = booking
       });
       return {
         ...allBookings

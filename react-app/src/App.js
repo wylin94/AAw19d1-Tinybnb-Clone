@@ -12,6 +12,7 @@ import SpotList from "./components/SpotList";
 import AddSpot from "./components/AddSpot";
 import { authenticate } from "./store/session";
 
+import ShowAllBookings from "./components/Bookings/MyBooking";
 function App() {
 	const [loaded, setLoaded] = useState(false);
 	const dispatch = useDispatch();
@@ -58,8 +59,10 @@ function App() {
 				</Route> */}
 
 
+				<Route path="/my-reservations" exact={true}>
+					<ShowAllBookings />
+				</Route>
 
-				
 			</Switch>
 		</BrowserRouter>
 	);
