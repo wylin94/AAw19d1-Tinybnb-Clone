@@ -5,7 +5,7 @@ import { getBookings } from "../../store/booking";
 function ShowAllBookings() {
   const dispatch = useDispatch();
   const bookings = useSelector(state => state.booking)
-  console.log("!!!!", bookings)
+  console.log(bookings)
 
   useEffect(() => {
     dispatch(getBookings())
@@ -15,8 +15,8 @@ function ShowAllBookings() {
     <div>
       <h1>My reservations</h1>
       <ul>
-        {Object.values(bookings).map((singleBooking) => {
-          <li key={singleBooking.id}>{singleBooking.startDate}</li>
+        {Object.keys(bookings).map((key) => {
+          <li key={bookings[key].id}>{bookings[key].startDate}</li>
         })}
       </ul>
     </div>

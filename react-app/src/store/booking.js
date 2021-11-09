@@ -4,7 +4,6 @@ const loadBookings = (list) => ({
   type: LOAD_BOOKINGS,
   list
 })
-
 export const getBookings = () => async dispatch => {
   const response = await fetch('/api/bookings/my-reservations');
 
@@ -13,19 +12,11 @@ export const getBookings = () => async dispatch => {
     dispatch(loadBookings(list))
   }
 }
-
-
 const bookingReducer = (state = {}, action) => {
   switch (action.type) {
-    case LOAD_BOOKINGS: {
-      const allBookings = {};
-      action.list.forEach(booking => {
-        allBookings[booking.id] = booking
-      });
-      return {
-        ...allBookings
-      }
-    }
+    case LOAD_BOOKINGS:
+      
+      return { ...state, ...action.list };
 
     default:
       return state
