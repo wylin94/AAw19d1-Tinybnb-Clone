@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { BrowserRouter, Route, Switch } from "react-router-dom";
 import { useDispatch } from "react-redux";
+
 import LoginForm from "./components/auth/LoginForm";
 import SignUpForm from "./components/auth/SignUpForm";
 import NavBar from "./components/NavBar/NavBar";
@@ -10,9 +11,11 @@ import User from "./components/User";
 import Home from "./components/Home";
 import SpotList from "./components/SpotList";
 import AddSpot from "./components/AddSpot";
+import ShowAllBookings from "./components/Bookings/MyBooking";
+import MyHosting from "./components/MyHosting";
 import { authenticate } from "./store/session";
 
-import ShowAllBookings from "./components/Bookings/MyBooking";
+
 function App() {
 	const [loaded, setLoaded] = useState(false);
 	const dispatch = useDispatch();
@@ -33,7 +36,6 @@ function App() {
 			<NavBar />
 			<Switch>
 				<Route path="/" exact={true}>
-					<h1>My Home Page</h1>
 					<Home />
 				</Route>
 				<Route path="/addspot">
@@ -58,9 +60,14 @@ function App() {
 					<Spot />
 				</Route> */}
 
-
+				<Route path="/my-hosting" exact={true}>
+					<MyHosting />
+				</Route>
 				<Route path="/my-reservations" exact={true}>
 					<ShowAllBookings />
+				</Route>
+				<Route>
+					<div>Page not found</div>
 				</Route>
 
 			</Switch>

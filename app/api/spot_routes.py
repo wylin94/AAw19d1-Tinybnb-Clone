@@ -21,10 +21,10 @@ def searchByCity(spotId):
     # return spot.to_dict() 
 
 
-@spot_routes.route('/search/<city>', methods=['GET'])
-def searchByCity(city):
-    spots = Spot.query.filter(Spot.city == city)
-    return {'search': [spot.to_dict() for spot in spots]}
+# @spot_routes.route('/search/<city>', methods=['GET'])
+# def searchByCity(city):
+#     spots = Spot.query.filter(Spot.city == city)
+#     return {'search': [spot.to_dict() for spot in spots]}
 
 
 @spot_routes.route('', methods=['POST'])
