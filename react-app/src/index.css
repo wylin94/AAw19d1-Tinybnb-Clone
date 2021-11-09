@@ -1,1 +1,25 @@
 /* TODO Add site wide styles */
+.active{
+  color: #222222;
+  text-decoration: none;
+}
+.inactive{
+  color: #222222;
+  text-decoration: none;
+}
+.active:hover, .inactive:hover{
+  color: tomato;
+}
+
+a, u, NavLink {
+  text-decoration: none;
+}
+
+* {
+  box-sizing: border-box;
+  font-family: 'Montserrat', sans-serif;
+}
+
+textarea{
+  resize: none;
+}
