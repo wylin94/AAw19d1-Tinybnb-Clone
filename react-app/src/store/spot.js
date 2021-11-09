@@ -10,17 +10,11 @@ const loadSpots = (list) => ({
 });
 
 export const getSpots = () => async (dispatch) => {
-	console.log(3);
 	const response = await fetch(`/api/spots`);
 
 	if (response.ok) {
-		console.log(4);
 		const list = await response.json();
-		console.log(5);
-		console.log(list);
-		console.log(typeof list);
 		dispatch(loadSpots(list));
-		console.log(6);
 	}
 };
 
@@ -29,23 +23,23 @@ export const getSpotsByCity = (city) => async (dispatch) => {
 
 	if (response.ok) {
 		const list = await response.json();
-		console.log(list);
 		dispatch(loadSpots(list));
 	}
 };
 
-// const initialState = {};
+const initialState = {};
 
-const spotReducer = (state = {}, action) => {
+const spotReducer = (state = initialState, action) => {
 	let newState;
 	// let spot;
 	switch (action.type) {
 		case LOAD:
-			newState = Object.assign({}, state);
-			action.list.forEach((spot) => {
-				newState[spot.id] = spot;
-			});
-			return newState;
+			// newState = Object.assign({}, state);
+			// action.list.forEach((spot) => {
+			// 	newState[spot.id] = spot;
+			// });
+			// return newState;
+			return action.list;
 
 		default:
 			return state;

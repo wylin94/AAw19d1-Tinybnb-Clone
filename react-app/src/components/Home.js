@@ -15,31 +15,32 @@ function Home() {
 	// 	fetchData();
 	// }, []);
 	const dispatch = useDispatch();
-	const spots = useSelector((state) => Object.values(state));
+	const spots = useSelector((state) => state.spot.spots);
 
 	useEffect(() => {
-		console.log(1);
 		dispatch(getSpots());
-		console.log(2);
 	}, [dispatch]);
 
 	return (
-		// <>
-		// 	<div>test</div>
-		// 	<ul>
-		// 		{spots.map((spot) =>
-		// 			<li>{spot.name}</li>
-		// 		)}
-		// 	</ul>
-		// </>
 		<>
-			<NavLink to={"/spots/sanjose"}>San Jose</NavLink>
-			<NavLink to={"/spots/sanfrancisco"}>San Francisco</NavLink>
-			<NavLink to={"/spots/newyork"}>New York</NavLink>
-			<NavLink to={"/spots/seattle"}>Seattle</NavLink>
-			<NavLink to={"/spots/austin"}>Austin</NavLink>
-			<NavLink to={"/spots/losangeles"}>Los Angeles</NavLink>
+			<div>test</div>
+			<ul>
+				{spots?.map((spot) => (
+					<li key={spot.id}>{spot.name}</li>
+				))}
+			</ul>
 		</>
+
+		// <></>
+
+		// <>
+		// 	<NavLink to={"/spots/sanjose"}>San Jose</NavLink>
+		// 	<NavLink to={"/spots/sanfrancisco"}>San Francisco</NavLink>
+		// 	<NavLink to={"/spots/newyork"}>New York</NavLink>
+		// 	<NavLink to={"/spots/seattle"}>Seattle</NavLink>
+		// 	<NavLink to={"/spots/austin"}>Austin</NavLink>
+		// 	<NavLink to={"/spots/losangeles"}>Los Angeles</NavLink>
+		// </>
 	);
 }
 

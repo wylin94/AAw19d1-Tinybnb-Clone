@@ -13,7 +13,7 @@ function SpotList() {
 
 	return (
 		<>
-			<div>
+			{/* <div>
 				{spots.map((spot) => (
 					<NavLink key={spot.id} to={`/spots/${spot.id}`}>
 						<div>
@@ -21,7 +21,7 @@ function SpotList() {
 						</div>
 					</NavLink>
 				))}
-			</div>
+			</div> */}
 		</>
 	);
 }
