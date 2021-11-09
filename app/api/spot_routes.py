@@ -12,6 +12,12 @@ def allSpots():
     spots = Spot.query.all()
     print(2)
     return {'spots': [spot.to_dict() for spot in spots]}
+    # return {'spots': {spot.to_dict() for spot in spots}}
+
+@spot_routes.route('/<int:spotId>', methods=['GET'])
+def searchByCity(city):
+    spots = Spot.query.filter(Spot.id == spotId)
+    return {'singleSpot': [spot.to_dict() for spot in spots]}
 
 
 @spot_routes.route('/search/<city>', methods=['GET'])
@@ -37,19 +43,19 @@ def addSpots():
     db.session.commit()
     return newSpot.to_dict()
 
-# @spot_routes.route('', methods=['PATCH'])
-# def editSpot():
+@spot_routes.route('', methods=['PATCH'])
+def editSpot():
 
-#     editedSpot = Spot.query.get(request.json['id'])
+    editedSpot = Spot.query.get(request.json['id'])
 
-#     editedSpot.address = request.json["address"],
-#     editedSpot.city = request.json["city"],
-#     editedSpot.state = request.json["state"],
-#     editedSpot.country = request.json["country"],
-#     editedSpot.lat = request.json["lat"]
-#     editedSpot.lng = request.json["lng"]
-#     editedSpot.name = request.json["name"],
-#     editedSpot.price = request.json["price"],
+    editedSpot.address = request.json["address"],
+    editedSpot.city = request.json["city"],
+    editedSpot.state = request.json["state"],
+    editedSpot.country = request.json["country"],
+    editedSpot.lat = request.json["lat"]
+    editedSpot.lng = request.json["lng"]
+    editedSpot.name = request.json["name"],
+    editedSpot.price = request.json["price"],
     
-#     db.session.commit()
-#     return newSpot.to_dict()
+    db.session.commit()
+    return newSpot.to_dict()
