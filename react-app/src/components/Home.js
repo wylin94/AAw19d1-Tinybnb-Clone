@@ -15,8 +15,11 @@ function Home() {
 	// 	fetchData();
 	// }, []);
 	const dispatch = useDispatch();
-	const spots = useSelector((state) => state.spot.spots);
-	console.log(spots)
+	// const spots = useSelector((state) => state.spot.spots);
+	const spots = useSelector((state) => state.spot);
+	console.log(spots?.spots);
+
+	// console.log(spots);
 
 	useEffect(() => {
 		dispatch(getSpots());
@@ -25,11 +28,11 @@ function Home() {
 	return (
 		<>
 			<div>test</div>
-			<ul>
+			{/* <ul>
 				{spots?.map((spot) => (
 					<li key={spot.id}>{spot.name}</li>
 				))}
-			</ul>
+			</ul> */}
 		</>
 
 		// <></>
