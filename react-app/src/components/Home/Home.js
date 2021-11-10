@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from "react";
 import { NavLink } from "react-router-dom";
-import { getSpots } from "../../store/spot";
 import { useSelector, useDispatch } from "react-redux";
+
+import { getSpots } from "../../store/spot";
 import styles from './Home.module.css';
 
 function Home() {
@@ -24,27 +25,24 @@ function Home() {
 	}, [dispatch]);
 
 	return (
-		<>
-			<h1>My Home Page</h1>
-			<div>
-				This is where the home page image will go
-			</div>
-			<div>Inspiration For your next trip</div>
-			<div>
-				
+		<div>
+			<div className={styles.splashImageContainer}>
+				<img className={styles.splashImage}src="/images/a17d549e-6268-4910-8d65-1ba98a93b6e3.jpeg" alt='Home Page'></img>
+				<div>Not sure where to go? Perfect.</div>
+				<button>I'm flexible</button>
 			</div>
 
+			<div>Inspiration For your next trip</div>
 			<div>
 				{spots?.spots?.map(spot => {
 					return(
 						<div>
-							{/* <img src={spot.}> */}
 							<div key={spot.id}>{spot.name}</div>
 						</div>
 					)
 				})}
 			</div>
-		</>
+		</div>
 
 		// <></>
 
