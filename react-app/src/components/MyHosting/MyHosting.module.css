@@ -1,0 +1,18 @@
+.spotContainer {
+    border-top: 1px solid rgb(206, 205, 205);
+    width: 50%
+}
+
+.spotInnerContainer{
+    display: flex;
+    padding: 20px 0px;
+}
+
+.spotCover {
+    width: 300px;
+    border-radius: 10px;
+}
+
+.spotInfo {
+    margin: 10px;
+}
