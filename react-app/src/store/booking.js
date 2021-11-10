@@ -6,10 +6,10 @@ const loadBookings = (list) => ({
   list
 })
 
-// const addBooking = (booking) => {
-//   type: ADD_BOOKING,
-//   booking
-// }
+const addBooking = (booking) => {
+  type: ADD_BOOKING,
+  booking
+}
 
 export const getBookings = () => async dispatch => {
   const response = await fetch('/api/bookings/my-reservations');
@@ -20,12 +20,29 @@ export const getBookings = () => async dispatch => {
   }
 }
 
+export const createBooking = (booking) => async dispatch => {
+  const response = await fetch(`/api/bookings`, {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify(booking),
+
+  });
+
+  if (response.ok) {
+    const newBooking = await response.json();
+    dispatch(addBooking(newBooking));
+    return newBooking;
+  }
+
+}
 
 const bookingReducer = (state = {}, action) => {
   switch (action.type) {
     case LOAD_BOOKINGS:
-
       return { ...state, ...action.list };
+
+    case ADD_BOOKING:
+      return { ...state, [action.booking.id]: action.booking };
 
     default:
       return state
