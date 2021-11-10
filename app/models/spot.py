@@ -10,10 +10,10 @@ class Spot(db.Model):
     city = db.Column(db.String(50), nullable=False)
     state = db.Column(db.String(50), nullable=False)
     country = db.Column(db.String(50), nullable=False)
-    lat = db.Column(db.Numeric, nullable=False)
-    lng = db.Column(db.Numeric, nullable=False)
+    lat = db.Column(db.Float)
+    lng = db.Column(db.Float)
     name = db.Column(db.String(255), nullable=False)
-    price = db.Column(db.Numeric, nullable=False)
+    price = db.Column(db.Float, nullable=False)
 
     user = db.relationship("User", back_populates="spots")
     images = db.relationship("Image", back_populates="spot", cascade="all, delete")
@@ -29,8 +29,10 @@ class Spot(db.Model):
             'city': self.city,
             'state': self.state,
             'country': self.country,
-            'lat': float(self.lat),
-            'lng': float(self.lng),
+            'lat': self.lat,
+            'lng': self.lng,
             'name': self.name,
-            'price': float(self.price),
+            'price': self.price,
+            'images': [image.get_url() for image in self.images],
+            'reviews': [review.get_review() for review in self.reviews],
         }

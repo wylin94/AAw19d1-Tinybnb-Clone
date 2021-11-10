@@ -33,5 +33,7 @@ class User(db.Model, UserMixin):
             'id': self.id,
             'username': self.username,
             'email': self.email,
-            'profile_picture': self.profile_picture
+            'profile_picture': self.profile_picture,
+            'spots': [spot.to_dict() for spot in self.spots],
+            'bookings': [booking.get_booking() for booking in self.bookings],
         }

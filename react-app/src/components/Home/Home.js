@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from "react";
 import { NavLink } from "react-router-dom";
-import { getSpots } from "../store/spot";
+import { getSpots } from "../../store/spot";
 import { useSelector, useDispatch } from "react-redux";
+import styles from './Home.module.css';
 
 function Home() {
 	// const [spots, setSpots] = useState([]);
@@ -15,7 +16,8 @@ function Home() {
 	// 	fetchData();
 	// }, []);
 	const dispatch = useDispatch();
-	const spots = useSelector((state) => state.spot.spots);
+	// const spots = useSelector((state) => state.spot.spots);
+	const spots = useSelector((state) => state.spot);
 
 	useEffect(() => {
 		dispatch(getSpots());
@@ -23,12 +25,25 @@ function Home() {
 
 	return (
 		<>
-			<div>test</div>
-			<ul>
-				{spots?.map((spot) => (
-					<li key={spot.id}>{spot.name}</li>
-				))}
-			</ul>
+			<h1>My Home Page</h1>
+			<div>
+				This is where the home page image will go
+			</div>
+			<div>Inspiration For your next trip</div>
+			<div>
+				
+			</div>
+
+			<div>
+				{spots?.spots?.map(spot => {
+					return(
+						<div>
+							{/* <img src={spot.}> */}
+							<div key={spot.id}>{spot.name}</div>
+						</div>
+					)
+				})}
+			</div>
 		</>
 
 		// <></>

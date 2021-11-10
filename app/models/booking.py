@@ -22,3 +22,11 @@ class Booking(db.Model):
             'startDate': self.startDate,
             'endDate': self.endDate,
         }
+
+    def get_booking(self):
+        return {
+            'spotId': self.spotId,
+            'startDate': self.startDate,
+            'endDate': self.endDate,
+        }
+
