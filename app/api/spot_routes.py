@@ -18,7 +18,7 @@ def allSpots():
 def searchByCity(spotId):
     spots = Spot.query.filter(Spot.id == spotId)
     return {'singleSpot': [spot.to_dict() for spot in spots]}
-    # return spot.to_dict() 
+    # return spot.to_dict()
 
 
 # @spot_routes.route('/search/<city>', methods=['GET'])
@@ -63,7 +63,7 @@ def editSpot(spot_id):
     editedSpot.lng = request.json["lng"]
     editedSpot.name = request.json["name"],
     editedSpot.price = request.json["price"],
-    
+
     db.session.commit()
     return editedSpot.to_dict()
 
