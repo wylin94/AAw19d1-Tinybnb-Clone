@@ -1,6 +1,7 @@
 const LOAD_BOOKINGS = 'bookings/LOAD_BOOKINGS';
 const ADD_BOOKING = 'bookings/ADD_BOOKING';
 const EDIT_BOOKING = 'bookings/EDIt_BOOKING';
+const DELETE_BOOKING = 'bookings/DELETE_BOOKING'
 
 const loadBookings = (list) => ({
   type: LOAD_BOOKINGS,
@@ -15,6 +16,11 @@ const addBooking = (booking) => ({
 const editBooking = (booking) => ({
   type: EDIT_BOOKING,
   booking
+})
+
+const removeBooking = (bookingId) => ({
+  type: DELETE_BOOKING,
+  bookingId
 })
 
 export const getBookings = () => async dispatch => {
@@ -56,11 +62,20 @@ export const updateBooking = (data) => async dispatch => {
     dispatch(editBooking(booking));
     return booking;
   }
+};
+
+
+export const deleteBooking = (bookingId) => async (dispatch) => {
+  const response = await fetch(`/api/bookings/${bookingId}`, {
+    method: 'DELETE'
+  });
+
+  if (response.ok) {
+    const data = await response.json();
+    dispatch(removeBooking(data))
+  }
+
 }
-
-
-
-export const
 
 const bookingReducer = (state = {}, action) => {
   switch (action.type) {
@@ -69,6 +84,14 @@ const bookingReducer = (state = {}, action) => {
 
     case ADD_BOOKING:
       return { ...state, [action.booking.id]: action.booking };
+
+    case EDIT_BOOKING:
+      return { ...state, [action.booking.id]: action.booking };
+
+    case DELETE_BOOKING:
+      const newState = { ...state };
+      delete newState[action.bookingId];
+      return newState;
 
     default:
       return state
