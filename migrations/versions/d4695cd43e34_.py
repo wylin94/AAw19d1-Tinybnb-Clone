@@ -1,8 +1,8 @@
 """empty message
 
-Revision ID: 1aae195c34ba
+Revision ID: d4695cd43e34
 Revises: 
-Create Date: 2021-11-09 08:55:15.773078
+Create Date: 2021-11-10 12:47:33.634787
 
 """
 from alembic import op
@@ -10,7 +10,7 @@ import sqlalchemy as sa
 
 
 # revision identifiers, used by Alembic.
-revision = '1aae195c34ba'
+revision = 'd4695cd43e34'
 down_revision = None
 branch_labels = None
 depends_on = None
@@ -62,11 +62,17 @@ def upgrade():
     )
     op.create_table('reviews',
     sa.Column('id', sa.Integer(), nullable=False),
-    sa.Column('spotId', sa.Integer(), nullable=False),
-    sa.Column('userId', sa.Integer(), nullable=False),
-    sa.Column('review', sa.Text(), nullable=False),
-    sa.ForeignKeyConstraint(['spotId'], ['spots.id'], ),
-    sa.ForeignKeyConstraint(['userId'], ['users.id'], ),
+    sa.Column('user_id', sa.Integer(), nullable=False),
+    sa.Column('spot_id', sa.Integer(), nullable=False),
+    sa.Column('clean_rating', sa.Integer(), nullable=False),
+    sa.Column('accur_rating', sa.Integer(), nullable=False),
+    sa.Column('comm_rating', sa.Integer(), nullable=False),
+    sa.Column('location_rating', sa.Integer(), nullable=False),
+    sa.Column('check_in_rating', sa.Integer(), nullable=False),
+    sa.Column('value_rating', sa.Integer(), nullable=False),
+    sa.Column('review_text', sa.Text(), nullable=False),
+    sa.ForeignKeyConstraint(['spot_id'], ['spots.id'], ),
+    sa.ForeignKeyConstraint(['user_id'], ['users.id'], ),
     sa.PrimaryKeyConstraint('id')
     )
     # ### end Alembic commands ###
