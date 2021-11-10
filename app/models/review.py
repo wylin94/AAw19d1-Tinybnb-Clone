@@ -20,3 +20,9 @@ class Review(db.Model):
             'userId': self.userId,
             'review': self.review,
         }
+
+    def get_review(self):
+        return {
+            'review': self.review,
+        }
+

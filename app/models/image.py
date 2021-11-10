@@ -17,3 +17,9 @@ class Image(db.Model):
             'spotId': self.spotId,
             'url': self.url
         }
+
+    def get_url(self):
+        return {
+            'url': self.url
+        }
+
