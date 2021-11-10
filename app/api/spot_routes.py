@@ -10,9 +10,7 @@ spot_routes = Blueprint('spots', __name__)
 
 @spot_routes.route('/')
 def allSpots():
-    print(1)
     spots = Spot.query.all()
-    print(2)
     return {'spots': [spot.to_dict() for spot in spots]}
     # return {'spots': {spot.to_dict() for spot in spots}}
 

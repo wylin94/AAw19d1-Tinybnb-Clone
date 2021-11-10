@@ -9,7 +9,7 @@ function CreateSpotFormModal() {
 
   return (
     <>
-      <button title="Create Spot" className={styles.createAlbumButton} onClick={() => setShowModal(true)}>
+      <button title="Create Spot" className={styles.createSpotButton} onClick={() => setShowModal(true)}>
         Create Spot
       </button>
       {showModal && (
