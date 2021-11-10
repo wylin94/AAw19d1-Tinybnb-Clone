@@ -1,5 +1,6 @@
 const LOAD_BOOKINGS = 'bookings/LOAD_BOOKINGS';
-const ADD_BOOKING = 'bookings/ADD_BOOKING'
+const ADD_BOOKING = 'bookings/ADD_BOOKING';
+const EDIT_BOOKING = 'bookings/EDIt_BOOKING';
 
 const loadBookings = (list) => ({
   type: LOAD_BOOKINGS,
@@ -8,6 +9,11 @@ const loadBookings = (list) => ({
 
 const addBooking = (booking) => ({
   type: ADD_BOOKING,
+  booking
+})
+
+const editBooking = (booking) => ({
+  type: EDIT_BOOKING,
   booking
 })
 
@@ -35,6 +41,26 @@ export const createBooking = (booking) => async dispatch => {
   }
 
 }
+
+export const updateBooking = (data) => async dispatch => {
+  const response = await fetch(`/api/bookings/${data.id}`, {
+    method: 'PATCH',
+    headers: {
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify(data)
+  });
+
+  if (response.ok) {
+    const booking = await response.json();
+    dispatch(editBooking(booking));
+    return booking;
+  }
+}
+
+
+
+export const
 
 const bookingReducer = (state = {}, action) => {
   switch (action.type) {
