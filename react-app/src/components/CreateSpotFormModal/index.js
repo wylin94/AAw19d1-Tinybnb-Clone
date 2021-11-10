@@ -1,24 +1,24 @@
 import React, { useState } from 'react';
 
 import { Modal } from '../../context/Modal';
-import CreateAlbumForm from './CreateAlbumForm';
+import CreateSpotForm from './CreateSpotForm';
 import styles from "./index.module.css"
 
-function CreateAlbumFormModal() {
+function CreateSpotFormModal() {
   const [showModal, setShowModal] = useState(false);
 
   return (
     <>
-      <button title="Create Album" className={styles.createAlbumButton} onClick={() => setShowModal(true)}>
-        <i class="fas fa-folder-plus"></i>
+      <button title="Create Spot" className={styles.createAlbumButton} onClick={() => setShowModal(true)}>
+        Create Spot
       </button>
       {showModal && (
         <Modal onClose={() => setShowModal(false)}>
-          <CreateAlbumForm onClose={() => setShowModal(false)}/>
+          <CreateSpotForm onClose={() => setShowModal(false)}/>
         </Modal>
       )}
     </>
   );
 }
 
-export default CreateAlbumFormModal;
+export default CreateSpotFormModal;

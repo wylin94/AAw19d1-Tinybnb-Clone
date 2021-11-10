@@ -1,12 +1,14 @@
 .createAlbumButton {
   border: none;
-  background-color: transparent;
-  color: grey;
-  font-size: 20px;
-  padding: 0;
+  background-color: rgb(227, 28, 95);
+  color: white;
+  font-size: 15px;
+  width: 200px;
+  height: 45px;
+  border-radius: 10px;
 }
 
 .createAlbumButton:hover {
-  color: rgb(159, 159, 159);
+  background-color: rgb(255, 56, 92);
   cursor: pointer;
 }
