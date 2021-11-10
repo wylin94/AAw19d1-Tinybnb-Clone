@@ -66,6 +66,9 @@ function App() {
 				<Route path="/my-reservations" exact={true}>
 					<ShowAllBookings />
 				</Route>
+
+
+
 				<Route>
 					<div>Page not found</div>
 				</Route>
