@@ -34,11 +34,16 @@ function Home() {
 				
 			</div>
 
-			<ul>
-				{spots?.spots?.map((spot) => (
-					<li key={spot.id}>{spot.name}</li>
-				))}
-			</ul>
+			<div>
+				{spots?.spots?.map(spot => {
+					return(
+						<div>
+							{/* <img src={spot.}> */}
+							<div key={spot.id}>{spot.name}</div>
+						</div>
+					)
+				})}
+			</div>
 		</>
 
 		// <></>

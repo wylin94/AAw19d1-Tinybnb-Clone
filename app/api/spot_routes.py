@@ -2,15 +2,15 @@ from flask import Blueprint, request
 from app.models import Spot, db
 from flask_login import login_required
 
+# Import spot form
+
 
 spot_routes = Blueprint('spots', __name__)
 
 
 @spot_routes.route('/')
 def allSpots():
-    print(1)
     spots = Spot.query.all()
-    print(2)
     return {'spots': [spot.to_dict() for spot in spots]}
     # return {'spots': {spot.to_dict() for spot in spots}}
 
@@ -30,6 +30,9 @@ def searchByCity(spotId):
 @spot_routes.route('', methods=['POST'])
 def addSpots():
 
+    # Reserve for add Spot form/modal
+
+
     newSpot = Spot(
         userId = request.json["userId"],
         address = request.json["address"],
@@ -47,6 +50,9 @@ def addSpots():
 @spot_routes.route('', methods=['PATCH'])
 def editSpot(spot_id):
 
+    # Reserve for edit Spot form/modal
+
+
     editedSpot = Spot.query.get(spot_id)
 
     editedSpot.address = request.json["address"],
@@ -59,7 +65,7 @@ def editSpot(spot_id):
     editedSpot.price = request.json["price"],
 
     db.session.commit()
-    return newSpot.to_dict()
+    return editedSpot.to_dict()
 
 @spot_routes.route('', methods=['DELETE'])
 def deleteSpot(spot_id):
