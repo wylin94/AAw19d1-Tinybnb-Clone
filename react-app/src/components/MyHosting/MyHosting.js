@@ -38,7 +38,7 @@ function MyHosing() {
 				})}
 			</div>
 			<div className="googleMapContainer">
-				<MapContainer />
+				<MapContainer spots={spots} />
 			</div>
 		</>
 	);

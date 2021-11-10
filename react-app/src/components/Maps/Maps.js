@@ -11,7 +11,7 @@ const center = {
 	lng: -95.7129,
 };
 
-const Maps = ({ apiKey }) => {
+const Maps = ({ apiKey, spots }) => {
 	const { isLoaded } = useJsApiLoader({
 		id: "google-map-script",
 		googleMapsApiKey: apiKey,
@@ -26,14 +26,15 @@ const Maps = ({ apiKey }) => {
 						center={center}
 						zoom={3}
 					>
-						<Marker
-							position={{
-								// lat: parseFloat("42.3601"),
-								// lng: parseFloat("-71.0589"),
-								lat: 37.561299565623536,
-								lng: -122.00983107099384,
-							}}
-						/>
+						{spots?.map((spot) => (
+							<Marker
+								key={spot.id}
+								position={{
+									lat: spot.lat,
+									lng: spot.lng,
+								}}
+							/>
+						))}
 					</GoogleMap>
 				</>
 			)}
