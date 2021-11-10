@@ -6,10 +6,10 @@ const loadBookings = (list) => ({
   list
 })
 
-const addBooking = (booking) => {
+const addBooking = (booking) => ({
   type: ADD_BOOKING,
   booking
-}
+})
 
 export const getBookings = () => async dispatch => {
   const response = await fetch('/api/bookings/my-reservations');
