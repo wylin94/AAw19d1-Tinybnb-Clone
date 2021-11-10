@@ -1,0 +1,12 @@
+.createAlbumButton {
+  border: none;
+  background-color: transparent;
+  color: grey;
+  font-size: 20px;
+  padding: 0;
+}
+
+.createAlbumButton:hover {
+  color: rgb(159, 159, 159);
+  cursor: pointer;
+}

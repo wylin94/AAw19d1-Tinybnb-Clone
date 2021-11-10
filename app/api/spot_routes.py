@@ -14,10 +14,11 @@ def allSpots():
     return {'spots': [spot.to_dict() for spot in spots]}
     # return {'spots': {spot.to_dict() for spot in spots}}
 
-# @spot_routes.route('/<int:spotId>', methods=['GET'])
-# def searchByCity(city):
-#     spots = Spot.query.filter(Spot.id == spotId)
-#     return {'singleSpot': [spot.to_dict() for spot in spots]}
+@spot_routes.route('/<int:spotId>', methods=['GET'])
+def searchByCity(spotId):
+    spots = Spot.query.filter(Spot.id == spotId)
+    return {'singleSpot': [spot.to_dict() for spot in spots]}
+    # return spot.to_dict()
 
 
 # @spot_routes.route('/search/<city>', methods=['GET'])
@@ -44,9 +45,9 @@ def addSpots():
     return newSpot.to_dict()
 
 @spot_routes.route('', methods=['PATCH'])
-def editSpot():
+def editSpot(spot_id):
 
-    editedSpot = Spot.query.get(request.json['id'])
+    editedSpot = Spot.query.get(spot_id)
 
     editedSpot.address = request.json["address"],
     editedSpot.city = request.json["city"],
@@ -59,3 +60,12 @@ def editSpot():
 
     db.session.commit()
     return newSpot.to_dict()
+
+@spot_routes.route('', methods=['DELETE'])
+def deleteSpot(spot_id):
+
+    removeSpot = Spot.query.get(spot_id)
+
+    db.session.delete(removeSpot)
+    db.session.commit()
+    return removeSpot.to_dict()
