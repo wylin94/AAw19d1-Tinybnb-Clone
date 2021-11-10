@@ -10,7 +10,6 @@ import UsersList from "./components/UsersList";
 import User from "./components/User";
 import Home from "./components/Home";
 import SpotList from "./components/SpotList";
-import AddSpot from "./components/AddSpot";
 import ShowAllBookings from "./components/Bookings/MyBooking";
 import MyHosting from "./components/MyHosting";
 import { authenticate } from "./store/session";
@@ -37,9 +36,6 @@ function App() {
 			<Switch>
 				<Route path="/" exact={true}>
 					<Home />
-				</Route>
-				<Route path="/addspot">
-					<AddSpot />
 				</Route>
 				<Route path="/login" exact={true}>
 					<LoginForm />
