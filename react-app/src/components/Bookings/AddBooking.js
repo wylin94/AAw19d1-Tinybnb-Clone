@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { getBookings } from "../../store/booking";
+import { createBooking } from "../../store/booking";
 
 function 
