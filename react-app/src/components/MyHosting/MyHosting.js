@@ -4,6 +4,9 @@ import { NavLink } from "react-router-dom";
 import MapContainer from "../Maps";
 
 import CreateSpotFormModal from "../CreateSpotFormModal";
+import EditSpotFormModal from "../EditSpotFormModal";
+import DeleteSpotFormModal from "../DeleteSpotFormModal";
+
 import styles from "./MyHosting.module.css";
 
 function MyHosing() {
@@ -33,6 +36,12 @@ function MyHosing() {
 									</div>
 								</div>
 							</NavLink>
+							<div>
+								<EditSpotFormModal spot={spot} />
+							</div>
+							<div>
+								<DeleteSpotFormModal spot={spot} />
+							</div>
 						</div>
 					);
 				})}
