@@ -49,6 +49,7 @@ export const createBooking = (booking) => async dispatch => {
 }
 
 export const updateBooking = (data) => async dispatch => {
+  console.log(data)
   const response = await fetch(`/api/bookings/${data.id}`, {
     method: 'PATCH',
     headers: {
@@ -62,8 +63,7 @@ export const updateBooking = (data) => async dispatch => {
     dispatch(editBooking(booking));
     return booking;
   }
-  const booking = await response.json();
-  console.log("!!!!!", booking.errors)
+
 };
 
 

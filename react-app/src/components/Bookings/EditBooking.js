@@ -35,6 +35,8 @@ function EditBookingForm({ booking }) {
     if (updatedBooking) {
       // history.push()
       reset();
+    } else {
+      new Error("Please fill in all required fields")
     }
   }
 
