@@ -4,7 +4,7 @@ import { NavLink } from 'react-router-dom';
 import LogoutButton from '../auth/LogoutButton';
 import { authenticate, login } from '../../store/session';
 import { MdStorage } from 'react-icons/md'
-import { checkIfImageExists } from "../multipurpose"
+import { checkIfImageExists } from "../utils"
 import LoginForm from '../auth/LoginForm'
 import SignUpForm from '../auth/SignUpForm';
 import './NavBar.css'
@@ -22,7 +22,7 @@ const NavBar = () => {
   }
 
   const handleDemoLogin = () => {
-    dispatch(login("demo@aa.io", "password"))
+    dispatch(login("demo@aaa.io", "password"))
     setOpenDropDown(false)
   }
   const handleLoginClick = () => {

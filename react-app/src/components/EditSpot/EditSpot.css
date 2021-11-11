@@ -1,0 +1,21 @@
+.edit-sp{
+    display: flex;
+    flex-wrap: wrap;
+    margin: 10px 0px;
+    gap: 5px;
+}
+
+.esp{
+    display: flex;
+    /* justify-content: center;
+    align-items: center; */
+    padding-top: 30px;
+    padding-left: 10px;
+    font-size: 2em;
+    color: #FE385C;
+
+}
+
+.esptrash:hover{
+    color: #c52a47;
+}

@@ -1,0 +1,204 @@
+.profile-pic{
+    background-position: center;
+    background-size: cover;
+    height: 128px;
+    width: 128px;
+    border-radius: 50%;
+}
+.profile-listing-pics{
+    background-position: center;
+    background-size: cover;
+    height: 200px;
+    width: 300px;
+    border-radius: 12px;
+}
+.rev-spot-pics{
+    background-position: center;
+    background-size: cover;
+    height: 48px;
+    width: 78px;
+    border-radius: 12px;
+}
+.pp-container{
+    width: 1032px;
+    margin: auto;
+    display: flex;
+    margin-top: 50px;
+    gap: 50px;
+}
+
+.pp-left{
+    width: 30%;
+    border: 1px solid #DDDDDD;
+    border-radius: 12px;
+    padding: 24px;
+    display: flex;
+    flex-direction: column;
+    max-height: 400px;
+}
+
+.pp-head{
+    font-size: 2em;
+}
+
+.pp-pic{
+    align-self: center;
+}
+
+.pp-stats{
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    font-family: "airbnbMed";
+    margin-top: 30px;
+    font-size: 1.2em;
+}
+
+.pp-stat{
+    display: flex;
+    gap: 10px;
+}
+
+.pp-symbols{
+    font-size: 1.5em;
+}
+
+.pp-about{
+    margin-top: 50px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    border-bottom: 1px solid #DDDDDD;
+    padding-bottom: 10px;
+}
+.pp-about>h3{
+    font-size: 1.3em;
+}
+
+.pp-listing{
+    margin-top: 30px;
+    display: flex;
+    flex-direction: column;
+     border-bottom: 1px solid #DDDDDD
+
+}
+
+.pp-listing-head>h3{
+
+    font-size: 1.3em;
+}
+
+.pp-spots{
+    display: flex;
+    flex-direction: column;
+}
+
+.pp-spot-rev{
+    display: flex;
+    gap: 1px;
+    margin-top: 5px;
+}
+.pp-spot-rev>p{
+    margin-top: .5px;
+}
+
+.pp-spot-stat{
+    display: flex;
+    flex-direction: column;
+    margin-top: -10px;
+}
+
+.pp-spot-name{
+    margin-top: -10px;
+    word-wrap: break-word;
+}
+.pp-spots1{
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+.pp-right{
+    display: flex;
+    flex-direction: column;
+    max-width: 640px;
+}
+
+.pp-rev{
+    padding-top: 30px;
+}
+
+.pp-rev-head>h3{
+
+    font-size: 1.3em;
+}
+
+.pp-srev-head{
+    display: flex;
+    flex-direction: column;
+}
+
+.pp-rev-top{
+    display: flex;
+    justify-content: space-between;
+}
+
+.pp-rev-section{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-top: 20px;
+    margin-bottom: 40px;
+}
+
+.pp-srev-rate{
+    /* margin-top: -5px; */
+}
+
+.pp-srev-starrate{
+    display: flex;
+    margin-top: -5px;
+    gap: 2px;
+}
+
+.pp-edit{
+    font-size: 1.6em;
+    cursor: pointer;
+
+}
+
+.pp-edit:hover{
+    color: #FE385C;
+}
+
+.pp-edit-btns{
+    display: flex;
+    gap: 5px;
+}
+
+.ppbtn{
+    min-height: 10px;
+    min-width: 10px;
+    width: 80px;
+    padding: 0px;
+}
+
+/* .pp-list-box{
+     box-shadow: 0px 2px 4px rgb(0 0 0 / 18%);
+     padding: 10px;
+     border-radius: 12px;
+} */
+
+.edit-pp{
+    margin-top: -15px;
+}
+
+.ppimg-edit{
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    margin-top: 3px;
+}
+.ppimg-edit>p{
+    align-self: center;
+}

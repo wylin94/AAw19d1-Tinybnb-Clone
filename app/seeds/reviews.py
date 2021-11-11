@@ -22,5 +22,5 @@ def seed_reviews():
 # resets the auto incrementing primary key, CASCADE deletes any
 # dependent entities
 def undo_reviews():
-    db.session.execute('TRUNCATE reviews RESTART IDENTITY CASCADE;')
+    db.session.execute('TRUNCATE users RESTART IDENTITY CASCADE;')
     db.session.commit()

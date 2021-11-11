@@ -2,20 +2,21 @@ from .db import db
 from werkzeug.security import generate_password_hash, check_password_hash
 from flask_login import UserMixin
 
+
 class User(db.Model, UserMixin):
     __tablename__ = 'users'
 
     id = db.Column(db.Integer, primary_key=True)
-    name = db.Column(db.String(40), nullable=False)
     email = db.Column(db.String(255), nullable=False, unique=True)
-    hashed_password = db.Column(db.String(255), nullable=False)
-    profile_pic = db.Column(db.String(255))
-    bio = db.Column(db.Text)
+    name = db.Column(db.String(100), nullable=False)
+    bio = db.Column(db.Text, nullable=True)
+    profile_pic = db.Column(db.Text, nullable=True)
     is_superhost = db.Column(db.Boolean, default=False)
+    hashed_password = db.Column(db.String(255), nullable=False)
 
-    spots = db.relationship("Spot", back_populates="user")
-    bookings = db.relationship("Booking", back_populates="user")
-    reviews = db.relationship("Review", back_populates="user")
+    spots = db.relationship('Spot', back_populates="user")
+    bookings = db.relationship('Booking', back_populates="user")
+    reviews = db.relationship('Review', back_populates="user")
 
     @property
     def password(self):
@@ -35,5 +36,6 @@ class User(db.Model, UserMixin):
             'email': self.email,
             'bio': self.bio,
             'profile_pic': self.profile_pic,
-            'is_superhost': self.is_superhost
+            'is_superhost': self.is_superhost,
+            # 'reviews': {review.to_dict()['id']: review.to_dict() for review in self.reviews}
         }

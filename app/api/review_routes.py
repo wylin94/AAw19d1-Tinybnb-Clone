@@ -5,7 +5,6 @@ review_routes = Blueprint('reviews', __name__)
 
 @review_routes.route('/', methods=["GET", "POST"])
 def reviews():
-    # Reserve for add Review form/modal
     if request.method == "GET":
         reviews = Review.query.all()
         return {"allReviews": [review.to_dict() for review in reviews]}
@@ -22,13 +21,12 @@ def reviews():
             value_rating=body["valueRating"],
             review_text=body["reviewText"]
         )
-
         db.session.add(new_review)
         db.session.commit()
         return new_review.to_dict()
 
-@review_routes.route('/<int:id>', methods=['DELETE'])
-def deleteReview(id):
+@review_routes.route('/<int:id>', methods=["DELETE"])
+def delete_reviews(id):
     curr_review = Review.query.get(id)
     db.session.delete(curr_review)
     db.session.commit()

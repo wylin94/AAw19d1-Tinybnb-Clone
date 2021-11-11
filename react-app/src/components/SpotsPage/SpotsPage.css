@@ -1,0 +1,121 @@
+.main-spot-pic{
+    height: 200px;
+    width: 300px;
+    background-size: cover;
+    background-position: center;
+    border-radius: 20px;
+}
+
+.sp-header{
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 10px;
+}
+
+.sp-stay-loc{
+    margin-top: -15px;
+    /* margin-bottom: 10px; */
+}
+
+.spot-page-wrapper{
+    display: flex;
+    width: 100vw;
+    /* overflow: hidden; */
+}
+.sp-spot-reviews{
+    margin-top: 2px;
+}
+.spot-left-container{
+    width: 40%;
+    margin-left: 24px;
+    margin-top: 25px;
+    overflow: scroll;
+    max-height: 100vh;
+    /* overflow-y: hidden; */
+    /* scrollbar-width: none; */
+}
+.map-wrapper{
+    width: 60%;
+}
+
+.sp-list-cont{
+    display: flex;
+    width: 100%;
+    gap: 20px;
+    border-top: 1px solid #EBEBEB;
+    padding-top: 30px;
+    /* margin-left: 24px; */
+}
+
+.sp-spot-info{
+    display: flex;
+    flex-direction: column;
+    min-width: 350px;
+}
+
+.sp-spot-header{
+    display: flex;
+    flex-direction: column;
+
+}
+
+.sp-spot-name{
+    margin-top: -15px;
+    font-weight: 800;
+    font-size: 1.2em;
+}
+
+.sp-spot-text{
+    color: #717171;
+    font-size: .85em;
+}
+
+.sp-spot-stats{
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.sp-spot-stat-top, .sp-spot-stat-btm{
+    display: flex;
+    gap: 4px;
+}
+
+.sp-spot-stat-btm{
+    margin-top: -20px;
+}
+
+.sp-info-btm{
+    display: flex;
+    justify-content: space-between;
+    justify-self: flex-end;
+    margin-top: 50px;
+    align-items: center;
+}
+
+.sp-review{
+    display: flex;
+    gap: 5px;
+    align-self: flex-start;
+    justify-self: flex-start;
+    margin-top: 2px;
+}
+
+.sp-price{
+    font-family: "airbnbMed";
+    font-size: 1.2em;
+}
+
+.sp-price-cont{
+    display: flex;
+    /* align-items: center; */
+}
+.sp-price-cont>span{
+    margin-top: 1px;
+    font-size: 1.1em;
+}
+
+.sp-star{
+    margin-top: 4px;
+    color: #FE385C;
+}

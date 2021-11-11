@@ -1,0 +1,298 @@
+.ss-main-pic{
+    background-position: center;
+    background-size: cover;
+    height: 350px;
+    width: 560px;
+    border-radius: 10px;
+}
+
+.ss-pics{
+    background-size: cover;
+    background-position: center;
+    height: 170px;
+    width: 298px;
+    border-radius: 10px;
+}
+
+.ss-profile-pic{
+    background-position: center;
+    background-size: cover;
+    height: 70px;
+    width: 70px;
+    border-radius: 50%;
+}
+
+.ss-top-cont{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+.ss-header{
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+}
+
+.ss-wrapper{
+    display: flex;
+    flex-direction: column;
+    margin: 30px 300px 0px 300px;
+    gap: 30px;
+}
+
+.ss-pics-container{
+    display: flex;
+    gap: 10px;
+    /* border-radius: 40px; */
+}
+.ss-more-pics{
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.ss-head-review{
+    display: flex;
+    gap: 4px;
+}
+
+.ss-header-address{
+    display: flex;
+    gap: 20px;
+}
+
+.greytxt{
+    color: #717171;
+}
+
+.ss-header-btns{
+    display: flex;
+    gap: 5px;
+}
+
+.ss-btns {
+  appearance: none;
+  background-color: transparent;
+  border: 2px solid #1A1A1A;
+  border-radius: 15px;
+  box-sizing: border-box;
+  color: #3B3B3B;
+  cursor: pointer;
+  display: inline-block;
+  font-family: Roobert,-apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol";
+  font-size: 16px;
+  font-weight: 600;
+  line-height: normal;
+  margin: 0;
+  min-height: 60px;
+  max-height: 70px;
+  min-width: 0;
+  outline: none;
+  padding: 16px 24px;
+  text-align: center;
+  text-decoration: none;
+  transition: all 300ms cubic-bezier(.23, 1, 0.32, 1);
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  width: 150px;
+  will-change: transform;
+}
+
+.ss-btns:disabled {
+  pointer-events: none;
+}
+
+.ss-btns:hover {
+  color: #fff;
+  background-color: #FE385C;
+  border: 2px solid #FE385C;
+  box-shadow: rgba(0, 0, 0, 0.25) 0 8px 15px;
+  transform: translateY(-2px);
+}
+
+.ss-btns:active {
+  box-shadow: none;
+  transform: translateY(0);
+}
+
+.ss-middle{
+    display: flex;
+    justify-content: space-between;
+
+}
+
+.ss-heads{
+    font-size: 1.3em;
+}
+
+.ss-check-in{
+    min-height: 277px;
+    width: 370px;
+    border: 1px solid rgb(221, 221, 221);
+    border-radius: 12px;
+    box-shadow: rgba(0 0 0 / 12%) 0px 6px 16px;
+}
+
+.ss-sh-info{
+    width: 653px;
+}
+
+.ss-host-info{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #DDDDDD;
+    padding-bottom: 5px;
+}
+
+.ss-host-head{
+    display: flex;
+    flex-direction: column;
+
+}
+
+.ss-host-spot-stats{
+    display: flex;
+    gap: 4px;
+    font-size: 1em;
+}
+
+.ss-perks{
+    display: flex;
+    flex-direction: column;
+    margin: 25px 0px;
+    gap: 10px;
+}
+.ss-single-perk{
+    display: flex;
+    gap: 15px;
+    /* font-size: .9em; */
+    /* align-items: center; */
+}
+.ss-single-perk p{
+    color: #717171;
+    font-size: .9em;
+    margin-top: -5px;
+}
+
+.ss-perks h3{
+    font-family: "airbnbMed";
+    font-size: 1em;
+}
+
+.perk-icon{
+    font-size: 1.6em;
+}
+
+.ss-description{
+    border-top: 1px solid #DDDDDD;
+    /* margin: 25px 0px; */
+    min-height: 150px;
+    padding: 25px 0px;
+}
+
+.ss-btm-head-review{
+    display: flex;
+    gap: 5px;
+    font-size: 1.4em;
+}
+
+.ss-btm-wrapper{
+    border-top: 1px solid #DDDDDD;
+    padding: 25px 0px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-bottom: 80px;
+}
+
+.ss-rev-bars{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 25px;
+}
+
+.single-rev-bar{
+    display: flex;
+    justify-content: space-between;
+    width: 470px;
+    align-items: center;
+}
+.single-rev-bar>p{
+    /* margin: 0px; */
+}
+
+.progress-bar-wrapper{
+    display: flex;
+    gap: 10px;
+    margin-top: 6px;
+}
+.progress-bar-wrapper>p{
+    margin-top: -7px;
+}
+
+.progress-bar{
+    background-color: black;
+    height: 4px;
+    width: 120px;
+}
+
+.progress{
+    height: 4px;
+    width: 120px;
+}
+
+.ss-all-reviews{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 120px;
+
+}
+
+.single-rev{
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    height: 84px;
+    width: 470px;
+}
+
+.create-rev{
+    margin-top: 130px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.sr-header{
+    display: flex;
+    gap: 8px;
+}
+
+.sr-header>p{
+    margin-top: 17px;
+}
+
+.rev-name{
+    display: flex;
+    flex-direction: column;
+    margin-top: 15px;
+
+}
+
+.trash-btn{
+    margin-top: -15px;
+    cursor: pointer;
+}
+
+.trash-btn:hover{
+    color: #FE385C;
+}
+
+.rev-body{
+    display: flex;
+    /* flex-wrap: wrap; */
+    word-wrap: normal;
+}
