@@ -3,6 +3,7 @@ import { useSelector, useDispatch } from "react-redux";
 import { getBookings } from "../../store/booking";
 import { NavLink } from "react-router-dom";
 import EditBookingForm from "./EditBooking";
+import DeleteBookingForm from "./DeleteBooking";
 
 function ShowAllBookings() {
   const dispatch = useDispatch();
@@ -20,6 +21,7 @@ function ShowAllBookings() {
           <div key={bookings[booking].id}>
             Spot ID:{bookings[booking].spotId}. Start Date:{bookings[booking].startDate}. End Date: {bookings[booking].endDate}.
             <EditBookingForm booking={bookings[booking]} />
+            <DeleteBookingForm booking={bookings[booking]} />
           </div>
       )}
       {/* {Object.keys(bookings).map(booking =>

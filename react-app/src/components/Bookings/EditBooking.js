@@ -10,7 +10,6 @@ function EditBookingForm({ booking }) {
   const id = booking.id;
   const spotId = booking.spotId;
   const userId = booking.spotId;
-  console.log(booking)
 
 
   const [startDate, setStartDate] = useState("YYYY-mm-dd");
