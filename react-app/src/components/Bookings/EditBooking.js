@@ -4,12 +4,17 @@ import { useSelector, useDispatch } from "react-redux";
 import { useHistory } from "react-router";
 import { updateBooking } from "../../store/booking";
 
-function EditBookingForm() {
+function EditBookingForm({ booking }) {
   const dispatch = useDispatch();
   const history = useHistory();
+  const id = booking.id;
+  const spotId = booking.spotId;
+  const userId = booking.spotId;
+  console.log(booking)
 
-  const [startDate, setStartDate] = useState(false);
-  const [endDate, setEndDate] = useState(false);
+
+  const [startDate, setStartDate] = useState("YYYY-mm-dd");
+  const [endDate, setEndDate] = useState("YYYY-mm-dd");
 
   const reset = () => {
     setStartDate("");
@@ -18,11 +23,15 @@ function EditBookingForm() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    const booking = {
+    const Booking = {
+      id,
+      spotId,
+      userId,
+      // ...booking,
       startDate,
       endDate
     }
-    let updatedBooking = await dispatch(updateBooking(booking));
+    let updatedBooking = await dispatch(updateBooking(Booking));
     if (updatedBooking) {
       // history.push()
       reset();

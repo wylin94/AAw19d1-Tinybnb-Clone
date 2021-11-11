@@ -62,6 +62,8 @@ export const updateBooking = (data) => async dispatch => {
     dispatch(editBooking(booking));
     return booking;
   }
+  const booking = await response.json();
+  console.log("!!!!!", booking.errors)
 };
 
 

@@ -12,7 +12,6 @@ function ShowAllBookings() {
     dispatch(getBookings())
   },[dispatch])
 
-  console.log("--->", bookings)
 
   return (
     <div>
@@ -20,7 +19,7 @@ function ShowAllBookings() {
         {Object.keys(bookings).map(booking =>
           <div key={bookings[booking].id}>
             Spot ID:{bookings[booking].spotId}. Start Date:{bookings[booking].startDate}. End Date: {bookings[booking].endDate}.
-            <EditBookingForm booking={booking} />
+            <EditBookingForm booking={bookings[booking]} />
           </div>
       )}
       {/* {Object.keys(bookings).map(booking =>

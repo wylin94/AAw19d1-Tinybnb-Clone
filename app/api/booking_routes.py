@@ -66,7 +66,7 @@ def delete_booking(id):
   if userId == deleted_booking.userId:
     db.session.delete(deleted_booking)
     db.session.commit()
-    return deleted_booking.to_dict()
+    return id.to_dict()
 
   else:
     return {'errors': ['No authorization.']}, 401
