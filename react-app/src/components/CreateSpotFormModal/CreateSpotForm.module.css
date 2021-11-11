@@ -1,17 +1,17 @@
 .createSpotFormContainer {
-  border: 1px solid grey;
-  padding: 20px;
-  width: 200px;
-  border-radius: 5px;
+	border: 1px solid grey;
+	padding: 20px;
+	width: 200px;
+	border-radius: 5px;
 }
 
 .createSpotFormTitle {
-  color: grey;
-  margin: 5px 0px 20px 7px;
-  font-size: 16px;
+	color: grey;
+	margin: 5px 0px 20px 7px;
+	font-size: 16px;
 }
 
-.createAlbumForm {
+/* .createAlbumForm {
   width: 100%;
 }
 
@@ -55,4 +55,4 @@
 
 .createAlbumForm button:active {
   background-color: #107fc4;
-}
+} */
