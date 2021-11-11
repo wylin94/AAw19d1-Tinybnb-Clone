@@ -47,10 +47,8 @@ def addSpots():
     db.session.commit()
     return newSpot.to_dict()
 
-@spot_routes.route('', methods=['PATCH'])
+@spot_routes.route('/<int:spot_id>', methods=['PATCH'])
 def editSpot(spot_id):
-
-    # Reserve for edit Spot form/modal
 
 
     editedSpot = Spot.query.get(spot_id)
@@ -59,15 +57,15 @@ def editSpot(spot_id):
     editedSpot.city = request.json["city"],
     editedSpot.state = request.json["state"],
     editedSpot.country = request.json["country"],
-    editedSpot.lat = request.json["lat"]
-    editedSpot.lng = request.json["lng"]
+    # editedSpot.lat = request.json["lat"]
+    # editedSpot.lng = request.json["lng"]
     editedSpot.name = request.json["name"],
     editedSpot.price = request.json["price"],
 
     db.session.commit()
     return editedSpot.to_dict()
 
-@spot_routes.route('', methods=['DELETE'])
+@spot_routes.route('/<int:spot_id>', methods=['DELETE'])
 def deleteSpot(spot_id):
 
     removeSpot = Spot.query.get(spot_id)

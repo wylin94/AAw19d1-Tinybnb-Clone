@@ -1,47 +1,35 @@
 from flask import Blueprint, request
 from app.models import Review, db
-from flask_login import login_required
-
 
 review_routes = Blueprint('reviews', __name__)
 
-
-@review_routes.route("", methods=["POST"])
-def addReview():
-
+@review_routes.route('/', methods=["GET", "POST"])
+def reviews():
     # Reserve for add Review form/modal
+    if request.method == "GET":
+        reviews = Review.query.all()
+        return {"allReviews": [review.to_dict() for review in reviews]}
+    if request.method == "POST":
+        body = request.json
+        new_review = Review(
+            user_id=body["userId"],
+            spot_id=body["spotId"],
+            clean_rating=body["cleanRating"],
+            accur_rating=body["accurRating"],
+            comm_rating=body["commRating"],
+            location_rating=body["locationRating"],
+            check_in_rating=body["checkInRating"],
+            value_rating=body["valueRating"],
+            review_text=body["reviewText"]
+        )
 
-    newReview = Review(
-
-        spotId = request.json['spotId'],
-        userId = request.json['userId'],
-        review = request.json['comment'],
-    )
-
-    db.session.add(newReview)
-    db.session.commit()
-    return newReview.to_dict()
-
-
-@review_routes.route('', methods=['PATCH'])
-def editReview(review_id):
-
-    # Reserve for edit Review form/modal
-
-    editedReview = Review.query.get(review_id)
-
-    editedReview.review = request.json["review"],
-   
-    db.session.commit()
-    return editedReview.to_dict()
-
+        db.session.add(new_review)
+        db.session.commit()
+        return new_review.to_dict()
 
 @review_routes.route('', methods=['DELETE'])
-def deleteReview(review_id):
-
-
-    deletedReview = Review.query.get(review_id)
-
-    db.session.delete(deletedReview)
+def deleteReview(id):
+    curr_review = Review.query.get(id)
+    db.session.delete(curr_review)
     db.session.commit()
-    return deletedReview.to_dict()
+    return 'ok'

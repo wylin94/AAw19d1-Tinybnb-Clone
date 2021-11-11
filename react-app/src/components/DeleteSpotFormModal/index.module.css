@@ -1,0 +1,26 @@
+.deleteSpotButton {
+	border: none;
+	/* background-color: rgb(227, 28, 95); */
+	background: linear-gradient(
+		90deg,
+		rgb(255, 56, 92),
+		rgb(230, 30, 77),
+		rgb(227, 28, 95),
+		rgb(215, 4, 109),
+		rgb(189, 30, 89)
+	);
+	color: white;
+	font-size: 15px;
+	width: 200px;
+	height: 45px;
+	border-radius: 10px;
+}
+
+.deleteSpotButton:hover {
+	/* background-color: rgb(255, 56, 92); */
+	cursor: pointer;
+}
+
+.deleteSpotButton:active {
+	transform: scale(0.95);
+}

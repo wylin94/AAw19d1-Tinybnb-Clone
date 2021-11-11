@@ -1,5 +1,5 @@
+from app.models.review import Review
 from .db import db
-
 
 class Spot(db.Model):
     __tablename__ = 'spots'
@@ -33,6 +33,7 @@ class Spot(db.Model):
             'lng': self.lng,
             'name': self.name,
             'price': self.price,
+            'user': self.user.get_user_info(),
             'images': [image.get_url() for image in self.images],
-            'reviews': [review.get_review() for review in self.reviews],
+            # 'reviews': [review.to_dict() for review in self.reviews],
         }
