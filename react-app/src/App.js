@@ -13,6 +13,7 @@ import SpotList from "./components/SpotList";
 import ShowAllBookings from "./components/Bookings/MyBooking";
 import MyHosting from "./components/MyHosting";
 import { authenticate } from "./store/session";
+import CreateBookingForm from "./components/Bookings/AddBooking";
 
 
 function App() {
@@ -62,6 +63,11 @@ function App() {
 				<Route path="/my-reservations" exact={true}>
 					<ShowAllBookings />
 				</Route>
+				<Route path="/add-reservation" exact={true}>
+					<CreateBookingForm />
+				</Route>
+
+
 				<Route>
 					<div>Page not found</div>
 				</Route>
