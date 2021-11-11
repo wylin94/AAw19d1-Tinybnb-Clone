@@ -17,7 +17,6 @@ function Home() {
 	// 	fetchData();
 	// }, []);
 	const dispatch = useDispatch();
-	// const spots = useSelector((state) => state.spot.spots);
 	const spots = useSelector((state) => state.spot);
 
 	useEffect(() => {

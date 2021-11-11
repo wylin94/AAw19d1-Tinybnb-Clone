@@ -6,14 +6,15 @@ import LoginForm from "./components/auth/LoginForm";
 import SignUpForm from "./components/auth/SignUpForm";
 import NavBar from "./components/NavBar/NavBar";
 import ProtectedRoute from "./components/auth/ProtectedRoute";
-import UsersList from "./components/UsersList";
+// import UsersList from "./components/UsersList";
 import User from "./components/User";
 import Home from "./components/Home";
-import SpotList from "./components/SpotList";
+// import SpotList from "./components/SpotList";
 import ShowAllBookings from "./components/Bookings/MyBooking";
 import MyHosting from "./components/MyHosting";
-import { authenticate } from "./store/session";
+import SingleSpot from "./components/SingleSpot";
 import CreateBookingForm from "./components/Bookings/AddBooking";
+import { authenticate } from "./store/session";
 
 
 function App() {
@@ -44,30 +45,27 @@ function App() {
 				<Route path="/sign-up" exact={true}>
 					<SignUpForm />
 				</Route>
-				<ProtectedRoute path="/users" exact={true}>
+				{/* <ProtectedRoute path="/users" exact={true}>
 					<UsersList />
-				</ProtectedRoute>
+				</ProtectedRoute> */}
 				<ProtectedRoute path="/users/:userId" exact={true}>
 					<User />
 				</ProtectedRoute>
-				<Route path="/spots/:cities" exact={true}>
+				{/* <Route path="/spots/:cities" exact={true}>
 					<SpotList />
-				</Route>
-				{/* <Route path="/spots/:spotId" exact={true}>
-					<Spot />
 				</Route> */}
-
+				<Route path="/spots/:spotId" exact={true}>
+					<SingleSpot />
+				</Route>
 				<Route path="/my-hosting" exact={true}>
 					<MyHosting />
 				</Route>
 				<Route path="/my-reservations" exact={true}>
 					<ShowAllBookings />
 				</Route>
-				<Route path="/add-reservation" exact={true}>
+				{/* <Route path="/add-reservation" exact={true}>
 					<CreateBookingForm />
-				</Route>
-
-
+				</Route> */}
 				<Route>
 					<div>Page not found</div>
 				</Route>

@@ -2,7 +2,9 @@ import React, { useEffect } from "react";
 import { useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { useHistory } from "react-router";
+
 import { createBooking } from "../../store/booking";
+import styles from "./AddBooking.module.css";
 
 function CreateBookingForm() {
   const dispatch = useDispatch();
@@ -40,8 +42,7 @@ function CreateBookingForm() {
 
 
   return (
-    <div>
-      <h1>Add Booking Page</h1>
+    <div className={styles.formContainer}>
       <form onSubmit={handleSubmit}>
         <div>
           <label htmlFor="checkin-date">Start Date</label>
