@@ -1,24 +1,19 @@
 import React, { useEffect } from "react";
 import { useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { useHistory } from "react-router-dom";
-import { useParams } from "react-router-dom";
-import { authenticate } from "../../store/session";
+import { useHistory } from "react-router";
+import { updateBooking } from "../../store/booking";
 
-
-import { createBooking } from "../../store/booking";
-import styles from "./AddBooking.module.css";
-
-function CreateBookingForm() {
-
+function EditBookingForm({ booking }) {
   const dispatch = useDispatch();
   const history = useHistory();
+  const id = booking.id;
+  const spotId = booking.spotId;
+  const userId = booking.spotId;
 
-  const userId = useSelector(state => state.session.user.id);
-  const { spotId } = useParams();
 
-  const [startDate, setStartDate] = useState(false);
-  const [endDate, setEndDate] = useState(false);
+  const [startDate, setStartDate] = useState("YYYY-mm-dd");
+  const [endDate, setEndDate] = useState("YYYY-mm-dd");
 
   const reset = () => {
     setStartDate("");
@@ -27,17 +22,20 @@ function CreateBookingForm() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    const booking = {
+    const Booking = {
+      id,
       spotId,
       userId,
+      // ...booking,
       startDate,
       endDate
     }
-    let createdBooking = await dispatch(createBooking(booking));
-    let updateSession = await dispatch(authenticate());
-    if (createdBooking) {
+    let updatedBooking = await dispatch(updateBooking(Booking));
+    if (updatedBooking) {
       // history.push()
       reset();
+    } else {
+      new Error("Please fill in all required fields")
     }
   }
 
@@ -45,10 +43,9 @@ function CreateBookingForm() {
     e.preventDefault();
   }
 
-
-
   return (
-    <div className={styles.formContainer}>
+    <div>
+      <h3>Edit Booking</h3>
       <form onSubmit={handleSubmit}>
         <div>
           <label htmlFor="checkin-date">Start Date</label>
@@ -69,6 +66,11 @@ function CreateBookingForm() {
       </form>
     </div>
   )
+
+
+
+
+
 }
 
-export default CreateBookingForm
+export default EditBookingForm

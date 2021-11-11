@@ -23,10 +23,11 @@ def add_booking():
   form = NewBookingForm()
   form["csrf_token"].data = request.cookies["csrf_token"]
 
+
   if form.validate_on_submit():
     new_booking = Booking(
       spotId = form.data['spotId'],
-      userId = current_user.id,
+      userId = form.data['userId'],
       startDate = form.data['startDate'],
       endDate = form.data['endDate']
     )
@@ -63,10 +64,9 @@ def delete_booking(id):
   userId = current_user.id
   deleted_booking = Booking.query.get(id)
 
-  if userId == deleted_booking.userId:
-    db.session.delete(deleted_booking)
-    db.session.commit()
-    return deleted_booking.to_dict()
+  if not deleted_booking or deleted_booking.userId != current_user.id:
+    return {"errors": ["No authorization"]}, 401
 
-  else:
-    return {'errors': ['No authorization.']}, 401
+  db.session.delete(deleted_booking)
+  db.session.commit()
+  return deleted_booking.to_dict()

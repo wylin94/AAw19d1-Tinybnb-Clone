@@ -1,7 +1,7 @@
 from flask_wtf import FlaskForm
-from wtforms import DateTimeField
+from wtforms import DateField
 from wtforms.validators import DataRequired
 
 class EditBookingForm(FlaskForm):
-  startDate = DateTimeField('startDate', validators=[DataRequired()])
-  endDate = DateTimeField('endDate', validators=[DataRequired()])
+  startDate = DateField('startDate', validators=[DataRequired()])
+  endDate = DateField('endDate', validators=[DataRequired()])
