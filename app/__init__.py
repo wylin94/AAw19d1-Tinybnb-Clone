@@ -8,9 +8,10 @@ from flask_login import LoginManager
 from .models import db, User
 from .api.user_routes import user_routes
 from .api.auth_routes import auth_routes
-from .api.spot_routes import spot_routes
-from .api.booking_routes import booking_routes
+from .api.spots_routes import spots_routes
+from .api.bookings_routes import booking_routes
 from .api.review_routes import review_routes
+from .api.spot_pic_routes import spot_pic_routes
 from .api.map_routes import map_routes
 
 from .seeds import seed_commands
@@ -35,9 +36,10 @@ app.cli.add_command(seed_commands)
 app.config.from_object(Config)
 app.register_blueprint(user_routes, url_prefix='/api/users')
 app.register_blueprint(auth_routes, url_prefix='/api/auth')
-app.register_blueprint(spot_routes, url_prefix='/api/spots')
+app.register_blueprint(spots_routes, url_prefix='/api/spots')
 app.register_blueprint(booking_routes, url_prefix='/api/bookings')
 app.register_blueprint(review_routes, url_prefix='/api/reviews')
+app.register_blueprint(spot_pic_routes, url_prefix='/api/spotpics')
 app.register_blueprint(map_routes, url_prefix='/api/map')
 
 
@@ -80,4 +82,3 @@ def react_root(path):
     if path == 'favicon.ico':
         return app.send_static_file('favicon.ico')
     return app.send_static_file('index.html')
-

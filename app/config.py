@@ -1,6 +1,5 @@
 import os
 
-
 class Config:
     SECRET_KEY = os.environ.get('SECRET_KEY')
     SQLALCHEMY_TRACK_MODIFICATIONS = False
@@ -13,4 +12,3 @@ class Config:
     SQLALCHEMY_ECHO = True
 
     MAPS_API_KEY = os.environ.get('MAPS_API_KEY')
-
