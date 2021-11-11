@@ -5,40 +5,41 @@ import { useParams } from "react-router";
 import { useHistory } from "react-router-dom";
 
 import { authenticate } from "../../store/session";
+import { editSpot } from "../../store/spot";
+import styles from "./EditSpotForm.module.css";
 
-import { createSpot } from "../../store/spot";
-import styles from "./CreateSpotForm.module.css";
-
-function CreateSpotForm({ onClose }) {
+function EditSpotForm({ spot, onClose }) {
 	const dispatch = useDispatch();
 	const history = useHistory();
-
 	const userId = useSelector((state) => state.session.user?.id);
 
-	const [address, setAddress] = useState("");
-	const [city, setCity] = useState("");
-	const [state, setState] = useState("");
-	const [country, setCountry] = useState("");
-	const [name, setName] = useState("");
-	const [price, setPrice] = useState("");
+	const [id, setId] = useState(spot.id);
+	const [address, setAddress] = useState(spot.address);
+	const [city, setCity] = useState(spot.city);
+	const [state, setState] = useState(spot.state);
+	const [country, setCountry] = useState(spot.country);
+	const [name, setName] = useState(spot.name);
+	// const [lat, setLat] = useState(spot.lat);
+	// const [lng, setLng] = useState(spot.lng);
+	const [price, setPrice] = useState(spot.price);
 
-	const handleCreateSubmit = async (e) => {
+	const handleEditSubmit = async (e) => {
 		e.preventDefault();
 
-		const data = { userId, address, city, state, country, name, price };
+		const data = { id, address, city, state, country, name, price };
 
-		let newSpot = await dispatch(createSpot(data));
+		let editedSpot = await dispatch(editSpot(data));
 		let updateSession = await dispatch(authenticate());
-		if (newSpot) {
+		if (editedSpot) {
 			onClose();
 			history.push("/my-hosting");
 		}
 	};
 
 	return (
-		<div className={styles.createSpotFormContainer}>
-			<h2 className={styles.createSpotFormTitle}>Create Spot</h2>
-			<form onSubmit={handleCreateSubmit}>
+		<div className={styles.editSpotFormContainer}>
+			<h2 className={styles.editSpotFormTitle}>Edit Spot</h2>
+			<form onSubmit={handleEditSubmit}>
 				<label>Adddress</label>
 				<input
 					type="text"
@@ -67,6 +68,18 @@ function CreateSpotForm({ onClose }) {
 					value={country}
 					onChange={(e) => setCountry(e.target.value)}
 				/>
+				{/* <input
+					type="text"
+					required
+					value={lat}
+					onChange={(e) => setCountry(e.target.value)}
+				/>
+				<input
+					type="text"
+					required
+					value={lng}
+					onChange={(e) => setCountry(e.target.value)}
+				/> */}
 				<label>Name</label>
 				<input
 					type="text"
@@ -81,10 +94,10 @@ function CreateSpotForm({ onClose }) {
 					value={price}
 					onChange={(e) => setPrice(e.target.value)}
 				/>
-				<button type="submit">Create</button>
+				<button type="submit">Update</button>
 			</form>
 		</div>
 	);
 }
 
-export default CreateSpotForm;
+export default EditSpotForm;

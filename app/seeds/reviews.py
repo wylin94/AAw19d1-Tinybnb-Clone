@@ -1,56 +1,20 @@
 from app.models import db, Review
 
-
-# Adds a demo user, you can add other users here if you want
 def seed_reviews():
     review1 = Review(
-        spotId='1',
-        userId='2',
-        review='It\'s good.',
+        user_id=2,
+        spot_id=1,
+        clean_rating=5,
+        accur_rating=4,
+        comm_rating=4,
+        location_rating=5,
+        check_in_rating=4,
+        value_rating=4,
+        review_text='This place was an absolute blast to stay at, would highly recommend'
     )
 
-    review2 = Review(
-        spotId='1',
-        userId='3',
-        review='It\'s good.',
-    )
-
-    review3 = Review(
-        spotId='2',
-        userId='1',
-        review='It\'s good.',
-    )
-
-    review4 = Review(
-        spotId='2',
-        userId='3',
-        review='It\'s good.',
-    )
-
-    review5 = Review(
-        spotId='3',
-        userId='1',
-        review='It\'s good.',
-    )
-
-    review6 = Review(
-        spotId='3',
-        userId='2',
-        review='It\'s good.',
-    )
-
-    
     db.session.add(review1)
-    db.session.add(review2)
-    db.session.add(review3)
-    db.session.add(review4)
-    db.session.add(review5)
-    db.session.add(review6)
-
-
-
     db.session.commit()
-
 
 # Uses a raw SQL query to TRUNCATE the users table.
 # SQLAlchemy doesn't have a built in function to do this
