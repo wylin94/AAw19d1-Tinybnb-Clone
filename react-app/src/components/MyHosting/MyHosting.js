@@ -9,8 +9,16 @@ import DeleteSpotFormModal from "../DeleteSpotFormModal";
 
 import styles from "./MyHosting.module.css";
 
-function MyHosing() {
+function MyHosting() {
 	const spots = useSelector((state) => state.session.user.spots);
+
+	const GMapSetting = {
+		width: "400px",
+		height: "400px",
+		lat: 37.0902,
+		lng: -95.7129,
+		zoom: 3,
+	}
 
 	return (
 		<>
@@ -20,7 +28,7 @@ function MyHosing() {
 				{spots?.map((spot) => {
 					return (
 						<div key={spot.id} className={styles.spotContainer}>
-							<NavLink to={"/"}>
+							<NavLink to={`/spots/${spot.id}`}>
 								<div className={styles.spotInnerContainer}>
 									<img
 										className={styles.spotCover}
@@ -47,10 +55,10 @@ function MyHosing() {
 				})}
 			</div>
 			<div className="googleMapContainer">
-				<MapContainer spots={spots} />
+				<MapContainer spots={spots} GMapSetting={GMapSetting}/>
 			</div>
 		</>
 	);
 }
 
-export default MyHosing;
+export default MyHosting;

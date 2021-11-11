@@ -1,23 +1,24 @@
 import React from "react";
 import { GoogleMap, useJsApiLoader, Marker } from "@react-google-maps/api";
 
-import CustomMarker from "./googleMarker.png";
+import CustomMarker from "./googleMarker2.png";
 
-const containerStyle = {
-	width: "400px",
-	height: "400px",
-};
-
-const center = {
-	lat: 37.0902,
-	lng: -95.7129,
-};
-
-const Maps = ({ apiKey, spots }) => {
+const Maps = ({ apiKey, spots , GMapSetting}) => {
+	console.log('spots', spots)
 	const { isLoaded } = useJsApiLoader({
 		id: "google-map-script",
 		googleMapsApiKey: apiKey,
 	});
+
+	const containerStyle = {
+		width: GMapSetting.width,
+		height: GMapSetting.height,
+	};
+
+	const center = {
+		lat: GMapSetting.lat,
+		lng: GMapSetting.lng,
+	};
 
 	return (
 		<>
@@ -26,7 +27,7 @@ const Maps = ({ apiKey, spots }) => {
 					<GoogleMap
 						mapContainerStyle={containerStyle}
 						center={center}
-						zoom={3}
+						zoom={GMapSetting.zoom}
 					>
 						{spots?.map((spot) => (
 							<Marker
@@ -37,8 +38,8 @@ const Maps = ({ apiKey, spots }) => {
 								}}
 								icon={{
 									url: CustomMarker,
-									scaledSize: new window.google.maps.Size(40, 30),
-									labelOrigin: new window.google.maps.Point(18, 12),
+									scaledSize: new window.google.maps.Size(38, 26),
+									labelOrigin: new window.google.maps.Point(18, 11),
 									// anchor: new window.google.maps.Point(0, 0)
 								}}
 								label={`$`+spot.price.toString()}

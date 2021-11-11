@@ -33,6 +33,7 @@ class Spot(db.Model):
             'lng': self.lng,
             'name': self.name,
             'price': self.price,
+            'user': self.user.get_user_info(),
             'images': [image.get_url() for image in self.images],
-            'reviews': [review.to_dict() for review in self.reviews],
+            # 'reviews': [review.to_dict() for review in self.reviews],
         }

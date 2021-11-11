@@ -1,0 +1,67 @@
+.singleSpotContainer {
+    /* background-color: red; */
+    width: 70%;
+    margin: auto;
+}
+
+.spotImagesContainer {
+    display: flex;
+    /* flex-direction: row; */
+}
+
+.imageLeft {
+
+}
+
+.imageMid {
+    display: flex;
+    flex-direction: column;
+}
+
+.imageRight {
+    display: flex;
+    flex-direction: column;
+    
+}
+
+.image1 {
+    width: 553px;
+    border-radius: 15px 0px 0px 15px;
+    margin-right: 5px;
+}
+
+.image2 {
+    margin: 0px 5px 5px 5px;
+}
+
+.image3 {
+    margin: 5px 5px 0px 5px;
+}
+
+.image4 {
+    border-radius: 0px 15px 0px 0px;
+    margin: 0px 0px 5px 5px;
+}
+
+.image5 {
+    border-radius: 0px 0px 15px 0px;
+    margin: 5px 0px 5px 5px;
+}
+
+.image2, .image3, .image4, .image5 {
+    width: 250px;
+} 
+
+.profilePicture {
+    width: 55px;
+    border-radius: 100px;
+}
+
+.infoBodyContainer {
+    display: flex;
+    
+}
+
+.infoTitleContainer {
+    display: flex;
+}

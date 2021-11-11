@@ -10,7 +10,7 @@ class User(db.Model, UserMixin):
     username = db.Column(db.String(40), nullable=False, unique=True)
     email = db.Column(db.String(255), nullable=False, unique=True)
     hashed_password = db.Column(db.String(255), nullable=False)
-    profile_picture = db.Column(db.String(255))
+    profile_pic = db.Column(db.String(255))
 
     spots = db.relationship("Spot", back_populates="user")
     bookings = db.relationship("Booking", back_populates="user")
@@ -33,7 +33,14 @@ class User(db.Model, UserMixin):
             'id': self.id,
             'username': self.username,
             'email': self.email,
-            'profile_picture': self.profile_picture,
+            'profile_pic': self.profile_pic,
             'spots': [spot.to_dict() for spot in self.spots],
             'bookings': [booking.get_booking() for booking in self.bookings],
+        }
+
+    def get_user_info(self):
+        return{
+            'username': self.username,
+            'email': self.email,
+            'profile_pic': self.profile_pic,
         }
