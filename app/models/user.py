@@ -2,20 +2,20 @@ from .db import db
 from werkzeug.security import generate_password_hash, check_password_hash
 from flask_login import UserMixin
 
+
 class User(db.Model, UserMixin):
     __tablename__ = 'users'
 
     id = db.Column(db.Integer, primary_key=True)
-    name = db.Column(db.String(40), nullable=False)
+    username = db.Column(db.String(40), nullable=False, unique=True)
     email = db.Column(db.String(255), nullable=False, unique=True)
     hashed_password = db.Column(db.String(255), nullable=False)
-    profile_pic = db.Column(db.String(255))
-    bio = db.Column(db.Text)
-    is_superhost = db.Column(db.Boolean, default=False)
+    profile_picture = db.Column(db.String(255))
 
     spots = db.relationship("Spot", back_populates="user")
     bookings = db.relationship("Booking", back_populates="user")
     reviews = db.relationship("Review", back_populates="user")
+
 
     @property
     def password(self):
@@ -31,9 +31,9 @@ class User(db.Model, UserMixin):
     def to_dict(self):
         return {
             'id': self.id,
-            'name': self.name,
+            'username': self.username,
             'email': self.email,
-            'bio': self.bio,
-            'profile_pic': self.profile_pic,
-            'is_superhost': self.is_superhost
+            'profile_picture': self.profile_picture,
+            'spots': [spot.to_dict() for spot in self.spots],
+            'bookings': [booking.get_booking() for booking in self.bookings],
         }

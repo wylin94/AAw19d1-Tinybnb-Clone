@@ -27,7 +27,7 @@ def reviews():
         db.session.commit()
         return new_review.to_dict()
 
-@review_routes.route('/<int:id>', methods=['DELETE'])
+@review_routes.route('', methods=['DELETE'])
 def deleteReview(id):
     curr_review = Review.query.get(id)
     db.session.delete(curr_review)
