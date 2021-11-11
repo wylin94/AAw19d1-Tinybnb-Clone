@@ -1,17 +1,33 @@
 import React from "react";
 import { useState } from "react";
-import { Dispatch } from "react";
+import { getBookings } from "../../store/booking";
 import { useDispatch } from "react-redux";
 import { deleteBooking } from "../../store/booking";
+import { useHistory } from "react-router-dom";
+import { authenticate } from "../../store/session";
+import { useSelector } from "react-redux";
+
 
 function DeleteBookingForm( { booking }) {
-  const dispatch = useDispatch()
-  const bookingId = booking.id
+  const dispatch = useDispatch();
+  const bookingId = booking.id;
+  const history = useHistory();
+  const bookings = useSelector(state => state.booking)
+
+  // const [, updateState] = React.useState();
+  // const forceUpdate = React.useCallback(() => updateState({}), []);
+
+
   console.log(bookingId)
 
-  const handleDelete = (e) => {
+  const handleDelete = async (e) => {
     e.preventDefault();
-    dispatch(deleteBooking(bookingId))
+    let deletedBooking = await dispatch(deleteBooking(bookingId));
+    let updateSession = await dispatch(authenticate());
+    if (deletedBooking) {
+      let allBookings = await dispatch(getBookings())
+      history.push("/my-reservations");
+    }
   }
 
   if (booking !== null || booking !== undefined) {

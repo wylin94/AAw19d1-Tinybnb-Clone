@@ -33,13 +33,12 @@ export const getBookings = () => async dispatch => {
 }
 
 export const createBooking = (booking) => async dispatch => {
-  const response = await fetch(`/api/bookings`, {
+  const response = await fetch(`/api/bookings/`, {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify(booking),
 
   });
-
   if (response.ok) {
     const newBooking = await response.json();
     dispatch(addBooking(newBooking));

@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { NavLink } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
-import { useParams } from "react-router";
+import { useParams } from "react-router-dom";
 import { useHistory } from "react-router-dom";
 
 import { authenticate } from "../../store/session";

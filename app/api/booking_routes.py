@@ -23,10 +23,11 @@ def add_booking():
   form = NewBookingForm()
   form["csrf_token"].data = request.cookies["csrf_token"]
 
+
   if form.validate_on_submit():
     new_booking = Booking(
       spotId = form.data['spotId'],
-      userId = current_user.id,
+      userId = form.data['userId'],
       startDate = form.data['startDate'],
       endDate = form.data['endDate']
     )

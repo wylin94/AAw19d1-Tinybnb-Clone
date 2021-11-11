@@ -1,17 +1,22 @@
 import React, { useEffect } from "react";
 import { useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { useHistory } from "react-router";
+import { useHistory } from "react-router-dom";
+import { useParams } from "react-router-dom";
+import { authenticate } from "../../store/session";
+
 
 import { createBooking } from "../../store/booking";
 import styles from "./AddBooking.module.css";
 
 function CreateBookingForm() {
+
   const dispatch = useDispatch();
   const history = useHistory();
 
-  // const userId = useSelector(state => state.session.user.id);
-  // const spotId
+  const userId = useSelector(state => state.session.user.id);
+  const { spotId } = useParams();
+
   const [startDate, setStartDate] = useState(false);
   const [endDate, setEndDate] = useState(false);
 
@@ -23,12 +28,13 @@ function CreateBookingForm() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     const booking = {
-      // spotId,
-      // userId,
+      spotId,
+      userId,
       startDate,
       endDate
     }
     let createdBooking = await dispatch(createBooking(booking));
+    let updateSession = await dispatch(authenticate());
     if (createdBooking) {
       // history.push()
       reset();
