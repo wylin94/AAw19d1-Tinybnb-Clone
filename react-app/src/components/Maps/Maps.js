@@ -1,6 +1,8 @@
 import React from "react";
 import { GoogleMap, useJsApiLoader, Marker } from "@react-google-maps/api";
 
+import CustomMarker from "./googleMarker.png";
+
 const containerStyle = {
 	width: "400px",
 	height: "400px",
@@ -33,6 +35,13 @@ const Maps = ({ apiKey, spots }) => {
 									lat: spot.lat,
 									lng: spot.lng,
 								}}
+								icon={{
+									url: CustomMarker,
+									scaledSize: new window.google.maps.Size(40, 30),
+									labelOrigin: new window.google.maps.Point(18, 12),
+									// anchor: new window.google.maps.Point(0, 0)
+								}}
+								label={`$`+spot.price.toString()}
 							/>
 						))}
 					</GoogleMap>
