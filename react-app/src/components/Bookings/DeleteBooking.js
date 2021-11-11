@@ -17,9 +17,6 @@ function DeleteBookingForm( { booking }) {
   // const [, updateState] = React.useState();
   // const forceUpdate = React.useCallback(() => updateState({}), []);
 
-
-  console.log(bookingId)
-
   const handleDelete = async (e) => {
     e.preventDefault();
     let deletedBooking = await dispatch(deleteBooking(bookingId));
