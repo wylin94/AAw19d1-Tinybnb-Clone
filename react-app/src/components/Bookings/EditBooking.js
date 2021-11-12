@@ -4,7 +4,7 @@ import { useSelector, useDispatch } from "react-redux";
 import { useHistory } from "react-router";
 import { updateBooking } from "../../store/booking";
 
-function EditBookingForm({ booking }) {
+function EditBookingForm({ booking, onClose }) {
   const dispatch = useDispatch();
   const history = useHistory();
   const id = booking.id;
@@ -33,14 +33,18 @@ function EditBookingForm({ booking }) {
     let updatedBooking = await dispatch(updateBooking(Booking));
     if (updatedBooking) {
       // history.push()
+      onClose();
       reset();
+      history.push("/my-reservations")
     } else {
       new Error("Please fill in all required fields")
     }
   }
 
   const handleCancelClick = (e) => {
-    e.preventDefault();
+    onClose();
+    reset();
+    history.push("/my-reservations");
   }
 
   return (
