@@ -1,0 +1,14 @@
+.prgress-bar-wrapper{
+    height: 10px;
+    width: 50px;
+    display: flex;
+}
+
+.progress{
+    width: 60px;
+    height: 10px;
+}
+
+.prog-num{
+    font-size: .8em;
+}
