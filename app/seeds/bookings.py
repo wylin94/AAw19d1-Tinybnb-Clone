@@ -4,19 +4,19 @@ from app.models import db, Booking
 # Adds a demo user, you can add other users here if you want
 def seed_bookings():
     booking1 = Booking(
-        spot_id=1,
-        user_id=2,
-        start_date='2021-12-01',
-        end_date='2021-12-06',
-        num_guests=3
+        spotId=1,
+        userId=2,
+        startDate='2021-12-01',
+        endDate='2021-12-06',
+        numGuests=3
     )
 
     booking2 = Booking(
-        spot_id=1,
-        user_id=1,
-        start_date='2021-12-07',
-        end_date='2021-12-12',
-        num_guests=2
+        spotId=1,
+        userId=1,
+        startDate='2021-12-07',
+        endDate='2021-12-12',
+        numGuests=2
     )
 
     db.session.add(booking1)

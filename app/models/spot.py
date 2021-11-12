@@ -17,7 +17,7 @@ class Spot(db.Model):
     st_address = db.Column(db.String(255), nullable=False)
     longitude = db.Column(db.Float, nullable=False)
     latitude = db.Column(db.Float, nullable=False)
-    user_id = db.Column(db.Integer, db.ForeignKey("users.id"),nullable=False)
+    userId = db.Column(db.Integer, db.ForeignKey("users.id"),nullable=False)
 
 
     #relationship

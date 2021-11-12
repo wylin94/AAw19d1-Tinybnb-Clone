@@ -12,7 +12,7 @@ def spot_pics():
         body = request.json
         if body["spotId"]:
             new_pic = SpotPic(
-                spot_id=body["spotId"],
+                spotId=body["spotId"],
                 img_url=body["imgUrl"]
             )
             db.session.add(new_pic)

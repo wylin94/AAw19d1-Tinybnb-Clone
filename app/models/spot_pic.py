@@ -4,7 +4,7 @@ class SpotPic(db.Model):
     __tablename__ = 'spotPics'
 
     id = db.Column(db.Integer, primary_key=True)
-    spot_id = db.Column(db.Integer, db.ForeignKey('spots.id'), nullable=False)
+    spotId = db.Column(db.Integer, db.ForeignKey('spots.id'), nullable=False)
     img_url = db.Column(db.Text, nullable=False)
 
     spot = db.relationship('Spot', back_populates='spot_pics')
@@ -12,6 +12,6 @@ class SpotPic(db.Model):
     def to_dict(self):
         return {
             'id': self.id,
-            'spot_id': self.spot_id,
+            'spotId': self.spotId,
             'imgUrl': self.img_url
         }

@@ -8,7 +8,7 @@ class Booking(db.Model):
     userId = db.Column(db.Integer, db.ForeignKey("users.id"), nullable=False)
     startDate = db.Column(db.DateTime, nullable=False)
     endDate = db.Column(db.DateTime, nullable=False)
-    num_guests = db.Column(db.Integer, nullable=False)
+    numGuests = db.Column(db.Integer, nullable=False)
 
     spot = db.relationship("Spot", back_populates="bookings")
     user = db.relationship("User", back_populates="bookings")
@@ -20,5 +20,5 @@ class Booking(db.Model):
             'userId': self.userId,
             'startDate': self.startDate,
             'endDate': self.endDate,
-            'numGuest': self.num_guests
+            'numGuest': self.numGuests
         }

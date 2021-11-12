@@ -1,43 +1,43 @@
-import React, { useState, useEffect } from 'react';
-import { BrowserRouter, Route, Switch } from 'react-router-dom';
-import { useDispatch } from 'react-redux';
-import LoginForm from './components/auth/LoginForm';
-import SignUpForm from './components/auth/SignUpForm';
-import NavBar from './components/NavBar/NavBar';
-import ProtectedRoute from './components/auth/ProtectedRoute';
-import UsersList from './components/UsersList';
-import User from './components/User';
-import { authenticate } from './store/session';
-import { fetchAllSpots } from './store/allSpots'
-import { fetchSpot, updateSpot } from './store/currentSpot'
-import { fetchProfile, updateProfile } from './store/currProfile'
-import { fetchBookings, deleteBooking, addBooking } from './store/bookings'
-import { fetchAllLocations } from './store/locations'
-import { fetchAllReviews } from './store/reviews';
-import SplashPage from './components/SplashPage/SplashPage';
-import SpotsPage from './components/SpotsPage/SpotsPage';
-import SingleSpot from './components/SingleSpotPage/SingleSpot';
-import CreateSpot from './components/CreateSpotFormModal/CreateSpot';
-import ProfilePage from './components/ProfilePage/ProfilePage';
-import Bookings from './components/Bookings/Bookings';
-import EditSpot from './components/EditSpot/EditSpot';
+import React, { useState, useEffect } from "react";
+import { BrowserRouter, Route, Switch } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import LoginForm from "./components/auth/LoginForm";
+import SignUpForm from "./components/auth/SignUpForm";
+import NavBar from "./components/NavBar/NavBar";
+import ProtectedRoute from "./components/auth/ProtectedRoute";
+import UsersList from "./components/UsersList";
+import User from "./components/User";
+import { authenticate } from "./store/session";
+import { fetchAllSpots } from "./store/allSpots";
+import { fetchSpot, updateSpot } from "./store/currentSpot";
+import { fetchProfile, updateProfile } from "./store/currProfile";
+import { fetchBookings, deleteBooking, addBooking } from "./store/bookings";
+import { fetchAllLocations } from "./store/locations";
+import { fetchAllReviews } from "./store/reviews";
+import SplashPage from "./components/SplashPage/SplashPage";
+import SpotsPage from "./components/SpotsPage/SpotsPage";
+import SingleSpot from "./components/SingleSpotPage/SingleSpot";
+import CreateSpot from "./components/CreateSpotFormModal/CreateSpot";
+import ProfilePage from "./components/ProfilePage/ProfilePage";
+import Bookings from "./components/Bookings/Bookings";
+import EditSpot from "./components/EditSpot/EditSpot";
+import MyHosting from "./components/MyHosting/MyHosting";
+import ShowAllBookings from "./components/Bookings/MyBooking";
 
 function App() {
 	const [loaded, setLoaded] = useState(false);
 	const dispatch = useDispatch();
 
-
 	useEffect(() => {
 		(async () => {
 			await dispatch(authenticate());
-			await dispatch(fetchAllSpots())
-			await dispatch(fetchBookings())
-			await dispatch(fetchAllLocations())
+			await dispatch(fetchAllSpots());
+			await dispatch(fetchBookings());
+			await dispatch(fetchAllLocations());
 			// await dispatch(fetchAllReviews())
 			setLoaded(true);
 		})();
 	}, [dispatch]);
-
 
 	if (!loaded) {
 		return null;
@@ -73,6 +73,15 @@ function App() {
 				</Route>
 				<Route path="/rooms/:spotId" exact={true}>
 					<SingleSpot />
+				</Route>
+				<Route path="/my-hosting" exact={true}>
+					<MyHosting />
+				</Route>
+				<Route path="/my-reservations" exact={true}>
+					<ShowAllBookings />
+				</Route>
+				<Route>
+					<div>Page not found</div>
 				</Route>
 			</Switch>
 		</BrowserRouter>

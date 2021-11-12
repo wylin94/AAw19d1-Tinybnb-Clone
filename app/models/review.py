@@ -5,8 +5,8 @@ class Review(db.Model):
     __tablename__ = 'reviews'
 
     id = db.Column(db.Integer, primary_key=True)
-    user_id = db.Column(db.Integer, db.ForeignKey('users.id'), nullable=False)
-    spot_id = db.Column(db.Integer, db.ForeignKey('spots.id'), nullable=False)
+    userId = db.Column(db.Integer, db.ForeignKey('users.id'), nullable=False)
+    spotId = db.Column(db.Integer, db.ForeignKey('spots.id'), nullable=False)
     clean_rating = db.Column(db.Integer, nullable=False)
     accur_rating = db.Column(db.Integer, nullable=False)
     comm_rating = db.Column(db.Integer, nullable=False)
@@ -21,8 +21,8 @@ class Review(db.Model):
     def to_dict(self):
         return {
             'id': self.id,
-            'userId': self.user_id,
-            'spotId': self.spot_id,
+            'userId': self.userId,
+            'spotId': self.spotId,
             'cleanRating': self.clean_rating,
             'accurRating': self.accur_rating,
             'commRating': self.comm_rating,

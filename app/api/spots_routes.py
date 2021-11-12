@@ -44,7 +44,7 @@ def create_spot():
         st_address=form.data['st_address'],
         longitude=form.data['longitude'],
         latitude=form.data['latitude'],
-        user_id=body['userId']
+        userId=body['userId']
         )
         db.session.add(spot),
         db.session.commit()

@@ -1,28 +1,28 @@
 import React, { useState } from "react";
 
 import { Modal } from "../../context/Modal";
-import DeleteSpotForm from "./DeleteSpotForm";
+import EditSpotForm from "./EditSpotForm";
 import styles from "./index.module.css";
 
-function DeleteSpotFormModal({ spot }) {
+function EditSpotFormModal({ spot }) {
 	const [showModal, setShowModal] = useState(false);
 
 	return (
 		<>
 			<button
-				title="Delete Spot"
-				className={styles.deleteSpotButton}
+				title="Edit Spot"
+				className={styles.editSpotButton}
 				onClick={() => setShowModal(true)}
 			>
-				Delete Spot
+				Edit Spot
 			</button>
 			{showModal && (
 				<Modal onClose={() => setShowModal(false)}>
-					<DeleteSpotForm spot={spot} onClose={() => setShowModal(false)} />
+					<EditSpotForm spot={spot} onClose={() => setShowModal(false)} />
 				</Modal>
 			)}
 		</>
 	);
 }
 
-export default DeleteSpotFormModal;
+export default EditSpotFormModal;

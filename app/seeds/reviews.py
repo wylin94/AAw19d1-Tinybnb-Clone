@@ -2,8 +2,8 @@ from app.models import db, Review
 
 def seed_reviews():
     review1 = Review(
-        user_id=2,
-        spot_id=1,
+        userId=2,
+        spotId=1,
         clean_rating=5,
         accur_rating=4,
         comm_rating=4,

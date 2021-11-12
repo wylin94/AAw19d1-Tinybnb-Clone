@@ -1,4 +1,4 @@
-.deleteSpotButton {
+.editSpotButton {
 	border: none;
 	/* background-color: rgb(227, 28, 95); */
 	background: linear-gradient(
@@ -16,11 +16,11 @@
 	border-radius: 10px;
 }
 
-.deleteSpotButton:hover {
+.editSpotButton:hover {
 	/* background-color: rgb(255, 56, 92); */
 	cursor: pointer;
 }
 
-.deleteSpotButton:active {
+.editSpotButton:active {
 	transform: scale(0.95);
 }

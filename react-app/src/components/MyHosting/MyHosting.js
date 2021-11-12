@@ -9,8 +9,11 @@ import DeleteSpotFormModal from "../DeleteSpotFormModal";
 
 import styles from "./MyHosting.module.css";
 
-function MyHosing() {
-	const spots = useSelector((state) => state.session.user.spots);
+function MyHosting() {
+	const userId = useSelector((state) => state.session.user.id);
+	const spots = useSelector((state) =>
+		state.allSpots.find((ele) => ele.user.id === userId)
+	);
 
 	return (
 		<>
@@ -53,4 +56,4 @@ function MyHosing() {
 	);
 }
 
-export default MyHosing;
+export default MyHosting;

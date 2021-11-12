@@ -11,8 +11,8 @@ def reviews():
     if request.method == "POST":
         body = request.json
         new_review = Review(
-            user_id=body["userId"],
-            spot_id=body["spotId"],
+            userId=body["userId"],
+            spotId=body["spotId"],
             clean_rating=body["cleanRating"],
             accur_rating=body["accurRating"],
             comm_rating=body["commRating"],

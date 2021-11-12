@@ -16,7 +16,7 @@ def seed_spots():
         st_address='123 Test Ave, San Jose, CA 94088',
         longitude='-122.00983107099384',
         latitude='37.561299565623536',
-        user_id=1,
+        userId=1,
     )
 
     db.session.add(spot1)

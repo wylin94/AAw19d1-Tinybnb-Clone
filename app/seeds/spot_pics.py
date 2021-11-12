@@ -3,17 +3,17 @@ from app.models import db, SpotPic
 # Adds a demo user, you can add other users here if you want
 def seed_spot_pics():
     pic1 = SpotPic(
-        spot_id=1,
+        spotId=1,
         img_url='https://aceraft.com/wp-content/uploads/2019/04/ACE-Adventure-Adventure-Resort-West-Virginia-Rental-Cabin-Aspen.jpg',
     )
 
     pic2 = SpotPic(
-        spot_id=1,
+        spotId=1,
         img_url='https://www.cruisemummy.co.uk/wp-content/uploads/2019/07/britannia-inside-1.jpg',
     )
 
     pic3 = SpotPic(
-        spot_id=1,
+        spotId=1,
         img_url='https://cdn.pixabay.com/photo/2019/03/02/19/50/log-cabin-4030556_1280.jpg',
     )
 

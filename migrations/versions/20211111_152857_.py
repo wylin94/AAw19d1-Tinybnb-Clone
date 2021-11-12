@@ -1,8 +1,8 @@
 """empty message
 
-Revision ID: 511cdd06efba
+Revision ID: 0aa8510bd0bd
 Revises: 
-Create Date: 2021-11-11 13:58:19.454782
+Create Date: 2021-11-11 15:28:57.018690
 
 """
 from alembic import op
@@ -10,7 +10,7 @@ import sqlalchemy as sa
 
 
 # revision identifiers, used by Alembic.
-revision = '511cdd06efba'
+revision = '0aa8510bd0bd'
 down_revision = None
 branch_labels = None
 depends_on = None
@@ -43,8 +43,8 @@ def upgrade():
     sa.Column('st_address', sa.String(length=255), nullable=False),
     sa.Column('longitude', sa.Float(), nullable=False),
     sa.Column('latitude', sa.Float(), nullable=False),
-    sa.Column('user_id', sa.Integer(), nullable=False),
-    sa.ForeignKeyConstraint(['user_id'], ['users.id'], ),
+    sa.Column('userId', sa.Integer(), nullable=False),
+    sa.ForeignKeyConstraint(['userId'], ['users.id'], ),
     sa.PrimaryKeyConstraint('id')
     )
     op.create_table('bookings',
@@ -53,15 +53,15 @@ def upgrade():
     sa.Column('userId', sa.Integer(), nullable=False),
     sa.Column('startDate', sa.DateTime(), nullable=False),
     sa.Column('endDate', sa.DateTime(), nullable=False),
-    sa.Column('num_guests', sa.Integer(), nullable=False),
+    sa.Column('numGuests', sa.Integer(), nullable=False),
     sa.ForeignKeyConstraint(['spotId'], ['spots.id'], ),
     sa.ForeignKeyConstraint(['userId'], ['users.id'], ),
     sa.PrimaryKeyConstraint('id')
     )
     op.create_table('reviews',
     sa.Column('id', sa.Integer(), nullable=False),
-    sa.Column('user_id', sa.Integer(), nullable=False),
-    sa.Column('spot_id', sa.Integer(), nullable=False),
+    sa.Column('userId', sa.Integer(), nullable=False),
+    sa.Column('spotId', sa.Integer(), nullable=False),
     sa.Column('clean_rating', sa.Integer(), nullable=False),
     sa.Column('accur_rating', sa.Integer(), nullable=False),
     sa.Column('comm_rating', sa.Integer(), nullable=False),
@@ -69,15 +69,15 @@ def upgrade():
     sa.Column('check_in_rating', sa.Integer(), nullable=False),
     sa.Column('value_rating', sa.Integer(), nullable=False),
     sa.Column('review_text', sa.Text(), nullable=False),
-    sa.ForeignKeyConstraint(['spot_id'], ['spots.id'], ),
-    sa.ForeignKeyConstraint(['user_id'], ['users.id'], ),
+    sa.ForeignKeyConstraint(['spotId'], ['spots.id'], ),
+    sa.ForeignKeyConstraint(['userId'], ['users.id'], ),
     sa.PrimaryKeyConstraint('id')
     )
     op.create_table('spotPics',
     sa.Column('id', sa.Integer(), nullable=False),
-    sa.Column('spot_id', sa.Integer(), nullable=False),
+    sa.Column('spotId', sa.Integer(), nullable=False),
     sa.Column('img_url', sa.Text(), nullable=False),
-    sa.ForeignKeyConstraint(['spot_id'], ['spots.id'], ),
+    sa.ForeignKeyConstraint(['spotId'], ['spots.id'], ),
     sa.PrimaryKeyConstraint('id')
     )
     # ### end Alembic commands ###
