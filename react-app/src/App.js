@@ -15,9 +15,9 @@ import MyHosting from "./components/MyHosting";
 import SingleSpot from "./components/SingleSpot";
 import CreateBookingForm from "./components/Bookings/AddBooking";
 import { authenticate } from "./store/session";
-import { fetchAllLocations } from './store/locations'
+import { fetchAllLocations } from "./store/locations";
 // import { fetchAllSpots } from './store/allSpots'
-
+import { getSpots } from "./store/spot";
 
 function App() {
 	const [loaded, setLoaded] = useState(false);
@@ -26,8 +26,8 @@ function App() {
 	useEffect(() => {
 		(async () => {
 			await dispatch(authenticate());
-			await dispatch(fetchAllLocations())
-			// await dispatch(fetchAllSpots())
+			// await dispatch(fetchAllLocations())
+			await dispatch(getSpots());
 			setLoaded(true);
 		})();
 	}, [dispatch]);
@@ -73,7 +73,6 @@ function App() {
 				<Route>
 					<div>Page not found</div>
 				</Route>
-
 			</Switch>
 		</BrowserRouter>
 	);
