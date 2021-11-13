@@ -1,8 +1,8 @@
 """empty message
 
-Revision ID: 511cdd06efba
+Revision ID: de94dafad269
 Revises: 
-Create Date: 2021-11-11 13:58:19.454782
+Create Date: 2021-11-11 20:09:12.199949
 
 """
 from alembic import op
@@ -10,7 +10,7 @@ import sqlalchemy as sa
 
 
 # revision identifiers, used by Alembic.
-revision = '511cdd06efba'
+revision = 'de94dafad269'
 down_revision = None
 branch_labels = None
 depends_on = None
@@ -49,13 +49,13 @@ def upgrade():
     )
     op.create_table('bookings',
     sa.Column('id', sa.Integer(), nullable=False),
-    sa.Column('spotId', sa.Integer(), nullable=False),
-    sa.Column('userId', sa.Integer(), nullable=False),
-    sa.Column('startDate', sa.DateTime(), nullable=False),
-    sa.Column('endDate', sa.DateTime(), nullable=False),
+    sa.Column('spot_id', sa.Integer(), nullable=False),
+    sa.Column('user_id', sa.Integer(), nullable=False),
+    sa.Column('start_date', sa.DateTime(), nullable=False),
+    sa.Column('end_date', sa.DateTime(), nullable=False),
     sa.Column('num_guests', sa.Integer(), nullable=False),
-    sa.ForeignKeyConstraint(['spotId'], ['spots.id'], ),
-    sa.ForeignKeyConstraint(['userId'], ['users.id'], ),
+    sa.ForeignKeyConstraint(['spot_id'], ['spots.id'], ),
+    sa.ForeignKeyConstraint(['user_id'], ['users.id'], ),
     sa.PrimaryKeyConstraint('id')
     )
     op.create_table('reviews',
