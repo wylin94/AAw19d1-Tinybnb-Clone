@@ -1,3 +1,14 @@
+.myHostingWrapper {
+    /* position: relative; */
+    display: flex;
+    flex-direction: row;
+    width: 100vw;
+}
+
+.myHostingLeftContainer {
+    width: 50%;
+}
+
 .spotContainer {
     border-top: 1px solid rgb(206, 205, 205);
     width: 50%
@@ -15,4 +26,15 @@
 
 .spotInfo {
     margin: 10px;
+}
+
+.googleMapContainer {
+    width: 50%;
+}
+
+.googleMapContainer > div {
+    height: calc(100vh - 96px);
+    width: 100%;
+    position: sticky;
+    top: 81px;
 }

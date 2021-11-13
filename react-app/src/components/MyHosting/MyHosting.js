@@ -22,40 +22,42 @@ function MyHosting() {
 
 	return (
 		<>
-			<h1>My Hosting Spot</h1>
-			<CreateSpotFormModal />
-			<div>
-				{spots?.map((spot) => {
-					return (
-						<div key={spot.id} className={styles.spotContainer}>
-							<NavLink to={`/spots/${spot.id}`}>
-								<div className={styles.spotInnerContainer}>
-									<img
-										className={styles.spotCover}
-										src={spot?.images[0]?.url}
-										alt={spot.name}
-									></img>
-									<div className={styles.spotInfo}>
-										<div>{spot.name}</div>
-										<div>
-											{spot.city} {spot.state} {spot.country}
+			<div className={styles.myHostingWrapper}>
+				<div className={styles.myHostingLeftContainer}>
+					<h1>My Hosting Spot</h1>
+					<CreateSpotFormModal />
+					{spots?.map((spot) => {
+						return (
+							<div key={spot.id} className={styles.spotContainer}>
+								<NavLink to={`/spots/${spot.id}`}>
+									<div className={styles.spotInnerContainer}>
+										<img
+											className={styles.spotCover}
+											src={spot?.images[0]?.url}
+											alt={spot.name}
+										></img>
+										<div className={styles.spotInfo}>
+											<div>{spot.name}</div>
+											<div>
+												{spot.city} {spot.state} {spot.country}
+											</div>
+											<div>${spot.price}/night</div>
 										</div>
-										<div>${spot.price}/night</div>
 									</div>
+								</NavLink>
+								<div>
+									<EditSpotFormModal spot={spot} />
 								</div>
-							</NavLink>
-							<div>
-								<EditSpotFormModal spot={spot} />
+								<div>
+									<DeleteSpotFormModal spot={spot} />
+								</div>
 							</div>
-							<div>
-								<DeleteSpotFormModal spot={spot} />
-							</div>
-						</div>
-					);
-				})}
-			</div>
-			<div className="googleMapContainer">
-				<MapContainer spots={spots} GMapSetting={GMapSetting}/>
+						);
+					})}
+				</div>
+				<div className={styles.googleMapContainer}>
+					<MapContainer spots={spots} GMapSetting={GMapSetting}/>
+				</div>
 			</div>
 		</>
 	);
