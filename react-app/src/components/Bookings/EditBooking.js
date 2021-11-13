@@ -55,13 +55,13 @@ function EditBookingForm({ booking, onClose }) {
           <label htmlFor="checkin-date">Start Date</label>
         </div>
         <div>
-          <input name="checkin-date" type="date" value={startDate} onChange={e => setStartDate(e.target.value)} />
+          <input name="checkin-date" type="date" value={startDate} onChange={e => setStartDate(e.target.value)} required/>
         </div>
         <div>
           <label htmlFor="checkout-date">End Date</label>
         </div>
         <div>
-          <input name="checkout-date" type="date" value={endDate} onChange={e => setEndDate(e.target.value)} />
+          <input name="checkout-date" type="date" value={endDate} onChange={e => setEndDate(e.target.value)} required/>
         </div>
         <div>
           <button type="submit">Submit</button>

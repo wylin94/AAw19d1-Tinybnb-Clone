@@ -5,6 +5,7 @@ import { NavLink } from "react-router-dom";
 import EditBookingForm from "./EditBooking";
 import DeleteBookingForm from "./DeleteBooking";
 import EditBookingFormModal from "./EditIndex";
+import DeleteBookingFormModal from "./DeleteIndex";
 
 function ShowAllBookings() {
   const dispatch = useDispatch();
@@ -22,8 +23,11 @@ function ShowAllBookings() {
           <div key={bookings[booking].id}>
             Spot ID:{bookings[booking].spotId}. Start Date:{bookings[booking].startDate}. End Date: {bookings[booking].endDate}.
             {/* <EditBookingForm booking={bookings[booking]} /> */}
-            <EditBookingFormModal booking={bookings[booking]} />
-            <DeleteBookingForm booking={bookings[booking]} />
+              {/* <DeleteBookingForm booking={bookings[booking]} /> */}
+            <div>
+              <EditBookingFormModal booking={bookings[booking]} />
+              <DeleteBookingFormModal booking={bookings[booking]} />
+            </div>
           </div>
       )}
       {/* {Object.keys(bookings).map(booking =>
