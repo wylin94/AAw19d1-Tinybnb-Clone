@@ -15,6 +15,8 @@ import MyHosting from "./components/MyHosting";
 import SingleSpot from "./components/SingleSpot";
 import CreateBookingForm from "./components/Bookings/AddBooking";
 import { authenticate } from "./store/session";
+import { fetchAllLocations } from './store/locations'
+// import { fetchAllSpots } from './store/allSpots'
 
 
 function App() {
@@ -24,6 +26,8 @@ function App() {
 	useEffect(() => {
 		(async () => {
 			await dispatch(authenticate());
+			await dispatch(fetchAllLocations())
+			// await dispatch(fetchAllSpots())
 			setLoaded(true);
 		})();
 	}, [dispatch]);
