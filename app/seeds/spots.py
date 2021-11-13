@@ -169,20 +169,20 @@ def seed_spots():
         userId=2,
     )
     spot5 = Spot(
-        name='Name5',
+        name='Modern Santa Monica Beach Home with Views',
         price=899,
-        description='This a test location, this should work.',
+        description='Gorgeous new construction state-of-the-art masterpiece steps from the beach. 5,000 square ft of absolutely stunning, luxury new construction is a seashore adjacent fantasy come true. Sleek and modern, this home is minimalist in design yet abundant in warmth and luxury. Rooftop deck with ocean view, hot tub and firepit! One block walk to restaurants, bars, clubs, shopping and of course world famous Santa Monica Beach! Sleeps up to 12 lucky guests! 5 Bedrooms, 6 bathrooms + yoga / playroom.',
         spot_type="Beach House",
         num_bedrooms=5,
-        num_baths=5,
-        num_beds=5,
+        num_baths=6,
+        num_beds=8,
         total_guests=10,
         city='Santa Monica',
         state='California',
         country='USA',
-        address='123 Test Ave, San Jose, CA 94088',
-        lng='-122.00983107099384',
-        lat='37.561299565623536',
+        address='315 Montana Ave',
+        lng='-118.4961643',
+        lat='34.0212954',
         userId=3,
     )
     spot6 = Spot(
