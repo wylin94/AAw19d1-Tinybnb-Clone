@@ -1,12 +1,19 @@
 .myHostingWrapper {
-    /* position: relative; */
     display: flex;
     flex-direction: row;
-    width: 100vw;
 }
 
 .myHostingLeftContainer {
     width: 50%;
+    margin: 25px;
+}
+
+.title {
+    font-size: 30px;
+    font-weight: bold;
+    font-family: Circular -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
+    sans-serif;
 }
 
 .spotContainer {

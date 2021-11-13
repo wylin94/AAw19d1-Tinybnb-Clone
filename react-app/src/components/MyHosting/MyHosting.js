@@ -24,7 +24,7 @@ function MyHosting() {
 		<>
 			<div className={styles.myHostingWrapper}>
 				<div className={styles.myHostingLeftContainer}>
-					<h1>My Hosting Spot</h1>
+					<h1 className={styles.title}>My Hosting Spot</h1>
 					<CreateSpotFormModal />
 					{spots?.map((spot) => {
 						return (
