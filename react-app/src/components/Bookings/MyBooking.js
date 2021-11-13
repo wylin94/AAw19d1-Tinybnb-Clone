@@ -6,6 +6,7 @@ import EditBookingForm from "./EditBooking";
 import DeleteBookingForm from "./DeleteBooking";
 import EditBookingFormModal from "./EditIndex";
 import DeleteBookingFormModal from "./DeleteIndex";
+import SingleSpotInfo from "./SpotInfo";
 
 function ShowAllBookings() {
   const dispatch = useDispatch();
@@ -22,7 +23,8 @@ function ShowAllBookings() {
         {Object.keys(bookings).map(booking =>
           <div key={bookings[booking].id}>
             <div>
-              Spot ID: {bookings[booking].spotId}
+              {/* Spot ID: {bookings[booking].spotId} */}
+              <SingleSpotInfo booking={bookings[booking]} />
             </div>
             <div>
               Start Date: {bookings[booking].startDate}

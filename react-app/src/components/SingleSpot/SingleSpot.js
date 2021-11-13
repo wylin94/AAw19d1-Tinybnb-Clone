@@ -67,7 +67,7 @@ function SingleSpot() {
                     <MapContainer spot={spot} GMapSetting={GMapSetting}/>
                 </div>
             </div>
-            
+
         </div>
     )
 }
