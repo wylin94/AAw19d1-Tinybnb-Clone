@@ -6,7 +6,7 @@ import { onlyWhiteSpace } from '../multipurpose'
 
 import './CreateReview.css'
 
-function CreateReview({ spot, madeReview }) {
+function CreateReview({ spotId, madeReview }) {
   const { user } = useSelector(state => state.session)
   const dispatch = useDispatch()
   const [cleanRating, setCleanRating] = useState(0)
@@ -48,7 +48,7 @@ function CreateReview({ spot, madeReview }) {
     } else if (cleanRating && accurRating && commRating && locationRating && checkInRating && valueRating && reviewText.length <= 3000 && reviewText.length > 0) {
       const newReview = {
         userId: user.id,
-        spotId: spot.id,
+        spotId: spotId,
         cleanRating,
         accurRating,
         commRating,
