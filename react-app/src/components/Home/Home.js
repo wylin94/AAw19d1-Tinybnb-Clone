@@ -26,7 +26,7 @@ function Home() {
 	return (
 		<div>
 			<div className={styles.splashImageContainer}>
-				<img className={styles.splashImage}src="/images/a17d549e-6268-4910-8d65-1ba98a93b6e3.jpeg" alt='Home Page'></img>
+				<img className={styles.splashImage}src="https://tinybnb.s3.us-west-1.amazonaws.com/homepage.jpeg" alt='Home Page'></img>
 				<div>Not sure where to go? Perfect.</div>
 				<button>I'm flexible</button>
 			</div>

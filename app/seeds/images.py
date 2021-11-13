@@ -5,27 +5,27 @@ from app.models import db, Image
 def seed_images():
     image1 = Image(
         spotId='1',
-        url='https://a0.muscache.com/im/pictures/miso/Hosting-52599791/original/481ecf18-a3f5-4e80-83ea-25b729c8bb3d.jpeg?im_w=1200',
+        url='https://tinybnb.s3.us-west-1.amazonaws.com/spot1.jpeg',
     )
 
     image2 = Image(
         spotId='1',
-        url='https://a0.muscache.com/im/pictures/miso/Hosting-52599791/original/9d8dc3fe-acb1-4cd6-ac4e-68531f108d40.jpeg?im_w=720',
+        url='https://tinybnb.s3.us-west-1.amazonaws.com/spot2.jpeg',
     )
 
     image3 = Image(
         spotId='1',
-        url='https://a0.muscache.com/im/pictures/miso/Hosting-52599791/original/a0620dd6-bc2f-4139-99d6-a62076d268d4.jpeg?im_w=720',
+        url='https://tinybnb.s3.us-west-1.amazonaws.com/spot3.jpeg',
     )
 
     image4 = Image(
         spotId='1',
-        url='https://a0.muscache.com/im/pictures/miso/Hosting-52599791/original/9d8dc3fe-acb1-4cd6-ac4e-68531f108d40.jpeg?im_w=720',
+        url='https://tinybnb.s3.us-west-1.amazonaws.com/spot4.jpeg',
     )
 
     image5 = Image(
         spotId='1',
-        url='https://a0.muscache.com/im/pictures/miso/Hosting-52599791/original/e77f0da7-a691-4155-84d1-6e6271c04492.jpeg?im_w=720',
+        url='https://tinybnb.s3.us-west-1.amazonaws.com/spot5.jpeg',
     )
 
     image6 = Image(
