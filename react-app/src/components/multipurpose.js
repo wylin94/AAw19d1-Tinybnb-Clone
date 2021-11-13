@@ -16,30 +16,29 @@ export const checkIfImageExists = (url) => {
   return outcome
 }
 
-export const errorHandler = (err) => {
-  const splitErr = err.split(':')
-  if (splitErr[0] === "name " && splitErr[1] === " This field is required.") {
-    return "Please provide a name."
+export const specRevAvg = (reviews, revSec) => {
+  let avg = 0
+  // console.log(revSec)
+  // console.log(reviews)
+  reviews?.forEach(review => {
+    avg += review[revSec]
+  })
+  // console.log(avg/reviews.length)
+  return (avg / reviews?.length).toFixed(1)
+}
+
+export const onlyWhiteSpace = (str) => {
+  if (!str.replace(/\s/g, "").length) {
+    return true
+  } else {
+    return false
   }
-  if (splitErr[0] === "password " && splitErr[1] === " This field is required.") {
-    return "Please provide a password."
+}
+
+export const avgReview = (reviews) => {
+  let avg = 0
+  for (let i = 0; i < reviews?.length; i++) {
+    avg += reviews[i].avgRating
   }
-  if (splitErr[0] === "password " && splitErr[1] === " Password was incorrect.") {
-    return "Password was incorrect."
-  }
-  if (splitErr[0] === "email " && splitErr[1] === " This field is required.") {
-    return "Please provide an email."
-  }
-  if (splitErr[0] === "email " && splitErr[1] === " Email address is already in use.") {
-    return "Email address is already in use."
-  }
-  if (splitErr[0] === "pass") {
-    return "Passwords do not match."
-  }
-  if (splitErr[1] === " Email provided not found.") {
-    return "Invalid email."
-  }
-  if (splitErr[1] === " No such user exists.") {
-    return "Invalid password."
-  }
+  return (avg / reviews?.length).toFixed(2)
 }
