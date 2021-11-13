@@ -21,7 +21,15 @@ function ShowAllBookings() {
       <h1>My reservations</h1>
         {Object.keys(bookings).map(booking =>
           <div key={bookings[booking].id}>
-            Spot ID:{bookings[booking].spotId}. Start Date:{bookings[booking].startDate}. End Date: {bookings[booking].endDate}.
+            <div>
+              Spot ID: {bookings[booking].spotId}
+            </div>
+            <div>
+              Start Date: {bookings[booking].startDate}
+            </div>
+            <div>
+              End Date: {bookings[booking].endDate}
+            </div>
             {/* <EditBookingForm booking={bookings[booking]} /> */}
               {/* <DeleteBookingForm booking={bookings[booking]} /> */}
             <div>
