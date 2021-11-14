@@ -65,7 +65,7 @@ function Home() {
 							spots?.map((spot, index) => {
 								if (index < 6) {
 									return (
-										<div className="single-state">
+										<div key={spot.id} className="single-state">
 											<NavLink
 												className="inactive sssp"
 												to={`/spots/${spot?.id}`}
