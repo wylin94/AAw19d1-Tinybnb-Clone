@@ -8,7 +8,7 @@ import { authenticate } from "../../store/session";
 import { useSelector } from "react-redux";
 
 
-function DeleteBookingForm( { booking }) {
+function DeleteBookingForm({ booking, onClose }) {
   const dispatch = useDispatch();
   const bookingId = booking.id;
   const history = useHistory();
@@ -20,9 +20,10 @@ function DeleteBookingForm( { booking }) {
   const handleDelete = async (e) => {
     e.preventDefault();
     let deletedBooking = await dispatch(deleteBooking(bookingId));
-    let updateSession = await dispatch(authenticate());
+    // let updateSession = await dispatch(authenticate());
     if (deletedBooking) {
-      let allBookings = await dispatch(getBookings())
+      // let allBookings = await dispatch(getBookings())
+      onClose();
       history.push("/my-reservations");
     }
   }
@@ -31,7 +32,7 @@ function DeleteBookingForm( { booking }) {
 
     return (
       <div>
-        <h3>Delete Booking</h3>
+        <h4>Are you sure you want to delete this booking?</h4>
         <form onSubmit={handleDelete}>
           <button type="submit">Delete</button>
         </form>
