@@ -142,3 +142,13 @@ nav {
 .logout-botton:hover {
 	color: #fe385c;
 }
+
+.logout-botton > button {
+	border: none;
+	background-color: transparent;
+	margin-left: -5px;
+}
+
+.logout-botton > button:hover {
+	color: #fe385c;
+}

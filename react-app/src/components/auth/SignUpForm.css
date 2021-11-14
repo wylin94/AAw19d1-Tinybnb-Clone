@@ -1,0 +1,27 @@
+.signupForm {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, .4);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 900;
+}
+
+.signupFormInner {
+  position: relative;
+  padding: 20px;
+  width: 555px;
+  height: 50%;
+  background-color: white;
+  display: flex;
+  flex-direction: column;
+  border-radius: 15px;
+}
+
+.singup-top {
+    
+}
