@@ -11,7 +11,7 @@ import styles from "./MyHosting.module.css";
 
 function MyHosting() {
 	const spots = useSelector((state) => state.session.user.spots);
-
+	console.log(1)
 	const GMapSetting = {
 		width: "400px",
 		height: "400px",
