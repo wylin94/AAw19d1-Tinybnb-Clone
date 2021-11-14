@@ -65,18 +65,8 @@ function SingleSpot() {
                         <div>Entire house hosted by {spot?.user.username}</div>
                         <img className={styles.profilePicture}src={spot?.user.profile_pic} alt="profile_pic"></img>
                     </div>
-                    <div>
-                        *******Placeholder: More detail about the spot goes here****
-                    </div>
                 </div>
                 <CreateBookingForm />
-            </div>
-
-            <div>
-                <div>Where you'll be</div>
-                <div className="googleMapContainer">
-                    <MapContainer spot={spot} GMapSetting={GMapSetting}/>
-                </div>
             </div>
 
             <section id="reviewSection">
@@ -155,6 +145,12 @@ function SingleSpot() {
                 </div>
             </section>
 
+            <div>
+                <div>Where you'll be</div>
+                <div className={styles.googleMapContainer}>
+                    <MapContainer spot={spot} GMapSetting={GMapSetting}/>
+                </div>
+            </div>
 
         </div>
     )

@@ -2,7 +2,7 @@ import React from "react";
 import { GoogleMap, useJsApiLoader, Marker } from "@react-google-maps/api";
 
 import CustomMarker from "./googleMarker2.png";
-import styles from "./Maps.module.css";
+// import styles from "./Maps.module.css";
 
 const Maps = ({ apiKey, spot, spots , GMapSetting}) => {
 	console.log('spots', spots)
@@ -25,7 +25,7 @@ const Maps = ({ apiKey, spot, spots , GMapSetting}) => {
 		<>
 			{spot && isLoaded && (
 				<>
-					<div className={styles.mapWrapper}>
+					{/* <div className={styles.mapWrapper}> */}
 						<GoogleMap
 							mapContainerStyle={containerStyle}
 							center={center}
@@ -46,13 +46,13 @@ const Maps = ({ apiKey, spot, spots , GMapSetting}) => {
 								label={`$`+spot.price.toString()}
 							/>
 						</GoogleMap>
-					</div>
+					{/* </div> */}
 				</>
 			)}
 
 			{spots && isLoaded && (
 				<>
-					<div className={styles.mapWrapper}>
+					<div>
 						<GoogleMap
 							mapContainerStyle={containerStyle}
 							center={center}

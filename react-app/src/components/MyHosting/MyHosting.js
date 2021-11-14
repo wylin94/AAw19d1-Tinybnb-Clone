@@ -24,12 +24,12 @@ function MyHosting() {
 		<>
 			<div className={styles.myHostingWrapper}>
 				<div className={styles.myHostingLeftContainer}>
-					<h1 className={styles.title}>My Hosting Spot</h1>
 					<CreateSpotFormModal />
+					<h1 className={styles.title}>My Hosting Spot</h1>
 					{spots?.map((spot) => {
 						return (
 							<div key={spot.id} className={styles.spotContainer}>
-								<NavLink to={`/spots/${spot.id}`}>
+								<NavLink className={styles.navlink} to={`/spots/${spot.id}`}>
 									<div className={styles.spotInnerContainer}>
 										<img
 											className={styles.spotCover}
@@ -37,18 +37,15 @@ function MyHosting() {
 											alt={spot.name}
 										></img>
 										<div className={styles.spotInfo}>
-											<div>{spot.name}</div>
-											<div>
-												{spot.city} {spot.state} {spot.country}
-											</div>
-											<div>${spot.price}/night</div>
+											<div className={styles.spotText}>Entire rental unit in {spot.city}</div>
+											<div className={styles.spotTitle}>{spot.name}</div>
+											<div className={styles.spotDetail}>{spot.city}, {spot.state} {spot.country}</div>
+											<div className={styles.spotPrice}>${spot.price} / night</div>
 										</div>
 									</div>
 								</NavLink>
-								<div>
+								<div className={styles.editDeleteButton}>
 									<EditSpotFormModal spot={spot} />
-								</div>
-								<div>
 									<DeleteSpotFormModal spot={spot} />
 								</div>
 							</div>
