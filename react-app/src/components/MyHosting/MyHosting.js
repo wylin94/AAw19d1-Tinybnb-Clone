@@ -11,7 +11,7 @@ import styles from "./MyHosting.module.css";
 
 function MyHosting() {
 	const spots = useSelector((state) => state.session.user.spots);
-
+	console.log(1)
 	const GMapSetting = {
 		width: "400px",
 		height: "400px",
@@ -22,40 +22,39 @@ function MyHosting() {
 
 	return (
 		<>
-			<h1>My Hosting Spot</h1>
-			<CreateSpotFormModal />
-			<div>
-				{spots?.map((spot) => {
-					return (
-						<div key={spot.id} className={styles.spotContainer}>
-							<NavLink to={`/spots/${spot.id}`}>
-								<div className={styles.spotInnerContainer}>
-									<img
-										className={styles.spotCover}
-										src={spot?.images[0]?.url}
-										alt={spot.name}
-									></img>
-									<div className={styles.spotInfo}>
-										<div>{spot.name}</div>
-										<div>
-											{spot.city} {spot.state} {spot.country}
+			<div className={styles.myHostingWrapper}>
+				<div className={styles.myHostingLeftContainer}>
+					<CreateSpotFormModal />
+					<h1 className={styles.title}>My Hosting Spot</h1>
+					{spots?.map((spot) => {
+						return (
+							<div key={spot.id} className={styles.spotContainer}>
+								<NavLink className={styles.navlink} to={`/spots/${spot.id}`}>
+									<div className={styles.spotInnerContainer}>
+										<img
+											className={styles.spotCover}
+											src={spot?.images[0]?.url}
+											alt={spot.name}
+										></img>
+										<div className={styles.spotInfo}>
+											<div className={styles.spotText}>Entire rental unit in {spot.city}</div>
+											<div className={styles.spotTitle}>{spot.name}</div>
+											<div className={styles.spotDetail}>{spot.city}, {spot.state} {spot.country}</div>
+											<div className={styles.spotPrice}>${spot.price} / night</div>
 										</div>
-										<div>${spot.price}/night</div>
 									</div>
+								</NavLink>
+								<div className={styles.editDeleteButton}>
+									<EditSpotFormModal spot={spot} />
+									<DeleteSpotFormModal spot={spot} />
 								</div>
-							</NavLink>
-							<div>
-								<EditSpotFormModal spot={spot} />
 							</div>
-							<div>
-								<DeleteSpotFormModal spot={spot} />
-							</div>
-						</div>
-					);
-				})}
-			</div>
-			<div className="googleMapContainer">
-				<MapContainer spots={spots} GMapSetting={GMapSetting}/>
+						);
+					})}
+				</div>
+				<div className={styles.googleMapContainer}>
+					<MapContainer spots={spots} GMapSetting={GMapSetting}/>
+				</div>
 			</div>
 		</>
 	);
