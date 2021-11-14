@@ -23,7 +23,7 @@ function SingleSpot() {
     const spot = useSelector((state) => state.spot.spots?.find(ele => ele.id === +spotId))
     const spotReviews = reviews?.filter(review => review.spotId === spot.id)
     const madeReview = spotReviews?.filter(review => review?.userId === user?.id).length > 0 ? true : false
-    
+    console.log(1)
 	const GMapSetting = {
 		width: "1200px",
 		height: "400px",
