@@ -7,12 +7,15 @@ function SingleSpotInfo({booking}) {
   const dispatch = useDispatch();
   const spotId = booking.spotId;
   const allSpots = useSelector((state) => state.session.user.spots);
-  const singleSpot = allSpots.find(element => element.id == spotId)
-  console.log(singleSpot);
+  const singleSpot = allSpots.find(element => element.id == spotId);
+  const city = singleSpot.city;
+  const spotUrl = singleSpot.images[0].url
+  console.log(spotUrl);
 
   return (
     <div>
-      <h3>Single Spot Detail</h3>
+      <h4>Your stay in {city}</h4>
+      <img src={spotUrl} alt="spotImage1"></img>
     </div>
   )
 
