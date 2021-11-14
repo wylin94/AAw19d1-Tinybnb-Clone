@@ -34,3 +34,9 @@ body {
 body {
 	background-color: #f3f5f6;
 }
+
+body {
+  font-family: Circular -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
+    sans-serif;
+}
