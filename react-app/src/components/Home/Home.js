@@ -4,7 +4,7 @@ import { NavLink } from "react-router-dom";
 import LoginForm from "../auth/LoginForm";
 import { getSpots } from "../../store/spot";
 
-import CreateSpotFormModal from "../CreateSpotFormModal";
+// import CreateSpotFormModal from "../CreateSpotFormModal";
 import TinyBnBVideo from "../Video/TinyBnBVideo.mp4";
 
 import "./Home.css";

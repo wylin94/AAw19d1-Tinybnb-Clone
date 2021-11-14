@@ -1,8 +1,8 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { NavLink } from "react-router-dom";
 import LogoutButton from "../auth/LogoutButton";
-import { authenticate, login } from "../../store/session";
+import { login } from "../../store/session";
 import { MdStorage } from "react-icons/md";
 import { checkIfImageExists } from "../multipurpose";
 import LoginForm from "../auth/LoginForm";

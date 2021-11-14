@@ -19,13 +19,9 @@ const getLocationsAction = (allLocations) => ({
 
 export const fetchAllLocations = () => async (dispatch) => {
   const allSpots = await fetch("/api/spots/");
-  console.log(allSpots)
   const spots = await allSpots.json();
-  console.log(spots)
-  console.log(spots.allSpots)
   const locations = {}
   spots.spots.forEach(spot => locations[spot.city] = "City")
-  //   console.log(locations)
   dispatch(getLocationsAction(Object.keys(locations)));
 };
 

@@ -5,7 +5,6 @@ import CustomMarker from "./googleMarker2.png";
 // import styles from "./Maps.module.css";
 
 const Maps = ({ apiKey, spot, spots , GMapSetting}) => {
-	console.log('spots', spots)
 	const { isLoaded } = useJsApiLoader({
 		id: "google-map-script",
 		googleMapsApiKey: apiKey,

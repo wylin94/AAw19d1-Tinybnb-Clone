@@ -1,9 +1,9 @@
 import React, { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { getBookings } from "../../store/booking";
-import { NavLink } from "react-router-dom";
-import EditBookingForm from "./EditBooking";
-import DeleteBookingForm from "./DeleteBooking";
+// import { NavLink } from "react-router-dom";
+// import EditBookingForm from "./EditBooking";
+// import DeleteBookingForm from "./DeleteBooking";
 import EditBookingFormModal from "./EditIndex";
 import DeleteBookingFormModal from "./DeleteIndex";
 import SingleSpotInfo from "./SpotInfo";

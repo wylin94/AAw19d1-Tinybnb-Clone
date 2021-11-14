@@ -1,7 +1,5 @@
 from app.models import db, Booking
 
-
-# Adds a demo user, you can add other users here if you want
 def seed_bookings():
     booking1 = Booking(
         spotId='1',

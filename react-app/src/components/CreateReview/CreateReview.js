@@ -17,10 +17,7 @@ function CreateReview({ spotId, madeReview }) {
   const [valueRating, setValueRating] = useState(0)
   const [reviewText, setReviewText] = useState('')
   const [errors, setErrors] = useState([])
-  // console.log(user)
   const changeRating = (newRating, name) => {
-    // console.log(newRating)
-    // console.log(name)
     if (name === "cleanRating") {
       setCleanRating(newRating)
     }
@@ -42,7 +39,6 @@ function CreateReview({ spotId, madeReview }) {
   }
 
   const handleSubmit = () => {
-    // console.log(onlyWhiteSpace(reviewText))
     if (reviewText.length > 0 && onlyWhiteSpace(reviewText)) {
       setErrors(["Review must not be only whitespace."])
     } else if (cleanRating && accurRating && commRating && locationRating && checkInRating && valueRating && reviewText.length <= 3000 && reviewText.length > 0) {

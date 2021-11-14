@@ -18,12 +18,9 @@ export const checkIfImageExists = (url) => {
 
 export const specRevAvg = (reviews, revSec) => {
   let avg = 0
-  // console.log(revSec)
-  // console.log(reviews)
   reviews?.forEach(review => {
     avg += review[revSec]
   })
-  // console.log(avg/reviews.length)
   return (avg / reviews?.length).toFixed(1)
 }
 

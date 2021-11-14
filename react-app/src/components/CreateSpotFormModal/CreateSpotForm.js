@@ -1,7 +1,7 @@
-import React, { useEffect, useState } from "react";
-import { NavLink } from "react-router-dom";
+import React, { useState } from "react";
+// import { NavLink } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
-import { useParams } from "react-router";
+// import { useParams } from "react-router";
 import { useHistory } from "react-router-dom";
 
 import { authenticate } from "../../store/session";
@@ -49,14 +49,14 @@ function CreateSpotForm({ onClose, isModal }) {
 		let newSpot = await dispatch(createSpot(data));
 		let updateSession = await dispatch(authenticate());
 
-		console.log("HERE IS THE NEWSPOT", newSpot);
+		// console.log("HERE IS THE NEWSPOT", newSpot);
 
 		if (newSpot.errors) {
 			setErrors(newSpot.errors);
 		}
 
 		if (newSpot.name && !newSpot.errors) {
-			console.log(`Created new Spot!!!!!!!!!!!!!!!!`);
+			// console.log(`Created new Spot!!!!!!!!!!!!!!!!`);
 
 			const newImg = await dispatch(
 				addImage({
