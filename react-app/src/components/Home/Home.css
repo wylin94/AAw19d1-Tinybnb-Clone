@@ -20,7 +20,6 @@
 .la-container {
 	display: flex;
 	flex-direction: column;
-	/* margin: 40px; */
 }
 
 .state-pics {
