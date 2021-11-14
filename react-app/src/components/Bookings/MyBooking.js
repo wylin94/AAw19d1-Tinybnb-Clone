@@ -7,6 +7,7 @@ import DeleteBookingForm from "./DeleteBooking";
 import EditBookingFormModal from "./EditIndex";
 import DeleteBookingFormModal from "./DeleteIndex";
 import SingleSpotInfo from "./SpotInfo";
+import "./Booking.css"
 
 function ShowAllBookings() {
   const dispatch = useDispatch();
@@ -14,12 +15,13 @@ function ShowAllBookings() {
 
   useEffect(() => {
     dispatch(getBookings())
-  },[dispatch])
+  }, [dispatch])
+
 
 
   return (
-    <div>
-      <h1>My reservations</h1>
+    <div className="bookingContainer">
+      <h1>Your trips</h1>
         {Object.keys(bookings).map(booking =>
           <div key={bookings[booking].id}>
             <div>
@@ -27,10 +29,10 @@ function ShowAllBookings() {
               <SingleSpotInfo booking={bookings[booking]} />
             </div>
             <div>
-              Start Date: {bookings[booking].startDate}
+              Start Date: {bookings[booking].startDate.toString().slice(0,16)}
             </div>
             <div>
-              End Date: {bookings[booking].endDate}
+              End Date: {bookings[booking].endDate.toString().slice(0,16)}
             </div>
             {/* <EditBookingForm booking={bookings[booking]} /> */}
               {/* <DeleteBookingForm booking={bookings[booking]} /> */}
