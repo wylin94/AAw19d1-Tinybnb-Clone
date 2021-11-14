@@ -5,7 +5,6 @@ import { BsTrash } from 'react-icons/bs'
 
 function SingleReview({ review, user }) {
   const dispatch = useDispatch()
-  // console.log("SINGLE REVIEW", review)
   const handleDelete = () => {
     dispatch(deleteSingleReview(review.id))
   }

@@ -1,14 +1,14 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { NavLink } from "react-router-dom";
-import { useParams, useHistory } from "react-router";
+// import { NavLink } from "react-router-dom";
+import { useParams } from "react-router";
 import { avgReview } from '../multipurpose'
 import SSReviewSection from "../SSReviewSection/SSReviewSection";
 import SingleReview from "../SingleReview/SingleReview";
 import CreateReview from "../CreateReview/CreateReview";
 import { AiFillStar } from "react-icons/ai";
-import { BsHouseDoor, BsChatSquare } from "react-icons/bs";
-import { IoSparklesOutline } from 'react-icons/io5';
+// import { BsHouseDoor, BsChatSquare } from "react-icons/bs";
+// import { IoSparklesOutline } from 'react-icons/io5';
 
 import { getSpots } from "../../store/spot";
 import MapContainer from "../Maps";

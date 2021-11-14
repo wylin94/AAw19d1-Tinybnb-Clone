@@ -1,18 +1,18 @@
 import React from "react";
-import { useState } from "react";
-import { getBookings } from "../../store/booking";
+// import { useState } from "react";
+// import { getBookings } from "../../store/booking";
 import { useDispatch } from "react-redux";
 import { deleteBooking } from "../../store/booking";
 import { useHistory } from "react-router-dom";
-import { authenticate } from "../../store/session";
-import { useSelector } from "react-redux";
+// import { authenticate } from "../../store/session";
+// import { useSelector } from "react-redux";
 
 
 function DeleteBookingForm({ booking, onClose }) {
   const dispatch = useDispatch();
   const bookingId = booking.id;
   const history = useHistory();
-  const bookings = useSelector(state => state.booking)
+  // const bookings = useSelector(state => state.booking)
 
   // const [, updateState] = React.useState();
   // const forceUpdate = React.useCallback(() => updateState({}), []);

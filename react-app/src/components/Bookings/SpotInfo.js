@@ -1,10 +1,10 @@
-import React, { useEffect } from "react";
-import { useSelector, useDispatch } from "react-redux";
-import { getSpots } from "../../store/spot";
+import React from "react";
+import { useSelector } from "react-redux";
+// import { getSpots } from "../../store/spot";
 import "./SpotInfo.css"
 
 function SingleSpotInfo({booking}) {
-  const dispatch = useDispatch();
+  // const dispatch = useDispatch();
   const spotId = booking.spotId;
   const allSpots = useSelector((state) => state.session.user.spots);
   const singleSpot = allSpots.find(element => element.id == spotId);
@@ -14,7 +14,6 @@ function SingleSpotInfo({booking}) {
   const city = singleSpot.city;
   const country = singleSpot.country;
   const state = singleSpot.state;
-  console.log(singleSpot);
 
   return (
     <div>

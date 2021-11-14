@@ -62,7 +62,7 @@ const SignUpForm = ({setOpenSignUp}) => {
               </div>
             ))}
           </div>
-          <div className="singup-inputs">
+          <div className="signup-inputs">
             <div className="input-user-name">
               <label>User Name</label>
               <input
@@ -81,7 +81,7 @@ const SignUpForm = ({setOpenSignUp}) => {
                 value={email}
               ></input>
             </div>
-            <div className="input-password">
+            <div className="input-pass">
               <label>Password</label>
               <input
                 type='password'
@@ -90,7 +90,7 @@ const SignUpForm = ({setOpenSignUp}) => {
                 value={password}
               ></input>
             </div>
-            <div className="input-repead-password">
+            <div className="input-repeat-password">
               <label>Repeat Password</label>
               <input
                 type='password'

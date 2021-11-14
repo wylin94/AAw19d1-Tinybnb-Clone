@@ -4,7 +4,7 @@ import { NavLink } from "react-router-dom";
 import LoginForm from "../auth/LoginForm";
 import { getSpots } from "../../store/spot";
 
-import CreateSpotFormModal from "../CreateSpotFormModal";
+// import CreateSpotFormModal from "../CreateSpotFormModal";
 import TinyBnBVideo from "../Video/TinyBnBVideo.mp4";
 
 import "./Home.css";
@@ -65,7 +65,7 @@ function Home() {
 							spots?.map((spot, index) => {
 								if (index < 6) {
 									return (
-										<div className="single-state">
+										<div key={spot.id} className="single-state">
 											<NavLink
 												className="inactive sssp"
 												to={`/spots/${spot?.id}`}
