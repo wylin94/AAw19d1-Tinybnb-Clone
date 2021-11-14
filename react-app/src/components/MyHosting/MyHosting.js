@@ -10,15 +10,15 @@ import DeleteSpotFormModal from "../DeleteSpotFormModal";
 import styles from "./MyHosting.module.css";
 
 function MyHosting() {
-	const spots = useSelector((state) => state.session.user.spots);
-	console.log(1)
+	const spots = useSelector((state) => state.session.user?.spots);
+	console.log(1);
 	const GMapSetting = {
 		width: "400px",
 		height: "400px",
 		lat: 37.0902,
 		lng: -95.7129,
 		zoom: 3,
-	}
+	};
 
 	return (
 		<>
@@ -37,23 +37,35 @@ function MyHosting() {
 											alt={spot.name}
 										></img>
 										<div className={styles.spotInfo}>
-											<div className={styles.spotText}>Entire rental unit in {spot.city}</div>
+											<div className={styles.spotText}>
+												Entire rental unit in {spot.city}
+											</div>
 											<div className={styles.spotTitle}>{spot.name}</div>
-											<div className={styles.spotDetail}>{spot.city}, {spot.state} {spot.country}</div>
-											<div className={styles.spotPrice}>${spot.price} / night</div>
+											<div className={styles.spotDetail}>
+												{spot.city}, {spot.state} {spot.country}
+											</div>
+											<div className={styles.spotPrice}>
+												${spot.price} / night
+											</div>
 										</div>
 									</div>
 								</NavLink>
 								<div className={styles.editDeleteButton}>
-									<EditSpotFormModal spot={spot} />
-									<DeleteSpotFormModal spot={spot} />
+									<EditSpotFormModal
+										spot={spot}
+										className={styles.editDeleteBtn}
+									/>
+									<DeleteSpotFormModal
+										spot={spot}
+										className={styles.editDeleteBtn}
+									/>
 								</div>
 							</div>
 						);
 					})}
 				</div>
 				<div className={styles.googleMapContainer}>
-					<MapContainer spots={spots} GMapSetting={GMapSetting}/>
+					<MapContainer spots={spots} GMapSetting={GMapSetting} />
 				</div>
 			</div>
 		</>
