@@ -4,7 +4,7 @@ import { useSelector, useDispatch } from "react-redux";
 import { useHistory } from "react-router";
 import { updateBooking } from "../../store/booking";
 
-function EditBookingForm({ booking }) {
+function EditBookingForm({ booking, onClose }) {
   const dispatch = useDispatch();
   const history = useHistory();
   const id = booking.id;
@@ -33,14 +33,18 @@ function EditBookingForm({ booking }) {
     let updatedBooking = await dispatch(updateBooking(Booking));
     if (updatedBooking) {
       // history.push()
+      onClose();
       reset();
+      history.push("/my-reservations")
     } else {
       new Error("Please fill in all required fields")
     }
   }
 
   const handleCancelClick = (e) => {
-    e.preventDefault();
+    onClose();
+    reset();
+    history.push("/my-reservations");
   }
 
   return (
@@ -51,13 +55,13 @@ function EditBookingForm({ booking }) {
           <label htmlFor="checkin-date">Start Date</label>
         </div>
         <div>
-          <input name="checkin-date" type="date" value={startDate} onChange={e => setStartDate(e.target.value)} />
+          <input name="checkin-date" type="date" value={startDate} onChange={e => setStartDate(e.target.value)} required/>
         </div>
         <div>
           <label htmlFor="checkout-date">End Date</label>
         </div>
         <div>
-          <input name="checkout-date" type="date" value={endDate} onChange={e => setEndDate(e.target.value)} />
+          <input name="checkout-date" type="date" value={endDate} onChange={e => setEndDate(e.target.value)} required/>
         </div>
         <div>
           <button type="submit">Submit</button>
