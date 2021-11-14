@@ -14,6 +14,7 @@ import ShowAllBookings from "./components/Bookings/MyBooking";
 import MyHosting from "./components/MyHosting";
 import SingleSpot from "./components/SingleSpot";
 import CreateBookingForm from "./components/Bookings/AddBooking";
+import CreateSpotForm from "./components/CreateSpotFormModal/CreateSpotForm";
 import { authenticate } from "./store/session";
 import { fetchAllLocations } from "./store/locations";
 // import { fetchAllSpots } from './store/allSpots'
@@ -43,6 +44,9 @@ function App() {
 				<Route path="/" exact={true}>
 					<Home />
 				</Route>
+				<ProtectedRoute path="/become-a-host" exact={true}>
+					<CreateSpotForm />
+				</ProtectedRoute>
 				<Route path="/login" exact={true}>
 					<LoginForm />
 				</Route>
