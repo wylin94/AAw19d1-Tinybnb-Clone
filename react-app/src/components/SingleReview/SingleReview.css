@@ -1,0 +1,40 @@
+.ss-profile-pic{
+  background-position: center;
+  background-size: cover;
+  height: 70px;
+  width: 70px;
+  border-radius: 50%;
+}
+
+.single-rev{
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  height: 84px;
+  width: 470px;
+}
+
+.sr-header{
+  display: flex;
+  gap: 8px;
+}
+
+.trash-btn{
+  margin-top: -15px;
+  cursor: pointer;
+}
+
+.trash-btn:hover{
+  color: #FE385C;
+}
+
+.rev-body{
+  display: flex;
+  word-wrap: normal;
+}
+
+.rev-name{
+  display: flex;
+  flex-direction: column;
+  margin-top: 15px;
+}

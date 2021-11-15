@@ -14,7 +14,7 @@ function CreateBookingForm() {
   const dispatch = useDispatch();
   const history = useHistory();
 
-  const userId = useSelector(state => state.session.user.id);
+  const userId = useSelector(state => state.session.user?.id);
   const { spotId } = useParams();
 
   const [startDate, setStartDate] = useState(false);

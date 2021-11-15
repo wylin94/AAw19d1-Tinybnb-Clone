@@ -4,7 +4,7 @@ import { NavLink } from "react-router-dom";
 import { fetchAllLocations } from '../../store/locations'
 import LoginForm from "../auth/LoginForm";
 
-import './Home.module.css'
+import './Home.css'
 
 function SplashPage() {
 	const dispatch = useDispatch()

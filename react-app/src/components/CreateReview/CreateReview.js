@@ -47,8 +47,8 @@ function CreateReview({ spot, madeReview }) {
       setErrors(["Review must not be only whitespace."])
     } else if (cleanRating && accurRating && commRating && locationRating && checkInRating && valueRating && reviewText.length <= 3000 && reviewText.length > 0) {
       const newReview = {
-        userId: user.id,
-        spotId: spot.id,
+        userId: user?.id,
+        spotId: spot?.id,
         cleanRating,
         accurRating,
         commRating,

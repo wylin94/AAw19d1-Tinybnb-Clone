@@ -21,7 +21,7 @@
 .imageRight {
     display: flex;
     flex-direction: column;
-    
+
 }
 
 .image1 {
@@ -50,7 +50,7 @@
 
 .image2, .image3, .image4, .image5 {
     width: 250px;
-} 
+}
 
 .profilePicture {
     width: 55px;
@@ -59,9 +59,55 @@
 
 .infoBodyContainer {
     display: flex;
-    
+
 }
 
 .infoTitleContainer {
     display: flex;
+}
+
+.ssBtmWrapper{
+    border-top: 1px solid #DDDDDD;
+    padding: 25px 0px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-bottom: 80px;
+}
+
+.ssBtmHeadReview{
+    display: flex;
+    gap: 5px;
+    font-size: 1.4em;
+}
+
+.spStar{
+    margin-top: 4px;
+    color: #FE385C;
+}
+
+.ssRevBars{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 25px;
+}
+
+.singleRevBar{
+    display: flex;
+    justify-content: space-between;
+    width: 470px;
+    align-items: center;
+}
+
+.ssAllReviews{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 120px;
+}
+
+.createRev{
+    margin-top: 130px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
 }

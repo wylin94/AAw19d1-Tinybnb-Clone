@@ -7,7 +7,6 @@
 .splash-btm-cont{
     display: flex;
     flex-direction: column;
-    /* text-align: center; */
     width: 100%;
     margin: 30px 80px;
     gap: 50px;
@@ -15,12 +14,11 @@
 .splash-states-cont{
     display: flex;
     flex-direction: column;
-    /* margin: 20px 40px; */
+
 }
 .la-container{
     display: flex;
     flex-direction: column;
-    /* margin: 40px; */
 }
 
 .state-pics{
@@ -36,14 +34,13 @@
     gap: 40px;
     margin-top: 20px;
     flex-wrap: wrap;
-    /* max-width: 90%; */
+
 }
 
 .single-state{
     display: flex;
     gap: 8px;
     align-items: center;
-    font-family: "airbnbMed";
     cursor: pointer;
     font-size: 1.1em;
     min-width: 230px;
@@ -88,12 +85,10 @@
 .try-hosting-inner{
     display: flex;
     flex-direction: column;
-    /* justify-content: center; */
     align-items: center;
     width: 40%;
     height: fit-content;
     align-self: center;
-    /* padding-top: 85px; */
     background-color: rgba(255, 255, 255, .5);
     border-radius: 50px;
     padding: 10px;
@@ -106,7 +101,6 @@
 .try-hosting-inner>p{
     padding-left: 50px;
     padding-right: 10px;
-    font-family: "airbnbMed";
 }
 
 .th:hover{

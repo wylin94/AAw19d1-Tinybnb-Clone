@@ -9,6 +9,7 @@ import CreateReview from "../CreateReview/CreateReview";
 import { AiFillStar } from "react-icons/ai";
 import { BsHouseDoor, BsChatSquare } from "react-icons/bs";
 import { IoSparklesOutline } from 'react-icons/io5';
+import { fetchAllReviews } from "../../store/reviews";
 
 import { getSpots } from "../../store/spot";
 import MapContainer from "../Maps";
@@ -21,7 +22,7 @@ function SingleSpot() {
     const { user } = useSelector(state => state.session)
     const reviews = useSelector(state => state.reviews)
     const spot = useSelector((state) => state.spot.spots?.find(ele => ele.id === +spotId))
-    const spotReviews = reviews?.filter(review => review.spotId === spot.id)
+    const spotReviews = reviews?.filter(review => review.spotId === spot?.id)
     const madeReview = spotReviews?.filter(review => review?.userId === user?.id).length > 0 ? true : false
 
 	const GMapSetting = {
@@ -34,6 +35,7 @@ function SingleSpot() {
 
 	useEffect(() => {
 		dispatch(getSpots());
+        dispatch(fetchAllReviews());
 	}, [dispatch, spotId]);
 
     return (
@@ -80,10 +82,10 @@ function SingleSpot() {
             </div>
 
             <section id="reviewSection">
-                <div className="ss-btm-wrapper">
+                <div className={styles.ssBtmWrapper}>
 
-                    <div className="ss-btm-head-review">
-                        <AiFillStar className="sp-star" />
+                    <div className={styles.ssBtmHeadReview}>
+                        <AiFillStar className={styles.spStar} />
                         <p className="headertxt">
                             {spotReviews?.length > 0 && avgReview(spotReviews)}
                         </p>
@@ -92,23 +94,23 @@ function SingleSpot() {
                             {spotReviews?.length} reviews
                         </span>
                     </div>
-                    <div className="ss-rev-bars">
-                        <div className="rev-bars-left">
-                            <div className="single-rev-bar">
+                    <div className={styles.ssRevRars}>
+                        <div>
+                            <div className={styles.singleRevBar}>
                                 <p>Cleanliness</p>
                                 <SSReviewSection
                                     spotReviews={spotReviews}
                                     revSec={"cleanRating"}
                                 />
                             </div>
-                            <div className="single-rev-bar">
+                            <div className={styles.singleRevBar}>
                                 <p>Communication</p>
                                 <SSReviewSection
                                     spotReviews={spotReviews}
                                     revSec={"commRating"}
                                 />
                             </div>
-                            <div className="single-rev-bar">
+                            <div className={styles.singleRevBar}>
                                 <p>Check-in</p>
                                 <SSReviewSection
                                     spotReviews={spotReviews}
@@ -117,21 +119,21 @@ function SingleSpot() {
                             </div>
                         </div>
                         <div className="rev-bars-right">
-                            <div className="single-rev-bar">
+                            <div className={styles.singleRevBar}>
                                 <p>Accuracy</p>
                                 <SSReviewSection
                                     spotReviews={spotReviews}
                                     revSec={"accurRating"}
                                 />
                             </div>
-                            <div className="single-rev-bar">
+                            <div className={styles.singleRevBar}>
                                 <p>Location</p>
                                 <SSReviewSection
                                     spotReviews={spotReviews}
                                     revSec={"locationRating"}
                                 />
                             </div>
-                            <div className="single-rev-bar">
+                            <div className={styles.singleRevBar}>
                                 <p>Value</p>
                                 <SSReviewSection
                                     spotReviews={spotReviews}
@@ -140,14 +142,14 @@ function SingleSpot() {
                             </div>
                         </div>
                     </div>
-                    <div className="ss-all-reviews">
+                    <div className={styles.ssAllReviews}>
                         {spotReviews &&
                             spotReviews.map((review) => (
                                 <SingleReview user={user} review={review} />
                             ))}
                     </div>
                     {user && (
-                        <div className="create-rev">
+                        <div className={styles.createRev}>
                             <h3 className="headertxt">Create a Review</h3>
                             <CreateReview madeReview={madeReview} spot={spot} />
                         </div>
