@@ -13,6 +13,7 @@ import { getSpots } from "../../store/spot";
 import MapContainer from "../Maps";
 import CreateBookingForm from "../Bookings/AddBooking";
 import styles from "./SingleSpot.module.css";
+import { useHistory } from "react-router-dom";
 
 function SingleSpot() {
 	const dispatch = useDispatch();
@@ -39,14 +40,15 @@ function SingleSpot() {
 	useEffect(() => {
 		dispatch(getSpots());
 		dispatch(fetchAllReviews());
+		window.scrollTo(0, 0);
 	}, [dispatch, spotId]);
 
 	return (
 		<div className={styles.singleSpotContainer}>
-			<div>{spot?.name}</div>
-			<div>{spot?.city}</div>
-			<div>{spot?.state}</div>
-			<div>{spot?.country}</div>
+			<div className={styles.spotTitleContainer}>
+				<div className={styles.spotName}>{spot?.name}</div>
+				<div className={styles.spotInfo}>{spot?.city}, {spot?.state} {spot?.country}</div>
+			</div>
 
 			<div className={styles.spotImagesContainer}>
 				<div className={styles.imageLeft}>

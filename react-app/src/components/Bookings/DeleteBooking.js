@@ -6,6 +6,7 @@ import { deleteBooking } from "../../store/booking";
 import { useHistory } from "react-router-dom";
 // import { authenticate } from "../../store/session";
 // import { useSelector } from "react-redux";
+import "./DeleteBooking.css"
 
 
 function DeleteBookingForm({ booking, onClose }) {
@@ -31,7 +32,7 @@ function DeleteBookingForm({ booking, onClose }) {
   if (booking !== null || booking !== undefined) {
 
     return (
-      <div>
+      <div className="deleteBookingWrapper">
         <h4>Are you sure you want to delete this booking?</h4>
         <form onSubmit={handleDelete}>
           <button type="submit">Delete</button>

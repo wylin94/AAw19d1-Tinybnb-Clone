@@ -3,6 +3,7 @@ import { useState } from "react";
 import { useDispatch } from "react-redux";
 import { useHistory } from "react-router";
 import { updateBooking } from "../../store/booking";
+import "./EditBooking.css"
 
 function EditBookingForm({ booking, onClose }) {
   const dispatch = useDispatch();
@@ -48,7 +49,7 @@ function EditBookingForm({ booking, onClose }) {
   }
 
   return (
-    <div>
+    <div className="editBookingWrapper">
       <h3>Edit Booking</h3>
       <form onSubmit={handleSubmit}>
         <div>
