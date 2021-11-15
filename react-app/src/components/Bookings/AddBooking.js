@@ -39,9 +39,9 @@ function CreateBookingForm() {
 		}
 	};
 
-	const handleCancelClick = (e) => {
-		e.preventDefault();
-	};
+	// const handleCancelClick = (e) => {
+	// 	e.preventDefault();
+	// };
 
 	return (
 		<div className={styles.formContainer}>
@@ -70,9 +70,9 @@ function CreateBookingForm() {
 				</div>
 				<div>
 					<button type="submit">Submit</button>
-					<button type="button" onClick={handleCancelClick}>
+					{/* <button type="button" onClick={handleCancelClick}>
 						Cancel
-					</button>
+					</button> */}
 				</div>
 			</form>
 		</div>

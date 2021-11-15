@@ -17,7 +17,7 @@ function MyHosting() {
 		height: "400px",
 		lat: 37.0902,
 		lng: -95.7129,
-		zoom: 3,
+		zoom: 4.4,
 	};
 
 	return (
