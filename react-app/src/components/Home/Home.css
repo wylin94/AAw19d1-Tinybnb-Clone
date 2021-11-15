@@ -111,3 +111,60 @@
 .th{
     cursor: pointer;
 }
+
+.footerWrapper {
+    position: sticky;
+    bottom: 0px;
+    background-color: white;
+}
+
+.footerContainer {
+    display: flex;
+    justify-content: space-between;
+    padding: 8px;
+    border-top: 1px solid #ebebeb;
+    background-color: white;
+    width: 95vw;
+    margin: auto;
+}
+
+.footerLeft {
+    color: grey;
+    font-family: Circular -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto",
+		"Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
+		sans-serif;
+}
+
+.footerRight {
+    display: flex;
+    gap: 20px;
+}
+
+.developer {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    color: grey;
+}
+
+.developer > div {
+    font-family: Circular -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto",
+		"Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
+		sans-serif;
+}
+
+.linkedinIcon, .githubIcon {
+    color: black;
+    font-size: 20px;
+}
+
+.githubIcon:hover {
+    transform: scale(1.3);
+    cursor: pointer;
+    color: rgb(255, 0, 132);
+}
+.linkedinIcon:hover {
+    transform: scale(1.3);
+    cursor: pointer;
+    color: rgb(0, 99, 220);
+}
