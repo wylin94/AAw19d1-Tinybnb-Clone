@@ -145,16 +145,16 @@ export const editSpot = (updateSpot) => async (dispatch) => {
 export const deleteSpot = (removeSpot) => async (dispatch) => {
 	const response = await fetch(`/api/spots/${removeSpot.id}`, {
 		method: "DELETE",
-		headers: { "Content-Type": "application/json" },
-		body: JSON.stringify(removeSpot),
+		// headers: { "Content-Type": "application/json" },
+		// body: JSON.stringify(removeSpot),
 	});
 
-	if (response.ok) {
-		// This If statement is likely to be modify. Leave it as a placeholder for now
-		const deletedSpot = await response.json();
-		dispatch(remove(deletedSpot));
-		return deletedSpot;
-	}
+	// if (response.ok) {
+	// This If statement is likely to be modify. Leave it as a placeholder for now
+	// const deletedSpot = await response.json();
+	dispatch(remove(removeSpot.id));
+	// return deletedSpot;
+	// }
 };
 
 // <========================= Add Images ==========================>

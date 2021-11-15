@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 // import { NavLink } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 // import { useParams } from "react-router";
@@ -7,7 +7,7 @@ import { useHistory } from "react-router-dom";
 import { authenticate } from "../../store/session";
 
 import { createSpot, addImage } from "../../store/spot";
-import styles from "./CreateSpotForm.css";
+import "./CreateSpotForm.css";
 
 function CreateSpotForm({ onClose, isModal }) {
 	const dispatch = useDispatch();
@@ -18,8 +18,8 @@ function CreateSpotForm({ onClose, isModal }) {
 	const [address, setAddress] = useState("");
 	const [city, setCity] = useState("");
 	const [state, setState] = useState("");
-	const [lng, setLng] = useState(0);
-	const [lat, setLat] = useState(0);
+	const [lng, setLng] = useState(1);
+	const [lat, setLat] = useState(1);
 	const [country, setCountry] = useState("");
 	const [name, setName] = useState("");
 	const [price, setPrice] = useState("");
@@ -30,6 +30,12 @@ function CreateSpotForm({ onClose, isModal }) {
 	const [img5, setImg5] = useState("");
 
 	const [errors, setErrors] = useState([]);
+
+	useEffect(() => {
+		history.listen(() => {
+			window.scrollTo(0, 0);
+		});
+	});
 
 	const handleCreateSubmit = async (e) => {
 		e.preventDefault();
@@ -49,15 +55,11 @@ function CreateSpotForm({ onClose, isModal }) {
 		let newSpot = await dispatch(createSpot(data));
 		let updateSession = await dispatch(authenticate());
 
-		// console.log("HERE IS THE NEWSPOT", newSpot);
-
 		if (newSpot.errors) {
 			setErrors(newSpot.errors);
 		}
 
 		if (newSpot.name && !newSpot.errors) {
-			// console.log(`Created new Spot!!!!!!!!!!!!!!!!`);
-
 			const newImg = await dispatch(
 				addImage({
 					spotId: newSpot.id,
@@ -108,9 +110,18 @@ function CreateSpotForm({ onClose, isModal }) {
 			}
 
 			history.push("/my-hosting");
+			let updateSession = await dispatch(authenticate());
 
-			if (isModal) onClose();
+			if (isModal) {
+				onClose();
+				window.scrollTo(0, 900000);
+			}
 		}
+	};
+
+	const handleCancelClick = (e) => {
+		onClose();
+		history.push("/my-hosting");
 	};
 
 	return (
@@ -190,8 +201,9 @@ function CreateSpotForm({ onClose, isModal }) {
 				</div>
 
 				<div className="cs-input-field-bottom pics">
-					<p>Images</p>
-					<h6> 🌙 🌚 🌕 Optional but recommended 🌙 🌚 🌕 </h6>
+					<div className="cs-input-field-bottom-h6">
+						<h6>🌙 🌕 Images are optional but recommended 🌙 🌕</h6>
+					</div>
 					<input
 						type="text"
 						placeholder="🏠 Image Url"
@@ -229,8 +241,17 @@ function CreateSpotForm({ onClose, isModal }) {
 						value={img1}
 					/>
 					<div className="createSpotButtonCtn">
-						<button className="createSpotButton" type="submit">
+						<button className="reserve-btn-cs" type="submit">
 							Submit Hosting!
+						</button>
+					</div>
+					<div className="create-form-button">
+						<button
+							className="reserve-btn-cs"
+							type="button"
+							onClick={handleCancelClick}
+						>
+							Cancel
 						</button>
 					</div>
 				</div>

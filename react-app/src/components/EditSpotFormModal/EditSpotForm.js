@@ -6,7 +6,7 @@ import { useHistory } from "react-router-dom";
 
 import { authenticate } from "../../store/session";
 import { editSpot } from "../../store/spot";
-import styles from "./EditSpotForm.module.css";
+import "./EditSpotForm.css";
 
 function EditSpotForm({ spot, onClose }) {
 	const dispatch = useDispatch();
@@ -19,9 +19,11 @@ function EditSpotForm({ spot, onClose }) {
 	const [state, setState] = useState(spot.state);
 	const [country, setCountry] = useState(spot.country);
 	const [name, setName] = useState(spot.name);
-	// const [lat, setLat] = useState(spot.lat);
-	// const [lng, setLng] = useState(spot.lng);
+	const [lat, setLat] = useState(spot.lat);
+	const [lng, setLng] = useState(spot.lng);
 	const [price, setPrice] = useState(spot.price);
+
+	const [errors, setErrors] = useState([]);
 
 	const handleEditSubmit = async (e) => {
 		e.preventDefault();
@@ -32,69 +34,105 @@ function EditSpotForm({ spot, onClose }) {
 		let updateSession = await dispatch(authenticate());
 		if (editedSpot) {
 			onClose();
+			window.scrollTo(0, 900000);
 			history.push("/my-hosting");
 		}
 	};
 
+	const handleCancelClick = (e) => {
+		e.preventDefault();
+		onClose();
+	};
+
 	return (
-		<div className={styles.editSpotFormContainer}>
-			<h2 className={styles.editSpotFormTitle}>Edit Spot</h2>
+		<div className="cse-container">
 			<form onSubmit={handleEditSubmit}>
-				<label>Adddress</label>
-				<input
-					type="text"
-					required
-					value={address}
-					onChange={(e) => setAddress(e.target.value)}
-				/>
-				<label>City</label>
-				<input
-					type="text"
-					required
-					value={city}
-					onChange={(e) => setCity(e.target.value)}
-				/>
-				<label>State</label>
-				<input
-					type="text"
-					required
-					value={state}
-					onChange={(e) => setState(e.target.value)}
-				/>
-				<label>Country</label>
-				<input
-					type="text"
-					required
-					value={country}
-					onChange={(e) => setCountry(e.target.value)}
-				/>
-				{/* <input
-					type="text"
-					required
-					value={lat}
-					onChange={(e) => setCountry(e.target.value)}
-				/>
-				<input
-					type="text"
-					required
-					value={lng}
-					onChange={(e) => setCountry(e.target.value)}
-				/> */}
-				<label>Name</label>
-				<input
-					type="text"
-					required
-					value={name}
-					onChange={(e) => setName(e.target.value)}
-				/>
-				<label>Price</label>
-				<input
-					type="text"
-					required
-					value={price}
-					onChange={(e) => setPrice(e.target.value)}
-				/>
-				<button type="submit">Update</button>
+				<div className="cs-header">
+					<p>Host a spot</p>
+				</div>
+				<div className="err-box">
+					{errors.length > 0 &&
+						errors.map((error) => (
+							<p className="login-err">{error.split(":")[1]}</p>
+						))}
+				</div>
+				<div className="cse-input-field">
+					<label>Name</label>
+					<input
+						type="text"
+						required
+						value={name}
+						onChange={(e) => setName(e.target.value)}
+					/>
+				</div>
+				<div className="cse-input-field">
+					<label>Price</label>
+					<input
+						type="text"
+						required
+						value={price}
+						onChange={(e) => setPrice(e.target.value)}
+					/>
+				</div>
+				<div className="cse-input-field loc">
+					<label>Adddress</label>
+					<input
+						className="lft"
+						type="text"
+						required
+						value={address}
+						onChange={(e) => setAddress(e.target.value)}
+					/>
+					<label>City</label>
+					<input
+						type="text"
+						required
+						value={city}
+						onChange={(e) => setCity(e.target.value)}
+					/>
+					<label>State</label>
+					<input
+						type="text"
+						required
+						value={state}
+						onChange={(e) => setState(e.target.value)}
+					/>
+					<label>Country</label>
+					<input
+						type="text"
+						required
+						value={country}
+						onChange={(e) => setCountry(e.target.value)}
+					/>
+					<label>Longitude</label>
+					<input
+						type="number"
+						required
+						value={lng}
+						onChange={(e) => setLng(e.target.value)}
+					/>
+					<label>Latitude</label>
+					<input
+						type="number"
+						required
+						value={lat}
+						onChange={(e) => setLat(e.target.value)}
+					/>
+				</div>
+				<div className="createSpotButtonCtn">
+					<button className="reserve-btn" type="submit">
+						Update
+					</button>
+				</div>
+				<div className="edit-form-button">
+					<button
+						className="reserve-btn"
+						type="button"
+						onClick={handleCancelClick}
+					>
+						Cancel
+					</button>
+				</div>
 			</form>
 		</div>
 	);

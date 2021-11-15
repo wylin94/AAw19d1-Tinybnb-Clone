@@ -1,75 +1,29 @@
-/* .createSpotFormContainer {
+/* .editSpotFormContainer {
 	border: 1px solid grey;
 	padding: 20px;
 	width: 200px;
 	border-radius: 5px;
-} */
+}
 
-/* .createSpotFormTitle {
+.editSpotFormTitle {
 	color: grey;
 	margin: 5px 0px 20px 7px;
 	font-size: 16px;
 } */
 
-/* .createAlbumForm {
-  width: 100%;
-}
-
-.createAlbumForm label {
-  color: grey;
-  position: absolute;
-  margin-left: 18px;
-  margin-top: 8px;
-  font-size: 12px;
-}
-
-.createAlbumForm input {
-  display: block;
-  width: 300px;
-  height: 55px;
-  margin: 10px auto;
-  text-indent: 11px;
-  font-size: 15px;
-  padding-top: 20px;
-  border-radius: 5px;
-  border: 1px solid grey;
-}
-
-.createAlbumForm button{
-  display: block;
-  width: 300px;
-  margin: auto;
-  height: 40px;
-  background-color: #128fdc;
-  color: white;
-  font-size: 15px;
-  font-weight: bold;
-  border: none;
-  border-radius: 5px;
-}
-
-.createAlbumForm button:hover {
-  background-color: #1598e9;
-  cursor: pointer;
-}
-
-.createAlbumForm button:active {
-  background-color: #107fc4;
-} */
-
-.cs-container {
+.cse-container {
 	display: flex;
 	flex-direction: column;
 	align-self: center;
-	width: 480px;
-	height: 100vh;
+	width: 450px;
+	height: 82vh;
 	margin: 35px auto;
 	border: 1px solid #b0b0b0;
 	border-radius: 8px;
 	padding: 24px;
 }
 
-.cs-header {
+.cse-header {
 	font-family: "airbnbMed";
 	font-size: 1.4em;
 	border-bottom: 1px solid #b0b0b0;
@@ -77,13 +31,13 @@
 	margin-right: -24px;
 }
 
-.cs-header > p {
+.cse-header > p {
 	margin-left: 24px;
 	/* margin-top: 0px; */
 	margin-bottom: 10px;
 }
 
-.cs-input-field {
+.cse-input-field {
 	display: flex;
 	flex-direction: column;
 	border-bottom: 1px solid #b0b0b0;
@@ -91,33 +45,32 @@
 	padding: 5px;
 }
 
-.cs-input-field-bottom {
+.cse-input-field-bottom {
 	display: flex;
 	flex-direction: column;
 	/* margin: 20px 0px; */
-	/* padding: 5px; */
-	height: 20px;
+	padding: 5px;
 }
 
-.cs-input-field > h3 {
+.cse-input-field > h3 {
 	color: #717171;
 	font-size: 1em;
 	margin-left: 2px;
 }
-.cs-input-field > input {
+.cse-input-field > input {
 	border: none;
 	outline: none;
 	background-color: white;
 }
 
-.cs-input-field > textarea {
+.cse-input-field > textarea {
 	border: 1px solid #b0b0b0;
 	border-radius: 3px;
 	resize: none;
 	padding: 8px;
 }
 
-.cs-input-field > select {
+.cse-input-field > select {
 	width: 150px;
 	border: 1px solid #b0b0b0;
 	border-radius: 5px;
@@ -148,7 +101,7 @@
 	max-width: 400px;
 }
 
-.cs-input-field > select:focus {
+.cse-input-field > select:focus {
 	outline: none;
 	border: 1px solid #fe385c;
 }
@@ -157,13 +110,13 @@
   color: black;
 } */
 
-.cs-input-field > p {
+.cse-input-field > p {
 	color: #717171;
 	font-size: 1em;
 	margin-left: 2px;
 }
 
-.es > input {
+.ese > input {
 	margin-top: -10px;
 	margin-bottom: 10px;
 }
@@ -207,17 +160,18 @@
 }
 
 .createSpotButtonCtn {
+	margin-top: 8px;
 	justify-content: center;
 }
 
-.create-form-button {
+.edit-form-button {
 	display: flex;
 	flex-direction: column;
 	width: 100%;
 	align-items: center;
 }
 
-.reserve-btn-cs {
+.reserve-btn {
 	/* z-index: 2; */
 	width: 100%;
 	height: 48px;
@@ -229,10 +183,6 @@
 	border-radius: 6px;
 	color: white;
 	cursor: pointer;
-	margin-top: 3px;
+	margin-top: 20px;
 	letter-spacing: 1px;
-}
-
-.cs-input-field-bottom-h6 {
-	padding-top: 3px;
 }

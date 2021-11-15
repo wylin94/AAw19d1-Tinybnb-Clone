@@ -84,4 +84,4 @@ def deleteSpot(spot_id):
 
     db.session.delete(removeSpot)
     db.session.commit()
-    return removeSpot.to_dict()
+    return 'ok'

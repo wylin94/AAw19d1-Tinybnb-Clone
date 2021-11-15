@@ -6,7 +6,7 @@ import { useHistory } from "react-router-dom";
 
 import { authenticate } from "../../store/session";
 import { deleteSpot } from "../../store/spot";
-import styles from "./DeleteSpotForm.module.css";
+import "./DeleteSpotForm.css";
 
 function DeleteSpotForm({ spot, onClose }) {
 	const dispatch = useDispatch();
@@ -15,7 +15,7 @@ function DeleteSpotForm({ spot, onClose }) {
 
 	const [id, setId] = useState(spot.id);
 
-	const handleEditSubmit = async (e) => {
+	const handleDeleteSubmit = async (e) => {
 		e.preventDefault();
 
 		const data = { id };
@@ -24,17 +24,40 @@ function DeleteSpotForm({ spot, onClose }) {
 		let updateSession = await dispatch(authenticate());
 		if (deletedSpot) {
 			onClose();
+			window.scrollTo(0, 900000);
 			history.push("/my-hosting");
 		}
 	};
 
+	const handleCancelClick = (e) => {
+		e.preventDefault();
+		onClose();
+	};
+
 	return (
-		<div className={styles.deleteSpotFormContainer}>
-			<h2 className={styles.deleteSpotFormTitle}>Delete Spot</h2>
-			<form onSubmit={handleEditSubmit}>
-				<h3>Do you want to delete this spot?</h3>
-				<button type="submit">Delete</button>
-			</form>
+		<div className="DeleteSpotForm">
+			<div className="DeleteSpotFormInner">
+				<form onSubmit={handleDeleteSubmit} className="delete-spot-boxes">
+					<div className="delete-p-ctn">
+						<p className="delete-p">Do you want to delete this spot?</p>
+					</div>
+
+					<div className="delete-form-button">
+						<button className="reserve-btn" type="submit">
+							Delete
+						</button>
+					</div>
+					<div className="delete-form-button">
+						<button
+							className="reserve-btn"
+							type="reset"
+							onClick={handleCancelClick}
+						>
+							Cancel
+						</button>
+					</div>
+				</form>
+			</div>
 		</div>
 	);
 }
