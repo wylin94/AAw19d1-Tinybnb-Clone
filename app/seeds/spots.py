@@ -97,7 +97,6 @@ def seed_spots():
     #     price='300'
     # )
 
-    def seed_spots():
     spot1 = Spot(
         name='Modern Junior One Bedroom Near Downtown San Jose',
         price=168,
@@ -209,8 +208,7 @@ def seed_spots():
         userId=1,
     )
     spot11 = Spot(
-        name='Architectural Masterpiece | Best View in Telluride
-',
+        name='Architectural Masterpiece | Best View in Telluride',
         price=1025,
         city='Telluride',
         state='Colorado',
