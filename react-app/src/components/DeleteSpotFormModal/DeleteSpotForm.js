@@ -24,7 +24,6 @@ function DeleteSpotForm({ spot, onClose }) {
 		let updateSession = await dispatch(authenticate());
 		if (deletedSpot) {
 			onClose();
-			window.scrollTo(0, 900000);
 			history.push("/my-hosting");
 		}
 	};

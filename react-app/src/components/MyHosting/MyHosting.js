@@ -10,7 +10,9 @@ import DeleteSpotFormModal from "../DeleteSpotFormModal";
 import styles from "./MyHosting.module.css";
 
 function MyHosting() {
-	const spots = useSelector((state) => state.session.user?.spots);
+	const spots = useSelector((state) =>
+		state.session.user?.spots.sort((a, b) => b.id - a.id)
+	);
 
 	const GMapSetting = {
 		width: "400px",

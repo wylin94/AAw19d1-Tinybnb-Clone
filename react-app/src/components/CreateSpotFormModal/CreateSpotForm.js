@@ -65,16 +65,14 @@ function CreateSpotForm({ onClose, isModal }) {
 					spotId: newSpot.id,
 					url: img1
 						? img1
-						: "https://media.istockphoto.com/photos/evening-view-of-a-modern-house-with-swimming-pool-picture-id1151833014?k=20&m=1151833014&s=612x612&w=0&h=Qh2AOfpldnl608khblIXdKMA251j9SijSGWLgoHx2WM=",
+						: "https://photos.zillowstatic.com/fp/ce003234fb0f78cd0e804f7e5d6480a3-cc_ft_768.webp",
 				})
 			);
 			if (img2) {
 				await dispatch(
 					addImage({
 						spotId: newSpot.id,
-						url: img2
-							? img2
-							: "https://media.istockphoto.com/photos/evening-view-of-a-modern-house-with-swimming-pool-picture-id1151833014?k=20&m=1151833014&s=612x612&w=0&h=Qh2AOfpldnl608khblIXdKMA251j9SijSGWLgoHx2WM=",
+						url: img2,
 					})
 				);
 			}
@@ -82,9 +80,7 @@ function CreateSpotForm({ onClose, isModal }) {
 				await dispatch(
 					addImage({
 						spotId: newSpot.id,
-						url: img3
-							? img3
-							: "https://media.istockphoto.com/photos/evening-view-of-a-modern-house-with-swimming-pool-picture-id1151833014?k=20&m=1151833014&s=612x612&w=0&h=Qh2AOfpldnl608khblIXdKMA251j9SijSGWLgoHx2WM=",
+						url: img3,
 					})
 				);
 			}
@@ -92,9 +88,7 @@ function CreateSpotForm({ onClose, isModal }) {
 				await dispatch(
 					addImage({
 						spotId: newSpot.id,
-						url: img4
-							? img4
-							: "https://media.istockphoto.com/photos/evening-view-of-a-modern-house-with-swimming-pool-picture-id1151833014?k=20&m=1151833014&s=612x612&w=0&h=Qh2AOfpldnl608khblIXdKMA251j9SijSGWLgoHx2WM=",
+						url: img4,
 					})
 				);
 			}
@@ -102,9 +96,40 @@ function CreateSpotForm({ onClose, isModal }) {
 				await dispatch(
 					addImage({
 						spotId: newSpot.id,
-						url: img5
-							? img5
-							: "https://media.istockphoto.com/photos/evening-view-of-a-modern-house-with-swimming-pool-picture-id1151833014?k=20&m=1151833014&s=612x612&w=0&h=Qh2AOfpldnl608khblIXdKMA251j9SijSGWLgoHx2WM=",
+						url: img5,
+					})
+				);
+			}
+
+			if (!img2) {
+				await dispatch(
+					addImage({
+						spotId: newSpot.id,
+						url: "https://photos.zillowstatic.com/fp/bc60aaf6e93273f85dc916a3824a05a1-cc_ft_576.webp",
+					})
+				);
+			}
+			if (!img3) {
+				await dispatch(
+					addImage({
+						spotId: newSpot.id,
+						url: "https://photos.zillowstatic.com/fp/1427b27aba1852b714606dcdc9cba6bb-cc_ft_576.webp",
+					})
+				);
+			}
+			if (!img4) {
+				await dispatch(
+					addImage({
+						spotId: newSpot.id,
+						url: "https://photos.zillowstatic.com/fp/748b24063e66521843b2e11b10d9019b-cc_ft_576.webp",
+					})
+				);
+			}
+			if (!img4) {
+				await dispatch(
+					addImage({
+						spotId: newSpot.id,
+						url: "https://photos.zillowstatic.com/fp/e8739d8a8f6f0041c4c593af4efe971b-cc_ft_576.webp",
 					})
 				);
 			}
@@ -114,7 +139,6 @@ function CreateSpotForm({ onClose, isModal }) {
 
 			if (isModal) {
 				onClose();
-				window.scrollTo(0, 900000);
 			}
 		}
 	};
@@ -234,12 +258,7 @@ function CreateSpotForm({ onClose, isModal }) {
 						onChange={(e) => setImg5(e.target.value)}
 						value={img5}
 					/>
-					<input
-						type="text"
-						placeholder="🏠 Image Url"
-						onChange={(e) => setImg1(e.target.value)}
-						value={img1}
-					/>
+
 					<div className="createSpotButtonCtn">
 						<button className="reserve-btn-cs" type="submit">
 							Submit Hosting!

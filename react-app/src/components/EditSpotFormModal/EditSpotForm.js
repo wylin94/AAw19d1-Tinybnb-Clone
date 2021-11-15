@@ -34,7 +34,6 @@ function EditSpotForm({ spot, onClose }) {
 		let updateSession = await dispatch(authenticate());
 		if (editedSpot) {
 			onClose();
-			window.scrollTo(0, 900000);
 			history.push("/my-hosting");
 		}
 	};
@@ -48,7 +47,7 @@ function EditSpotForm({ spot, onClose }) {
 		<div className="cse-container">
 			<form onSubmit={handleEditSubmit}>
 				<div className="cs-header">
-					<p>Host a spot</p>
+					<p>Edit spot</p>
 				</div>
 				<div className="err-box">
 					{errors.length > 0 &&

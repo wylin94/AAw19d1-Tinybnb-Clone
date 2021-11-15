@@ -62,11 +62,12 @@
 	flex-direction: column;
 	align-self: center;
 	width: 480px;
-	height: 100vh;
+	height: 976px;
 	margin: 35px auto;
 	border: 1px solid #b0b0b0;
 	border-radius: 8px;
 	padding: 24px;
+	overflow-y: scroll;
 }
 
 .cs-header {
