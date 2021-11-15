@@ -12,7 +12,7 @@ const loadSpots = (list) => ({
 });
 
 const create = (spot) => ({
-	type: LOAD,
+	type: CREATE,
 	spot,
 });
 
@@ -31,7 +31,7 @@ const remove = (spot) => ({
 // <========================= Get All Spots ==========================>
 
 export const getSpots = () => async (dispatch) => {
-	const response = await fetch(`/api/spots`);
+	const response = await fetch(`/api/spots/`);
 
 	if (response.ok) {
 		const list = await response.json();
@@ -85,7 +85,7 @@ export const getSingleSpot = (id) => async (dispatch) => {
 // <========================= Create Spot ==========================>
 
 export const createSpot = (spot) => async (dispatch) => {
-	const response = await fetch(`/api/spots`, {
+	const response = await fetch(`/api/spots/`, {
 		method: "POST",
 		headers: { "Content-Type": "application/json" },
 		body: JSON.stringify(spot),
@@ -145,16 +145,30 @@ export const editSpot = (updateSpot) => async (dispatch) => {
 export const deleteSpot = (removeSpot) => async (dispatch) => {
 	const response = await fetch(`/api/spots/${removeSpot.id}`, {
 		method: "DELETE",
-		headers: { "Content-Type": "application/json" },
-		body: JSON.stringify(removeSpot),
+		// headers: { "Content-Type": "application/json" },
+		// body: JSON.stringify(removeSpot),
 	});
 
-	if (response.ok) {
-		// This If statement is likely to be modify. Leave it as a placeholder for now
-		const deletedSpot = await response.json();
-		dispatch(remove(deletedSpot));
-		return deletedSpot;
-	}
+	// if (response.ok) {
+	// This If statement is likely to be modify. Leave it as a placeholder for now
+	// const deletedSpot = await response.json();
+	dispatch(remove(removeSpot.id));
+	// return deletedSpot;
+	// }
+};
+
+// <========================= Add Images ==========================>
+
+export const addImage = (image) => async (dispatch) => {
+	const res = await fetch("/api/images/", {
+		method: "POST",
+		headers: {
+			"Content-Type": "application/json",
+		},
+		body: JSON.stringify(image),
+	});
+	const newImage = await res.json();
+	return newImage;
 };
 
 //  === Reducer ===

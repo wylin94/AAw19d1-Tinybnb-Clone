@@ -1,144 +1,154 @@
 nav {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  height: 80px;
-  position: sticky;
-  top: 0;
-  left: 0;
-  z-index: 99;
-  /* margin: 0; */
-  /* min-width: 100vw; */
-  width: 100%;
-  background-color: white;
-  box-shadow:  0px 1px 12px rgba(0, 0, 0, 1)
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	height: 100px;
+	position: sticky;
+	top: 0;
+	left: 0;
+	z-index: 99;
+	/* margin: 0; */
+	/* min-width: 100vw; */
+	width: 100%;
+	background-color: white;
+	box-shadow: 0px 1px 12px rgba(0, 0, 0, 1);
 }
 
-.nav-links{
-  display: flex;
-  list-style-type: none;
-  justify-content: space-between;
-  align-items: center;
-  width: 100%;
-  margin-bottom: 5px;
-  padding: 0px 35px;
+.nav-links {
+	display: flex;
+	list-style-type: none;
+	justify-content: space-between;
+	align-items: center;
+	width: 100%;
+	margin-bottom: 5px;
+	padding: 0px 35px;
 }
 
-.tinybnb-logo{
-  background-position: center;
-  background-size: cover;
-  height: 40px;
-  width: 100px;
-  padding-bottom: 10px;
+.tinybnb-logo {
+	background-position: center;
+	background-size: cover;
+	height: 95px;
+	width: 95px;
+	padding-bottom: 0px;
 }
 
-.nav-bar-title{
-  font-size: 2em;
-  margin-top: 20px;
+.nav-bar-title {
+	font-size: 2em;
+	margin-top: 20px;
 }
 
-.nav-bar-right{
-  display: flex;
-  align-items: center;
-  gap: 10px;
+.nav-bar-right {
+	display: flex;
+	align-items: center;
+	gap: 10px;
 }
 
-.nav-login-signup{
-  display: flex;
-  gap: 10px;
-  margin-top: 5px;
+.nav-login-signup {
+	display: flex;
+	gap: 10px;
+	margin-top: 5px;
 }
 
-.nav-profile-click{
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 3px;
-  height: 43px;
-  width: 75px;
-  background-color: white;
-  border-radius: 40px;
-  padding: 5px;
-  cursor: pointer;
-  border: 1px solid #DDDDDD;
+.nav-profile-click {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	gap: 3px;
+	height: 43px;
+	width: 75px;
+	background-color: white;
+	border-radius: 40px;
+	padding: 5px;
+	cursor: pointer;
+	border: 1px solid #dddddd;
 }
 
-.nav-pp-logo{
-  font-size: 1.4em;
+.nav-pp-logo {
+	font-size: 1.4em;
 }
 
-.nav-profile-pic{
-  background-position: center;
-  background-size: cover;
-  height: 35px;
-  width: 35px;
-  border-radius: 50%;
+.nav-profile-pic {
+	background-position: center;
+	background-size: cover;
+	height: 35px;
+	width: 35px;
+	border-radius: 50%;
 }
 
-.profile-drop-down{
-  list-style: none;
-  position: fixed;
-  margin-top: 2.7rem;
-  margin-left: -5.5rem;
-  width: 10rem;
-  height: 11rem;
-  background-color: white;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  border-radius: 10%;
-  gap: .25rem;
-  font-size: 15px;
-  box-shadow: 0px 2px 4px rgb(0 0 0 / 18%);
-  z-index: 9999;
+.profile-drop-down {
+	list-style: none;
+	position: fixed;
+	margin-top: 2.7rem;
+	margin-left: -5.5rem;
+	width: 10rem;
+	height: 11rem;
+	background-color: white;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	border-radius: 10%;
+	gap: 0.25rem;
+	font-size: 15px;
+	box-shadow: 0px 2px 4px rgb(0 0 0 / 18%);
+	z-index: 9999;
 }
 
-.dropdown-inside-loggedout{
-  display: flex;
-  flex-direction: column;
-  gap: 15px;
-  padding: 15px;
-  height: 100%;
-  width: 100%;
-  cursor: pointer;
+.dropdown-inside-loggedout {
+	display: flex;
+	flex-direction: column;
+	gap: 15px;
+	padding: 15px;
+	height: 100%;
+	width: 100%;
+	cursor: pointer;
 }
 
-.login-p{
-  margin: 0;
+.login-p {
+	margin: 0;
 }
 
-.dropdown-inside{
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  padding: 15px;
-  height: 100%;
-  width: 100%;
+.dropdown-inside {
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	padding: 15px;
+	height: 100%;
+	width: 100%;
 }
 
-.dropdown-content{
-  display: flex;
-  flex-direction: column;
-  font-weight: 500;
-  font-size: 1.1em;
-  cursor: pointer;
+.dropdown-content {
+	display: flex;
+	flex-direction: column;
+	font-weight: 500;
+	font-size: 1.1em;
+	cursor: pointer;
 }
 
-.closed:hover{
-  box-shadow: 0px 2px 4px rgb(0 0 0 / 18%);
+.closed:hover {
+	box-shadow: 0px 2px 4px rgb(0 0 0 / 18%);
 }
 
-.open{
-  box-shadow: 0px 2px 4px rgb(0 0 0 / 18%);
+.open {
+	box-shadow: 0px 2px 4px rgb(0 0 0 / 18%);
 }
 
-.logout-botton{
-  border-top: 1px solid #DDDDDD;
-  padding-top: 5px;
-  cursor: pointer;
+.logout-botton {
+	border-top: 1px solid #dddddd;
+	padding-top: 5px;
+	cursor: pointer;
 }
 
-.logout-botton:hover{
-  color: #FE385C;
+.logout-botton:hover {
+	color: #fe385c;
+}
+
+.logout-botton > button {
+	border: none;
+	background-color: transparent;
+	margin-left: -5px;
+}
+
+.logout-botton > button:hover {
+	color: #fe385c;
 }

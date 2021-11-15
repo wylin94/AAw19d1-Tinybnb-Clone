@@ -2,7 +2,8 @@ from flask import Blueprint, request
 from app.models import Spot, db
 from flask_login import login_required
 
-# Import spot form
+from app.forms import NewSpotForm
+
 
 
 spot_routes = Blueprint('spots', __name__)
@@ -27,25 +28,36 @@ def searchByCity(spotId):
 #     return {'search': [spot.to_dict() for spot in spots]}
 
 
-@spot_routes.route('', methods=['POST'])
+@spot_routes.route('/', methods=['POST'])
+@login_required
 def addSpots():
 
+  form = NewSpotForm()
+  form["csrf_token"].data = request.cookies["csrf_token"]
     # Reserve for add Spot form/modal
 
-
+  if form.validate_on_submit():
     newSpot = Spot(
         userId = request.json["userId"],
-        address = request.json["address"],
-        city = request.json["city"],
-        state = request.json["state"],
-        country = request.json["country"],
-        name = request.json["name"],
-        price = request.json["price"],
-    )
-
+        address=form.data['address'],
+        city=form.data['city'],
+        state=form.data['state'],
+        country=form.data['country'],
+        lng=form.data['lng'],
+        lat=form.data['lat'],
+        name=form.data['name'],
+        price=form.data['price'],
+        )
     db.session.add(newSpot)
     db.session.commit()
+
     return newSpot.to_dict()
+
+  else:
+    return form.errors
+
+
+
 
 @spot_routes.route('/<int:spot_id>', methods=['PATCH'])
 def editSpot(spot_id):
@@ -72,4 +84,4 @@ def deleteSpot(spot_id):
 
     db.session.delete(removeSpot)
     db.session.commit()
-    return removeSpot.to_dict()
+    return 'ok'

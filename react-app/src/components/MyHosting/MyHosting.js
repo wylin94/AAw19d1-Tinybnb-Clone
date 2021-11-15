@@ -1,5 +1,5 @@
-import React, { useEffect, useState } from "react";
-import { useSelector, useDispatch } from "react-redux";
+import React from "react";
+import { useSelector } from "react-redux";
 import { NavLink } from "react-router-dom";
 import MapContainer from "../Maps";
 
@@ -10,52 +10,65 @@ import DeleteSpotFormModal from "../DeleteSpotFormModal";
 import styles from "./MyHosting.module.css";
 
 function MyHosting() {
-	const spots = useSelector((state) => state.session.user.spots);
+	const spots = useSelector((state) =>
+		state.session.user?.spots.sort((a, b) => b.id - a.id)
+	);
 
 	const GMapSetting = {
 		width: "400px",
 		height: "400px",
 		lat: 37.0902,
 		lng: -95.7129,
-		zoom: 3,
-	}
+		zoom: 4.4,
+	};
 
 	return (
 		<>
-			<h1>My Hosting Spot</h1>
-			<CreateSpotFormModal />
-			<div>
-				{spots?.map((spot) => {
-					return (
-						<div key={spot.id} className={styles.spotContainer}>
-							<NavLink to={`/spots/${spot.id}`}>
-								<div className={styles.spotInnerContainer}>
-									<img
-										className={styles.spotCover}
-										src={spot?.images[0]?.url}
-										alt={spot.name}
-									></img>
-									<div className={styles.spotInfo}>
-										<div>{spot.name}</div>
-										<div>
-											{spot.city} {spot.state} {spot.country}
+			<div className={styles.myHostingWrapper}>
+				<div className={styles.myHostingLeftContainer}>
+					<CreateSpotFormModal />
+					<h1 className={styles.title}>My Hosting Spot</h1>
+					{spots?.map((spot) => {
+						return (
+							<div key={spot.id} className={styles.spotContainer}>
+								<NavLink className={styles.navlink} to={`/spots/${spot.id}`}>
+									<div className={styles.spotInnerContainer}>
+										<img
+											className={styles.spotCover}
+											src={spot?.images[0]?.url}
+											alt={spot.name}
+										></img>
+										<div className={styles.spotInfo}>
+											<div className={styles.spotText}>
+												Entire rental unit in {spot.city}
+											</div>
+											<div className={styles.spotTitle}>{spot.name}</div>
+											<div className={styles.spotDetail}>
+												{spot.city}, {spot.state} {spot.country}
+											</div>
+											<div className={styles.spotPrice}>
+												${spot.price} / night
+											</div>
 										</div>
-										<div>${spot.price}/night</div>
 									</div>
+								</NavLink>
+								<div className={styles.editDeleteButton}>
+									<EditSpotFormModal
+										spot={spot}
+										className={styles.editDeleteBtn}
+									/>
+									<DeleteSpotFormModal
+										spot={spot}
+										className={styles.editDeleteBtn}
+									/>
 								</div>
-							</NavLink>
-							<div>
-								<EditSpotFormModal spot={spot} />
 							</div>
-							<div>
-								<DeleteSpotFormModal spot={spot} />
-							</div>
-						</div>
-					);
-				})}
-			</div>
-			<div className="googleMapContainer">
-				<MapContainer spots={spots} GMapSetting={GMapSetting}/>
+						);
+					})}
+				</div>
+				<div className={styles.googleMapContainer}>
+					<MapContainer spots={spots} GMapSetting={GMapSetting} />
+				</div>
 			</div>
 		</>
 	);

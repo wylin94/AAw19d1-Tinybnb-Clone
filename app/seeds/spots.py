@@ -1,7 +1,5 @@
 from app.models import db, Spot
 
-
-# Adds a demo user, you can add other users here if you want
 def seed_spots():
     # spot1 = Spot(
     #     userId='1',

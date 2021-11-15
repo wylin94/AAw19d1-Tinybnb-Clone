@@ -1,7 +1,5 @@
 from app.models import db, Image
 
-
-# Adds a demo user, you can add other users here if you want
 def seed_images():
     image1 = Image(
         spotId='1',
