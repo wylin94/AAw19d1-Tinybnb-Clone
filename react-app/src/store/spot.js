@@ -12,7 +12,7 @@ const loadSpots = (list) => ({
 });
 
 const create = (spot) => ({
-	type: LOAD,
+	type: CREATE,
 	spot,
 });
 
@@ -31,7 +31,7 @@ const remove = (spot) => ({
 // <========================= Get All Spots ==========================>
 
 export const getSpots = () => async (dispatch) => {
-	const response = await fetch(`/api/spots`);
+	const response = await fetch(`/api/spots/`);
 
 	if (response.ok) {
 		const list = await response.json();
@@ -85,7 +85,7 @@ export const getSingleSpot = (id) => async (dispatch) => {
 // <========================= Create Spot ==========================>
 
 export const createSpot = (spot) => async (dispatch) => {
-	const response = await fetch(`/api/spots`, {
+	const response = await fetch(`/api/spots/`, {
 		method: "POST",
 		headers: { "Content-Type": "application/json" },
 		body: JSON.stringify(spot),
@@ -155,6 +155,20 @@ export const deleteSpot = (removeSpot) => async (dispatch) => {
 		dispatch(remove(deletedSpot));
 		return deletedSpot;
 	}
+};
+
+// <========================= Add Images ==========================>
+
+export const addImage = (image) => async (dispatch) => {
+	const res = await fetch("/api/images/", {
+		method: "POST",
+		headers: {
+			"Content-Type": "application/json",
+		},
+		body: JSON.stringify(image),
+	});
+	const newImage = await res.json();
+	return newImage;
 };
 
 //  === Reducer ===

@@ -1,14 +1,12 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { NavLink } from "react-router-dom";
-import { useParams, useHistory } from "react-router";
+// import { NavLink } from "react-router-dom";
+import { useParams } from "react-router";
 import { avgReview } from '../multipurpose'
 import SSReviewSection from "../SSReviewSection/SSReviewSection";
 import SingleReview from "../SingleReview/SingleReview";
 import CreateReview from "../CreateReview/CreateReview";
 import { AiFillStar } from "react-icons/ai";
-import { BsHouseDoor, BsChatSquare } from "react-icons/bs";
-import { IoSparklesOutline } from 'react-icons/io5';
 import { fetchAllReviews } from "../../store/reviews";
 
 import { getSpots } from "../../store/spot";
@@ -24,7 +22,7 @@ function SingleSpot() {
     const spot = useSelector((state) => state.spot.spots?.find(ele => ele.id === +spotId))
     const spotReviews = reviews?.filter(review => review.spotId === spot?.id)
     const madeReview = spotReviews?.filter(review => review?.userId === user?.id).length > 0 ? true : false
-
+  
 	const GMapSetting = {
 		width: "1200px",
 		height: "400px",
@@ -35,7 +33,7 @@ function SingleSpot() {
 
 	useEffect(() => {
 		dispatch(getSpots());
-        dispatch(fetchAllReviews());
+    dispatch(fetchAllReviews());
 	}, [dispatch, spotId]);
 
     return (
@@ -67,18 +65,8 @@ function SingleSpot() {
                         <div>Entire house hosted by {spot?.user.username}</div>
                         <img className={styles.profilePicture}src={spot?.user.profile_pic} alt="profile_pic"></img>
                     </div>
-                    <div>
-                        *******Placeholder: More detail about the spot goes here****
-                    </div>
                 </div>
                 <CreateBookingForm />
-            </div>
-
-            <div>
-                <div>Where you'll be</div>
-                <div className="googleMapContainer">
-                    <MapContainer spot={spot} GMapSetting={GMapSetting}/>
-                </div>
             </div>
 
             <section id="reviewSection">
@@ -151,12 +139,18 @@ function SingleSpot() {
                     {user && (
                         <div className={styles.createRev}>
                             <h3 className="headertxt">Create a Review</h3>
-                            <CreateReview madeReview={madeReview} spot={spot} />
+                            <CreateReview madeReview={madeReview} spotId={spotId}/>
                         </div>
                     )}
                 </div>
             </section>
 
+            <div>
+                <div>Where you'll be</div>
+                <div className={styles.googleMapContainer}>
+                    <MapContainer spot={spot} GMapSetting={GMapSetting}/>
+                </div>
+            </div>
 
         </div>
     )

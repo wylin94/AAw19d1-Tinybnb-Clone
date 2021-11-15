@@ -6,7 +6,7 @@ import { onlyWhiteSpace } from '../multipurpose'
 
 import './CreateReview.css'
 
-function CreateReview({ spot, madeReview }) {
+function CreateReview({ spotId, madeReview }) {
   const { user } = useSelector(state => state.session)
   const dispatch = useDispatch()
   const [cleanRating, setCleanRating] = useState(0)
@@ -17,10 +17,7 @@ function CreateReview({ spot, madeReview }) {
   const [valueRating, setValueRating] = useState(0)
   const [reviewText, setReviewText] = useState('')
   const [errors, setErrors] = useState([])
-  // console.log(user)
   const changeRating = (newRating, name) => {
-    // console.log(newRating)
-    // console.log(name)
     if (name === "cleanRating") {
       setCleanRating(newRating)
     }
@@ -42,13 +39,14 @@ function CreateReview({ spot, madeReview }) {
   }
 
   const handleSubmit = () => {
-    // console.log(onlyWhiteSpace(reviewText))
     if (reviewText.length > 0 && onlyWhiteSpace(reviewText)) {
       setErrors(["Review must not be only whitespace."])
     } else if (cleanRating && accurRating && commRating && locationRating && checkInRating && valueRating && reviewText.length <= 3000 && reviewText.length > 0) {
       const newReview = {
+
         userId: user?.id,
         spotId: spot?.id,
+
         cleanRating,
         accurRating,
         commRating,

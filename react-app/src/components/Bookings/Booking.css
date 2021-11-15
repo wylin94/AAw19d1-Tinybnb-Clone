@@ -1,0 +1,4 @@
+.bookingContainer {
+    display: flex;
+    flex-direction: column;
+}

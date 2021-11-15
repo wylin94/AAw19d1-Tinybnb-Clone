@@ -4,7 +4,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { getKey } from "../../store/maps";
 import Maps from "./Maps";
 
-const MapContainer = ({ spots, GMapSetting }) => {
+const MapContainer = ({ spot, spots, GMapSetting }) => {
 	const key = useSelector((state) => state.maps.key);
 	const dispatch = useDispatch();
 
@@ -18,7 +18,7 @@ const MapContainer = ({ spots, GMapSetting }) => {
 		return null;
 	}
 
-	return <Maps apiKey={key} spots={spots} GMapSetting={GMapSetting}/>;
+	return <Maps apiKey={key} spot={spot} spots={spots} GMapSetting={GMapSetting}/>;
 };
 
 export default MapContainer;
