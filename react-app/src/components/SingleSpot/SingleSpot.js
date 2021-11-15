@@ -43,12 +43,10 @@ function SingleSpot() {
 
 	return (
 		<div className={styles.singleSpotContainer}>
-			<div>
-				<div>{spot?.name}</div>
-				<div>{spot?.city}</div>
-				<div>{spot?.state}</div>
-				<div>{spot?.country}</div>
-			</div>
+			<div>{spot?.name}</div>
+			<div>{spot?.city}</div>
+			<div>{spot?.state}</div>
+			<div>{spot?.country}</div>
 
 			<div className={styles.spotImagesContainer}>
 				<div className={styles.imageLeft}>

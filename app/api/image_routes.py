@@ -15,3 +15,12 @@ def addImages():
             return newImage.to_dict()
 
 
+@image_routes.route('/<int:spot_id>', methods=['DELETE'])
+def removeImages(spot_id):
+
+    removeImg = Image.query.filter_by(spotId=spot_id)
+
+    db.session.delete(removeImg)
+    db.session.commit()
+    return removeImg.to_dict()
+

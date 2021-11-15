@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 // import { NavLink } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 // import { useParams } from "react-router";
@@ -7,7 +7,7 @@ import { useHistory } from "react-router-dom";
 import { authenticate } from "../../store/session";
 
 import { createSpot, addImage } from "../../store/spot";
-import styles from "./CreateSpotForm.css";
+import "./CreateSpotForm.css";
 
 function CreateSpotForm({ onClose, isModal }) {
 	const dispatch = useDispatch();
@@ -18,8 +18,8 @@ function CreateSpotForm({ onClose, isModal }) {
 	const [address, setAddress] = useState("");
 	const [city, setCity] = useState("");
 	const [state, setState] = useState("");
-	const [lng, setLng] = useState(0);
-	const [lat, setLat] = useState(0);
+	const [lng, setLng] = useState(1);
+	const [lat, setLat] = useState(1);
 	const [country, setCountry] = useState("");
 	const [name, setName] = useState("");
 	const [price, setPrice] = useState("");
@@ -30,6 +30,12 @@ function CreateSpotForm({ onClose, isModal }) {
 	const [img5, setImg5] = useState("");
 
 	const [errors, setErrors] = useState([]);
+
+	useEffect(() => {
+		history.listen(() => {
+			window.scrollTo(0, 0);
+		});
+	});
 
 	const handleCreateSubmit = async (e) => {
 		e.preventDefault();
@@ -49,30 +55,24 @@ function CreateSpotForm({ onClose, isModal }) {
 		let newSpot = await dispatch(createSpot(data));
 		let updateSession = await dispatch(authenticate());
 
-		// console.log("HERE IS THE NEWSPOT", newSpot);
-
 		if (newSpot.errors) {
 			setErrors(newSpot.errors);
 		}
 
 		if (newSpot.name && !newSpot.errors) {
-			// console.log(`Created new Spot!!!!!!!!!!!!!!!!`);
-
 			const newImg = await dispatch(
 				addImage({
 					spotId: newSpot.id,
 					url: img1
 						? img1
-						: "https://media.istockphoto.com/photos/evening-view-of-a-modern-house-with-swimming-pool-picture-id1151833014?k=20&m=1151833014&s=612x612&w=0&h=Qh2AOfpldnl608khblIXdKMA251j9SijSGWLgoHx2WM=",
+						: "https://photos.zillowstatic.com/fp/ce003234fb0f78cd0e804f7e5d6480a3-cc_ft_768.webp",
 				})
 			);
 			if (img2) {
 				await dispatch(
 					addImage({
 						spotId: newSpot.id,
-						url: img2
-							? img2
-							: "https://media.istockphoto.com/photos/evening-view-of-a-modern-house-with-swimming-pool-picture-id1151833014?k=20&m=1151833014&s=612x612&w=0&h=Qh2AOfpldnl608khblIXdKMA251j9SijSGWLgoHx2WM=",
+						url: img2,
 					})
 				);
 			}
@@ -80,9 +80,7 @@ function CreateSpotForm({ onClose, isModal }) {
 				await dispatch(
 					addImage({
 						spotId: newSpot.id,
-						url: img3
-							? img3
-							: "https://media.istockphoto.com/photos/evening-view-of-a-modern-house-with-swimming-pool-picture-id1151833014?k=20&m=1151833014&s=612x612&w=0&h=Qh2AOfpldnl608khblIXdKMA251j9SijSGWLgoHx2WM=",
+						url: img3,
 					})
 				);
 			}
@@ -90,9 +88,7 @@ function CreateSpotForm({ onClose, isModal }) {
 				await dispatch(
 					addImage({
 						spotId: newSpot.id,
-						url: img4
-							? img4
-							: "https://media.istockphoto.com/photos/evening-view-of-a-modern-house-with-swimming-pool-picture-id1151833014?k=20&m=1151833014&s=612x612&w=0&h=Qh2AOfpldnl608khblIXdKMA251j9SijSGWLgoHx2WM=",
+						url: img4,
 					})
 				);
 			}
@@ -100,17 +96,56 @@ function CreateSpotForm({ onClose, isModal }) {
 				await dispatch(
 					addImage({
 						spotId: newSpot.id,
-						url: img5
-							? img5
-							: "https://media.istockphoto.com/photos/evening-view-of-a-modern-house-with-swimming-pool-picture-id1151833014?k=20&m=1151833014&s=612x612&w=0&h=Qh2AOfpldnl608khblIXdKMA251j9SijSGWLgoHx2WM=",
+						url: img5,
+					})
+				);
+			}
+
+			if (!img2) {
+				await dispatch(
+					addImage({
+						spotId: newSpot.id,
+						url: "https://photos.zillowstatic.com/fp/bc60aaf6e93273f85dc916a3824a05a1-cc_ft_576.webp",
+					})
+				);
+			}
+			if (!img3) {
+				await dispatch(
+					addImage({
+						spotId: newSpot.id,
+						url: "https://photos.zillowstatic.com/fp/1427b27aba1852b714606dcdc9cba6bb-cc_ft_576.webp",
+					})
+				);
+			}
+			if (!img4) {
+				await dispatch(
+					addImage({
+						spotId: newSpot.id,
+						url: "https://photos.zillowstatic.com/fp/748b24063e66521843b2e11b10d9019b-cc_ft_576.webp",
+					})
+				);
+			}
+			if (!img4) {
+				await dispatch(
+					addImage({
+						spotId: newSpot.id,
+						url: "https://photos.zillowstatic.com/fp/e8739d8a8f6f0041c4c593af4efe971b-cc_ft_576.webp",
 					})
 				);
 			}
 
 			history.push("/my-hosting");
+			let updateSession = await dispatch(authenticate());
 
-			if (isModal) onClose();
+			if (isModal) {
+				onClose();
+			}
 		}
+	};
+
+	const handleCancelClick = (e) => {
+		onClose();
+		history.push("/my-hosting");
 	};
 
 	return (
@@ -190,8 +225,9 @@ function CreateSpotForm({ onClose, isModal }) {
 				</div>
 
 				<div className="cs-input-field-bottom pics">
-					<p>Images</p>
-					<h6> 🌙 🌚 🌕 Optional but recommended 🌙 🌚 🌕 </h6>
+					<div className="cs-input-field-bottom-h6">
+						<h6>🌙 🌕 Images are optional but recommended 🌙 🌕</h6>
+					</div>
 					<input
 						type="text"
 						placeholder="🏠 Image Url"
@@ -222,15 +258,19 @@ function CreateSpotForm({ onClose, isModal }) {
 						onChange={(e) => setImg5(e.target.value)}
 						value={img5}
 					/>
-					<input
-						type="text"
-						placeholder="🏠 Image Url"
-						onChange={(e) => setImg1(e.target.value)}
-						value={img1}
-					/>
+
 					<div className="createSpotButtonCtn">
-						<button className="createSpotButton" type="submit">
+						<button className="reserve-btn-cs" type="submit">
 							Submit Hosting!
+						</button>
+					</div>
+					<div className="create-form-button">
+						<button
+							className="reserve-btn-cs"
+							type="button"
+							onClick={handleCancelClick}
+						>
+							Cancel
 						</button>
 					</div>
 				</div>
