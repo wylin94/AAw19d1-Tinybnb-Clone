@@ -12,21 +12,8 @@ function CreateBookingForm() {
 	const dispatch = useDispatch();
 	const history = useHistory();
 
-
-  const dispatch = useDispatch();
-  const history = useHistory();
-
- const userId = useSelector((state) => state.session?.user?.id);
+	const userId = useSelector((state) => state.session?.user?.id);
 	const { spotId } = useParams();
-
-  const [startDate, setStartDate] = useState(false);
-  const [endDate, setEndDate] = useState(false);
-
-  const reset = () => {
-    setStartDate("");
-    setEndDate("");
-  }
-
 
 	const [startDate, setStartDate] = useState(false);
 	const [endDate, setEndDate] = useState(false);
@@ -52,9 +39,9 @@ function CreateBookingForm() {
 		}
 	};
 
-	const handleCancelClick = (e) => {
-		e.preventDefault();
-	};
+	// const handleCancelClick = (e) => {
+	// 	e.preventDefault();
+	// };
 
 	return (
 		<div className={styles.formContainer}>
@@ -83,9 +70,9 @@ function CreateBookingForm() {
 				</div>
 				<div>
 					<button type="submit">Submit</button>
-					<button type="button" onClick={handleCancelClick}>
+					{/* <button type="button" onClick={handleCancelClick}>
 						Cancel
-					</button>
+					</button> */}
 				</div>
 			</form>
 		</div>

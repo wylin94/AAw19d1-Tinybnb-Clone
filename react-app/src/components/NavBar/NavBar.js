@@ -108,13 +108,13 @@ const NavBar = () => {
 								) : (
 									<div className="dropdown-inside">
 										<div className="dropdown-content">
-											<NavLink
+											{/* <NavLink
 												className="inactive"
 												to={`/users/${sessionUser.id}`}
 												onClick={() => setOpenDropDown(false)}
 											>
 												Profile
-											</NavLink>
+											</NavLink> */}
 											<NavLink
 												className="inactive"
 												to={`/my-hosting`}
