@@ -16,14 +16,15 @@ function SingleSpotInfo({ booking }) {
 	const state = singleSpot?.state;
 
 	return (
-		<div>
-			<h4>Your stay in {name}</h4>
+		<div className="spotInfoContainer">
 			<img src={spotUrl} alt="spotImage1"></img>
-			<div>{address}</div>
 			<div>
-				{city}, {state}
+				<div className="spotTitle">{name}</div>
+				<div className="spotDetailContainer">
+					<div className="spotDetail">{address}</div>
+					<div className="spotDetail">{city}, {state} {country}</div>
+				</div>
 			</div>
-			<br></br>
 		</div>
 	);
 }
