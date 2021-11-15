@@ -129,6 +129,49 @@ function Home() {
 					)}
 				</div>
 			</div>
+			<div className="footerWrapper">
+				<footer className="footerContainer">
+					<div className="footerLeft">© 2021 Tinybnb, Inc.</div>
+					<div className="footerRight">
+						<div className="developer">
+							<div>Adam Guan</div>
+							<a href='https://www.linkedin.com/in/adam-g-86922aa0/' className="linkedinIcon">
+								<i className="fab fa-linkedin-in"></i>
+							</a>
+							<a href='https://github.com/AdamHGuan' className="githubIcon">
+								<i className="fab fa-github"></i>
+							</a>
+						</div>
+						<div className="developer">
+							<div>Huan Ai</div>
+							<a href='https://www.linkedin.com/in/huan-ai/' className="linkedinIcon">
+								<i className="fab fa-linkedin-in"></i>
+							</a>
+							<a href='https://github.com/Huan4Ai' className="githubIcon">
+								<i className="fab fa-github"></i>
+							</a>
+						</div>
+						<div className="developer">
+							<div>Jack Lin</div>
+							<a href='https://www.linkedin.com/in/wylin94/' className="linkedinIcon">
+								<i className="fab fa-linkedin-in"></i>
+							</a>
+							<a href='https://github.com/wylin94' className="githubIcon">
+								<i className="fab fa-github"></i>
+							</a>
+						</div>
+						<div className="developer">
+							<div>Lee Carr</div>
+							{/* <a href='' className="linkedinIcon">
+								<i className="fab fa-linkedin-in"></i>
+							</a> */}
+							<a href='https://github.com/Lee6413' className="githubIcon">
+								<i className="fab fa-github"></i>
+							</a>
+						</div>
+					</div>
+				</footer>
+			</div>
 			{openLogin && <LoginForm setOpenLogin={setOpenLogin} />}
 		</div>
 	);
