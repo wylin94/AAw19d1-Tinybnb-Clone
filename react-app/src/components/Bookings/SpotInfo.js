@@ -6,7 +6,7 @@ import "./SpotInfo.css";
 function SingleSpotInfo({ booking }) {
 	// const dispatch = useDispatch();
 	const spotId = booking.spotId;
-	const allSpots = useSelector((state) => state.session?.user?.spots);
+	const allSpots = useSelector((state) => state.spot?.spots);
 	const singleSpot = allSpots.find((element) => element.id == spotId);
 	const name = singleSpot?.name;
 	const spotUrl = singleSpot?.images[0].url;

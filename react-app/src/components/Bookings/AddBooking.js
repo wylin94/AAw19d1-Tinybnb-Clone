@@ -17,6 +17,7 @@ function CreateBookingForm() {
 
 	const [startDate, setStartDate] = useState(false);
 	const [endDate, setEndDate] = useState(false);
+	const [bookedMsg, setbookedMsg] = useState(false);
 
 	const reset = () => {
 		setStartDate("");
@@ -36,6 +37,7 @@ function CreateBookingForm() {
 		if (createdBooking) {
 			// history.push()
 			reset();
+			setbookedMsg(true);
 		}
 	};
 
@@ -76,6 +78,7 @@ function CreateBookingForm() {
 					</button>
 				</div>
 			</form>
+			{bookedMsg && <div>Confirm booking</div>}
 		</div>
 	);
 }
